@@ -1,7 +1,10 @@
-import spacy
+"""
+pipeline/chunker.py
 
-# Load spaCy model (run: python -m spacy download en_core_web_sm)
-nlp = spacy.load("en_core_web_sm")
+"""
+
+from shared_models import nlp
+
 
 def chunk_text(text: str, chunk_size: int = 3) -> list[list[str]]:
     """
