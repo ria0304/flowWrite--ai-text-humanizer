@@ -87,4 +87,3 @@
 | **AI phrase score** | `evaluation/ai_phrase_detector.py` | 5% | Detects and penalises AI phrases |
 
 ---
-
