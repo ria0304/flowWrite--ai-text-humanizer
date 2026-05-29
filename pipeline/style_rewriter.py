@@ -1,10 +1,33 @@
+"""
+pipeline/style_rewriter.py
+
+
+"""
+
 import httpx
 import json
+import logging
+
+logger = logging.getLogger(__name__)
 
 OLLAMA_URL = "http://localhost:11434/api/generate"
 MODEL_NAME = "mistral"
 
 TONE_PROMPTS = {
+    # FIX #1 — added "btech_student" as a proper key (was missing, caused silent fallback)
+    "btech_student": """Rewrite the text below so it sounds like a real BTech student wrote it for a college report or project.
+
+Rules:
+- Write naturally — like a student explaining their project, not an AI generating text
+- Avoid phrases like "it is worth noting", "furthermore", "subsequently", "it can be observed"
+- Use natural connectors: "so", "which means", "because of this", "that's why", "we found that"
+- Use "we" and "our" naturally — this is a team project report
+- Mix sentence lengths — some short, some longer
+- Occasionally start a sentence with "And" or "So" — students do this
+- Keep it grounded and direct — no over-explaining
+- Do NOT use bullet points
+- Do NOT add any intro like "Here is the rewritten text" — just write it directly""",
+
     "storytelling": """Rewrite the text below so it sounds like a real person telling a story about what they built or did.
 
 Rules:
@@ -103,7 +126,7 @@ AGGRESSIVENESS_INSTRUCTIONS = {
 
 
 async def rewrite_chunk(text: str, tone: str, aggressiveness: int, client: httpx.AsyncClient) -> str:
-    tone_prompt = TONE_PROMPTS.get(tone, TONE_PROMPTS["conversational"])
+    tone_prompt = TONE_PROMPTS.get(tone, TONE_PROMPTS["btech_student"])  # FIX #1 — correct default
     aggr_instruction = AGGRESSIVENESS_INSTRUCTIONS.get(aggressiveness, AGGRESSIVENESS_INSTRUCTIONS[2])
 
     prompt = f"""{tone_prompt}
@@ -127,24 +150,28 @@ Rewritten:"""
         }
     }
 
-    result_text = ""
-    async with client.stream("POST", OLLAMA_URL, json=payload) as response:
-        response.raise_for_status()
-        async for line in response.aiter_lines():
-            if line.strip():
-                chunk = json.loads(line)
-                result_text += chunk.get("response", "")
-                if chunk.get("done", False):
-                    break
+    # FIX #8 — Added try/except so LLM failure returns original text instead of crashing
+    try:
+        result_text = ""
+        async with client.stream("POST", OLLAMA_URL, json=payload) as response:
+            response.raise_for_status()
+            async for line in response.aiter_lines():
+                if line.strip():
+                    chunk = json.loads(line)
+                    result_text += chunk.get("response", "")
+                    if chunk.get("done", False):
+                        break
+        return result_text.strip() if result_text.strip() else text
 
-    return result_text.strip()
+    except Exception as e:
+        logger.warning(f"LLM rewrite failed for chunk, returning original. Error: {e}")
+        return text  # graceful fallback
 
 
 async def style_rewrite(merged_units: list[str], tone: str, aggressiveness: int) -> list[str]:
     batch_size = 3
     rewritten = []
 
-    # timeout=None means wait as long as needed — no timeout ever
     async with httpx.AsyncClient(timeout=None) as client:
         for i in range(0, len(merged_units), batch_size):
             batch = merged_units[i:i + batch_size]
