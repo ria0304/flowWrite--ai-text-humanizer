@@ -1,0 +1,94 @@
+# FlowWrite — Tech Stack
+
+## Architecture Overview
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                        FRONTEND                             │
+│              index.html · localhost:3000                    │
+│  ┌──────────────┐ ┌─────────────┐ ┌──────────────────────┐ │
+│  │ Type / Paste │ │File Upload  │ │ Tone + Intensity     │ │
+│  │    input     │ │.pdf / .docx │ │ Eval scores display  │ │
+│  └──────────────┘ └─────────────┘ └──────────────────────┘ │
+└─────────────────────────┬───────────────────────────────────┘
+                          │ HTTP (fetch API)
+┌─────────────────────────▼───────────────────────────────────┐
+│                   FASTAPI BACKEND                           │
+│              main.py · localhost:8000                       │
+│              Uvicorn ASGI · Python 3.11                     │
+│  ┌──────────────┐ ┌───────────────┐ ┌────────────────────┐ │
+│  │POST /rewrite │ │POST /rewrite- │ │  POST /evaluate    │ │
+│  │              │ │     file      │ │POST /rewrite-and-  │ │
+│  └──────────────┘ └───────────────┘ │       eval         │ │
+│                                     └────────────────────┘ │
+└─────────────────────────┬───────────────────────────────────┘
+                          │
+┌─────────────────────────▼───────────────────────────────────┐
+│                   4-STAGE PIPELINE                          │
+│               pipeline/ · shared_models.py                  │
+│         spaCy 3.7.4 · SBERT all-MiniLM-L6-v2               │
+│                                                             │
+│  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌───────────┐  │
+│  │ Stage 1  │→ │ Stage 2  │→ │ Stage 3  │→ │  Stage 4  │  │
+│  │ Chunker  │  │ Semantic │  │  Style   │  │   Flow    │  │
+│  │          │  │  Merge   │  │ Rewriter │  │ Smoother  │  │
+│  └──────────┘  └──────────┘  └──────────┘  └───────────┘  │
+└─────────────────────────┬───────────────────────────────────┘
+                          │ HTTP (httpx)
+┌─────────────────────────▼───────────────────────────────────┐
+│                    AI / MODELS LAYER                        │
+│              Ollama · localhost:11434                       │
+│  ┌─────────────────────┐  ┌──────────────────────────────┐  │
+│  │  llama3.2:latest    │  │       mistral:latest         │  │
+│  │       (2 GB)        │  │          (4.4 GB)            │  │
+│  └─────────────────────┘  └──────────────────────────────┘  │
+│  ┌─────────────────────┐  ┌──────────────────────────────┐  │
+│  │       SBERT         │  │        spaCy 3.7.4           │  │
+│  │  all-MiniLM-L6-v2   │  │      en_core_web_sm          │  │
+│  └─────────────────────┘  └──────────────────────────────┘  │
+└─────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────┐
+│                   EVALUATION LAYER                          │
+│              evaluation/ · hls.py aggregates                │
+│  ┌───────────┐ ┌───────────┐ ┌───────────┐ ┌───────────┐   │
+│  │Burstiness │ │ Coherence │ │Readability│ │Connectors │   │
+│  └───────────┘ └───────────┘ └───────────┘ └───────────┘   │
+│  ┌───────────┐ ┌───────────────────────┐                    │
+│  │Similarity │ │   AI Phrase Detector  │                    │
+│  └───────────┘ └───────────────────────┘                    │
+└─────────────────────────────────────────────────────────────┘
+```
+
+## Stack Summary
+
+| Layer | Technology | Purpose |
+|-------|-----------|---------|
+| Frontend | HTML + CSS + JS | Single-page UI |
+| Frontend server | `python -m http.server` | Serves index.html on port 3000 |
+| Backend framework | FastAPI + Uvicorn | REST API on port 8000 |
+| NLP chunking | spaCy 3.7.4 | Sentence segmentation |
+| Semantic similarity | SBERT (all-MiniLM-L6-v2) | Embedding + similarity scoring |
+| LLM rewriting | Ollama (llama3.2 / mistral) | Style rewrite + flow smoothing |
+| File parsing | pdfplumber + python-docx | PDF and DOCX extraction |
+| Evaluation | 6 custom metrics | Human Likeness Score (HLS) |
+
+## Pipeline Stages
+
+| Stage | File | What it does |
+|-------|------|-------------|
+| 1 — Chunker | `pipeline/chunker.py` | Splits text into sentence groups using spaCy |
+| 2 — Semantic Merge | `pipeline/semantic_merge.py` | Merges related chunks using SBERT embeddings |
+| 3 — Style Rewriter | `pipeline/style_rewriter.py` | Rewrites each unit via Ollama LLM with tone + intensity |
+| 4 — Flow Smoother | `pipeline/flow_smoother.py` | Final LLM pass to remove AI patterns and vary sentence rhythm |
+
+## Evaluation Metrics
+
+| Metric | File | Weight in HLS |
+|--------|------|--------------|
+| Burstiness | `evaluation/burstiness.py` | 20% |
+| Coherence | `evaluation/coherence.py` | 30% |
+| Readability | `evaluation/readability.py` | 20% |
+| Connector density | `evaluation/connector_density.py` | 15% |
+| Semantic similarity | `evaluation/semantic_similarity.py` | 10% |
+| AI phrase score | `evaluation/ai_phrase_detector.py` | 5% |
