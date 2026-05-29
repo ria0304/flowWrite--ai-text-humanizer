@@ -1,10 +1,7 @@
 """
 main.py
 
-FIX #1  — Default tone changed from "btech_student" (missing key) — now valid
-FIX #12 — Added /rewrite-and-evaluate combined endpoint
-           Old: frontend needed 2 separate API calls
-           New: one call returns rewritten text + all evaluation scores
+
 """
 
 from fastapi import FastAPI, HTTPException, UploadFile, File, Form
