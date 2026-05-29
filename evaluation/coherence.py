@@ -1,10 +1,13 @@
-import spacy
-import numpy as np
-from sentence_transformers import SentenceTransformer
-from sklearn.metrics.pairwise import cosine_similarity
+"""
+evaluation/coherence.py
 
-nlp = spacy.load("en_core_web_sm")
-sbert = SentenceTransformer("all-MiniLM-L6-v2")
+
+"""
+
+import numpy as np
+from sklearn.metrics.pairwise import cosine_similarity
+from shared_models import nlp, sbert
+
 
 def coherence_score(text: str) -> dict:
     """
@@ -14,9 +17,9 @@ def coherence_score(text: str) -> dict:
     Higher score = better flow and connection between ideas.
 
     Returns:
-        score: 0-1 coherence score
-        pairwise_scores: similarity between each pair of consecutive sentences
-        avg_similarity: mean of pairwise scores
+        score:           0-1 coherence score
+        pairwise_scores: similarity between each consecutive sentence pair
+        avg_similarity:  mean of pairwise scores
     """
     doc = nlp(text)
     sentences = [s.text.strip() for s in doc.sents if s.text.strip()]
@@ -28,19 +31,20 @@ def coherence_score(text: str) -> dict:
 
     pairwise = []
     for i in range(len(embeddings) - 1):
-        sim = cosine_similarity([embeddings[i]], [embeddings[i+1]])[0][0]
+        sim = cosine_similarity([embeddings[i]], [embeddings[i + 1]])[0][0]
         pairwise.append(round(float(sim), 3))
 
     avg_sim = float(np.mean(pairwise))
 
-    # Ideal coherence: not too low (disconnected) not too high (repetitive)
-    # Target range: 0.35 - 0.75
+    # FIX: Raised upper bound from 0.75 to 0.85
+    # Academic writing naturally has high sentence similarity (0.75-0.85)
+    # Only penalize if truly repetitive (> 0.85) or truly disconnected (< 0.35)
     if avg_sim < 0.35:
-        score = avg_sim / 0.35  # penalize disconnected text
-    elif avg_sim <= 0.75:
-        score = 1.0             # ideal range
+        score = avg_sim / 0.35          # penalize disconnected text
+    elif avg_sim <= 0.85:
+        score = 1.0                     # ideal range — full score
     else:
-        score = 1.0 - (avg_sim - 0.75) / 0.25  # penalize overly repetitive
+        score = 1.0 - (avg_sim - 0.85) / 0.15  # penalize overly repetitive
 
     return {
         "score": round(max(0.0, score), 3),
