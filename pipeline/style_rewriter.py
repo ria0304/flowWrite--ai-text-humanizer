@@ -9,7 +9,7 @@ import logging
 logger = logging.getLogger(__name__)
 
 OLLAMA_URL = "http://localhost:11434/api/generate"
-MODEL_NAME = "mistral"
+MODEL_NAME = "llama3.1:8b"
 
 TONE_PROMPTS = {
     "btech_student": """Rewrite the text below so it sounds like a real BTech student wrote it.
@@ -147,8 +147,7 @@ Text to rewrite:
 
 Rewritten:"""
 
-    # Higher temperature for aggressiveness=3 to maximize unpredictability
-    temperature = 0.75 + (aggressiveness * 0.1)  # 0.85, 0.95, 1.05
+    temperature = 0.75 + (aggressiveness * 0.1)
 
     payload = {
         "model": MODEL_NAME,
@@ -180,15 +179,14 @@ Rewritten:"""
         return text
 
 
+# FIX: Process each unit individually — no batching
 async def style_rewrite(merged_units: list[str], tone: str, aggressiveness: int) -> list[str]:
-    batch_size = 3
     rewritten = []
-
     async with httpx.AsyncClient(timeout=None) as client:
-        for i in range(0, len(merged_units), batch_size):
-            batch = merged_units[i:i + batch_size]
-            combined = "\n".join(batch)
-            result = await rewrite_chunk(combined, tone, aggressiveness, client)
+        for unit in merged_units:
+            if not unit.strip():
+                rewritten.append("")
+                continue
+            result = await rewrite_chunk(unit, tone, aggressiveness, client)
             rewritten.append(result)
-
     return rewritten
