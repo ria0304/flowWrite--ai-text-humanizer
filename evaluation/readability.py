@@ -1,7 +1,10 @@
-import spacy
-import numpy as np
+"""
+evaluation/readability.py
 
-nlp = spacy.load("en_core_web_sm")
+"""
+
+from shared_models import nlp
+
 
 def count_syllables(word: str) -> int:
     """Simple syllable counter."""
@@ -24,22 +27,27 @@ def count_syllables(word: str) -> int:
 def readability_scores(text: str) -> dict:
     """
     Computes:
-    - Flesch Reading Ease (higher = easier, 60-70 = student level)
+    - Flesch Reading Ease (higher = easier, 50-65 = student level)
     - Flesch-Kincaid Grade Level (ideal: 10-14 for college)
-    - Balance score: how close to ideal student writing range
-    
+    - Balance score: 1.0 if inside ideal range, decreasing outside
+
     Returns:
-        flesch_ease: 0-100 score
-        fk_grade: grade level number
-        balance_score: 0-1 (how close to ideal student range)
-        assessment: human-readable label
+        flesch_ease:   0-100 score
+        fk_grade:      grade level number
+        balance_score: 0-1 (1.0 = inside ideal range)
+        assessment:    human-readable label
     """
     doc = nlp(text)
     sentences = [s for s in doc.sents if s.text.strip()]
     words = [t for t in doc if not t.is_punct and not t.is_space]
 
     if not sentences or not words:
-        return {"flesch_ease": 0, "fk_grade": 0, "balance_score": 0, "assessment": "insufficient text"}
+        return {
+            "flesch_ease": 0,
+            "fk_grade": 0,
+            "balance_score": 0,
+            "assessment": "insufficient text"
+        }
 
     num_sentences = len(sentences)
     num_words = len(words)
@@ -47,16 +55,22 @@ def readability_scores(text: str) -> dict:
 
     # Flesch Reading Ease
     flesch = 206.835 - 1.015 * (num_words / num_sentences) - 84.6 * (num_syllables / num_words)
-    flesch = max(0, min(100, flesch))
+    flesch = max(0.0, min(100.0, flesch))
 
     # Flesch-Kincaid Grade Level
     fk_grade = 0.39 * (num_words / num_sentences) + 11.8 * (num_syllables / num_words) - 15.59
 
-    # Balance score: ideal BTech report = Flesch 40-65, FK grade 10-14
-    # Score 1.0 if perfectly in range, decreasing outside
-    flesch_ideal = 52.5  # midpoint of 40-65
-    flesch_distance = abs(flesch - flesch_ideal) / 52.5
-    balance_score = max(0.0, 1.0 - flesch_distance)
+    # FIX: Ideal range = 40-65 Flesch for BTech/college writing
+    # Score 1.0 if inside range, linearly decrease outside
+    IDEAL_LOW = 40.0
+    IDEAL_HIGH = 65.0
+
+    if IDEAL_LOW <= flesch <= IDEAL_HIGH:
+        balance_score = 1.0                             # perfectly in range
+    elif flesch < IDEAL_LOW:
+        balance_score = max(0.0, flesch / IDEAL_LOW)   # too complex
+    else:
+        balance_score = max(0.0, 1.0 - (flesch - IDEAL_HIGH) / 35.0)  # too simple
 
     # Assessment label
     if flesch >= 70:
