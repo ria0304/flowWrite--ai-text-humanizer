@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>FlowWrite — Writing Assistant</title>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg: #F7F6F2;
+    --surface: #FFFFFF;
+    --surface2: #F2F1ED;
+    --border: rgba(0,0,0,0.10);
+    --border-strong: rgba(0,0,0,0.18);
+    --ink: #1A1916;
+    --ink2: #6B6A66;
+    --ink3: #A8A7A3;
+    --accent: #2D5BE3;
+    --accent-light: #EEF2FD;
+    --accent-dark: #1A3A9F;
+    --success: #1A7A4A;
+    --success-light: #EBF7F2;
+    --warn: #A05A10;
+    --warn-light: #FEF5EA;
+    --danger: #B52828;
+    --danger-light: #FDEEEE;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--ink); font-family: 'DM Sans', sans-serif; font-size: 14px; line-height: 1.6; min-height: 100vh; }
+  .app-shell { max-width: 1160px; margin: 0 auto; padding: 0 24px 56px; }
+  .app-header { padding: 28px 0 22px; border-bottom: 1px solid var(--border); margin-bottom: 32px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+  .brand { display: flex; align-items: baseline; gap: 12px; }
+  .brand-name { font-family: 'Crimson Pro', serif; font-size: 26px; font-weight: 600; color: var(--ink); letter-spacing: -0.3px; }
+  .brand-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); display: inline-block; margin-bottom: 4px; flex-shrink: 0; }
+  .brand-sub { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--ink3); border: 1px solid var(--border-strong); padding: 3px 8px; border-radius: 4px; }
+  .header-badges { display: flex; gap: 8px; align-items: center; }
+  .hbadge { font-size: 11px; padding: 4px 10px; border-radius: 20px; background: var(--surface2); color: var(--ink2); border: 1px solid var(--border); font-family: 'JetBrains Mono', monospace; letter-spacing: 0.5px; }
+  .workspace { display: grid; grid-template-columns: 1fr 280px; gap: 20px; align-items: start; }
+  @media (max-width: 800px) { .workspace { grid-template-columns: 1fr; } }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+  .card-head { padding: 12px 16px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+  .card-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--ink3); }
+  .card-meta { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--ink3); }
+  .input-tabs { display: flex; gap: 0; border-bottom: 1px solid var(--border); }
+  .itab { padding: 10px 16px; font-size: 12px; font-weight: 500; color: var(--ink3); cursor: pointer; border-bottom: 2px solid transparent; transition: color 0.12s, border-color 0.12s; background: none; border-top: none; border-left: none; border-right: none; font-family: 'DM Sans', sans-serif; user-select: none; }
+  .itab:hover { color: var(--ink2); }
+  .itab.active { color: var(--accent); border-bottom-color: var(--accent); }
+  textarea { width: 100%; min-height: 210px; background: transparent; border: none; outline: none; color: var(--ink); font-family: 'DM Sans', sans-serif; font-size: 14px; line-height: 1.75; padding: 16px; resize: vertical; }
+  textarea::placeholder { color: var(--ink3); font-style: italic; }
+  .upload-area { min-height: 210px; display: none; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 32px 24px; border: 2px dashed var(--border-strong); margin: 12px; border-radius: 8px; cursor: pointer; transition: border-color 0.15s, background 0.15s; background: var(--surface2); position: relative; }
+  .upload-area:hover, .upload-area.drag { border-color: var(--accent); background: var(--accent-light); }
+  .upload-area.active-tab { display: flex; }
+  .upload-icon { width: 40px; height: 40px; border-radius: 10px; background: var(--surface); border: 1px solid var(--border-strong); display: flex; align-items: center; justify-content: center; }
+  .upload-icon svg { width: 20px; height: 20px; stroke: var(--ink2); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+  .upload-title { font-size: 14px; font-weight: 500; color: var(--ink); text-align: center; }
+  .upload-sub { font-size: 12px; color: var(--ink3); text-align: center; line-height: 1.5; }
+  .upload-btn { padding: 7px 18px; background: var(--accent); color: #fff; border: none; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: background 0.12s; }
+  .upload-btn:hover { background: var(--accent-dark); }
+  #fileInput { display: none; }
+  .file-loaded { display: none; align-items: center; gap: 12px; padding: 14px 16px; background: var(--success-light); border-top: 1px solid rgba(26,122,74,0.15); }
+  .file-loaded.show { display: flex; }
+  .file-icon { width: 32px; height: 32px; border-radius: 6px; background: rgba(26,122,74,0.12); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .file-icon svg { width: 16px; height: 16px; stroke: var(--success); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .file-name { font-size: 13px; font-weight: 500; color: var(--success); flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .file-size { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--ink3); }
+  .file-remove { background: none; border: none; cursor: pointer; color: var(--ink3); font-size: 16px; line-height: 1; padding: 2px 4px; border-radius: 4px; transition: color 0.12s; }
+  .file-remove:hover { color: var(--danger); }
+  .output-body { min-height: 210px; padding: 16px; font-family: 'Crimson Pro', serif; font-size: 15.5px; line-height: 1.85; color: var(--ink); white-space: pre-wrap; }
+  .output-placeholder { color: var(--ink3); font-family: 'DM Sans', sans-serif; font-size: 13px; font-style: italic; }
+  .lbar { height: 2px; background: var(--border); overflow: hidden; display: none; }
+  .lbar.on { display: block; }
+  .lbar::after { content: ''; display: block; width: 35%; height: 100%; background: var(--accent); animation: lrun 1.1s ease-in-out infinite; }
+  @keyframes lrun { 0% { margin-left: -35%; } 100% { margin-left: 100%; } }
+  .status-bar { padding: 9px 16px; border-top: 1px solid var(--border); font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--ink3); min-height: 34px; letter-spacing: 0.5px; }
+  .status-bar.ok { color: var(--success); }
+  .status-bar.err { color: var(--danger); }
+  .out-actions { padding: 10px 16px; border-top: 1px solid var(--border); display: none; gap: 8px; align-items: center; }
+  .out-actions.show { display: flex; }
+  .act-btn { background: var(--surface2); border: 1px solid var(--border); border-radius: 6px; padding: 5px 12px; font-size: 12px; color: var(--ink); cursor: pointer; transition: border-color 0.12s, color 0.12s; font-family: 'DM Sans', sans-serif; }
+  .act-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .wcount { margin-left: auto; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--ink3); }
+  .sidebar { display: flex; flex-direction: column; gap: 14px; }
+  .scard { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px; }
+  .slabel { font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--ink3); margin-bottom: 12px; display: block; }
+  .tone-list { display: flex; flex-direction: column; gap: 6px; }
+  .tone-btn { background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 9px 12px; cursor: pointer; text-align: left; transition: border-color 0.12s, background 0.12s; width: 100%; }
+  .tone-btn:hover { border-color: var(--accent); }
+  .tone-btn.sel { border-color: var(--accent); background: var(--accent-light); }
+  .tone-btn-name { font-size: 13px; font-weight: 500; color: var(--ink); display: block; }
+  .tone-btn-desc { font-size: 11px; color: var(--ink2); margin-top: 1px; display: block; }
+  .tone-btn.sel .tone-btn-name { color: var(--accent-dark); }
+  .intensity-row { display: flex; gap: 5px; }
+  .int-btn { flex: 1; padding: 8px 4px; background: var(--surface2); border: 1px solid var(--border); border-radius: 6px; cursor: pointer; font-size: 11px; font-weight: 500; color: var(--ink2); text-align: center; transition: all 0.12s; font-family: 'DM Sans', sans-serif; }
+  .int-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .int-btn.sel { background: var(--accent-light); border-color: var(--accent); color: var(--accent-dark); }
+  .run-btn { width: 100%; padding: 12px; background: var(--accent); color: #fff; border: none; border-radius: 8px; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 600; cursor: pointer; letter-spacing: 0.2px; transition: background 0.12s, transform 0.1s; }
+  .run-btn:hover { background: var(--accent-dark); }
+  .run-btn:active { transform: scale(0.99); }
+  .run-btn:disabled { opacity: 0.45; cursor: not-allowed; transform: none; }
+  .eval-card { margin-top: 16px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; display: none; }
+  .eval-card.show { display: block; }
+  .eval-head { padding: 14px 16px; border-bottom: 1px solid var(--border); display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .hls-big { font-family: 'Crimson Pro', serif; font-size: 36px; font-weight: 600; color: var(--accent); line-height: 1; }
+  .hls-lbl { font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--ink3); margin-top: 3px; }
+  .hls-interp { font-size: 12px; color: var(--success); font-weight: 500; margin-top: 4px; }
+  .improv-badge { font-family: 'JetBrains Mono', monospace; font-size: 11px; padding: 4px 10px; border-radius: 20px; border: 1px solid var(--success); color: var(--success); background: var(--success-light); white-space: nowrap; }
+  .metrics-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); }
+  @media (max-width: 600px) { .metrics-row { grid-template-columns: repeat(2, 1fr); } }
+  .metric { background: var(--surface); padding: 14px 14px 12px; }
+  .m-label { font-family: 'JetBrains Mono', monospace; font-size: 9px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--ink3); margin-bottom: 6px; }
+  .m-val { font-family: 'JetBrains Mono', monospace; font-size: 18px; font-weight: 500; color: var(--ink); margin-bottom: 6px; }
+  .bar-wrap { height: 3px; background: var(--border); border-radius: 4px; overflow: hidden; margin: 4px 0; }
+  .bar-fill { height: 100%; border-radius: 4px; transition: width 0.7s ease; }
+  .bar-new { background: var(--accent); }
+  .bar-old { background: var(--ink3); }
+  .m-detail { font-size: 10px; color: var(--ink3); margin-top: 6px; line-height: 1.5; font-family: 'JetBrains Mono', monospace; }
+  .conn-chips { display: flex; flex-wrap: wrap; gap: 3px; margin-top: 6px; }
+  .chip { font-family: 'JetBrains Mono', monospace; font-size: 9px; padding: 2px 6px; background: var(--accent-light); border: 1px solid rgba(45,91,227,0.15); border-radius: 4px; color: var(--accent-dark); }
+  .sim-row { padding: 12px 16px; border-top: 1px solid var(--border); display: flex; align-items: center; gap: 10px; font-size: 12px; color: var(--ink2); flex-wrap: wrap; }
+  .sim-val { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--accent); font-weight: 500; }
+  .legend { margin-left: auto; display: flex; align-items: center; gap: 10px; font-size: 10px; color: var(--ink3); font-family: 'JetBrains Mono', monospace; }
+  .leg-dot { width: 8px; height: 8px; border-radius: 2px; display: inline-block; margin-right: 4px; vertical-align: middle; }
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 4px; }
+</style>
+</head>
+<body>
+<div class="app-shell">
+  <header class="app-header">
+    <div class="brand">
+      <span class="brand-name">FlowWrite</span>
+      <span class="brand-dot"></span>
+      <span class="brand-sub">Writing Assistant</span>
+    </div>
+    <div class="header-badges">
+      <span class="hbadge">4-stage pipeline</span>
+      <span class="hbadge">AI-powered</span>
+    </div>
+  </header>
+
+  <div class="workspace">
+    <div>
+      <div class="card" style="margin-bottom:14px">
+        <div class="card-head">
+          <span class="card-label">Original Text</span>
+          <span class="card-meta" id="charCount">0 characters</span>
+        </div>
+        <div class="input-tabs">
+          <button class="itab active" onclick="switchTab('text', this)">Type / Paste</button>
+          <button class="itab" onclick="switchTab('file', this)">Upload File</button>
+        </div>
+        <div id="tabText">
+          <textarea id="inputText" placeholder="Paste your draft, AI-generated text, or rough writing here to refine it…"></textarea>
+        </div>
+        <div id="tabFile" style="display:none">
+          <div class="upload-area active-tab" id="uploadArea"
+               onclick="document.getElementById('fileInput').click()"
+               ondragover="onDragOver(event)"
+               ondragleave="onDragLeave(event)"
+               ondrop="onDrop(event)">
+            <div class="upload-icon">
+              <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+            </div>
+            <div class="upload-title">Drop your file here</div>
+            <div class="upload-sub">Supports .txt, .md, .docx, .pdf<br>or click to browse</div>
+            <button class="upload-btn" onclick="event.stopPropagation(); document.getElementById('fileInput').click()">Browse File</button>
+            <input type="file" id="fileInput" accept=".txt,.md,.docx,.pdf" onchange="onFileSelected(event)"/>
+          </div>
+          <div class="file-loaded" id="fileLoaded">
+            <div class="file-icon">
+              <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            </div>
+            <span class="file-name" id="fileName">—</span>
+            <span class="file-size" id="fileSize"></span>
+            <button class="file-remove" onclick="removeFile()" title="Remove file">×</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <span class="card-label">Refined Output</span>
+          <span class="card-meta" id="outLabel">—</span>
+        </div>
+        <div class="lbar" id="lbar"></div>
+        <div class="output-body" id="outputText">
+          <span class="output-placeholder">Your refined text will appear here after processing.</span>
+        </div>
+        <div class="status-bar" id="statusMsg"></div>
+        <div class="out-actions" id="outActions">
+          <button class="act-btn" onclick="copyOut()">Copy text</button>
+          <button class="act-btn" onclick="clearAll()">Clear</button>
+          <span class="wcount" id="wcount"></span>
+        </div>
+      </div>
+
+      <div class="eval-card" id="evalCard">
+        <div class="eval-head">
+          <div>
+            <div class="hls-big" id="hlsScore">—</div>
+            <div class="hls-lbl">Human Likeness Score</div>
+            <div class="hls-interp" id="hlsInterp"></div>
+          </div>
+          <div style="text-align:right">
+            <div class="improv-badge" id="improvBadge"></div>
+            <div style="font-size:10px;color:var(--ink3);margin-top:6px;font-family:'JetBrains Mono',monospace" id="simLbl"></div>
+          </div>
+        </div>
+        <div class="metrics-row">
+          <div class="metric">
+            <div class="m-label">Burstiness</div>
+            <div class="m-val" id="mBurst">—</div>
+            <div class="bar-wrap"><div class="bar-fill bar-new" id="barBurst" style="width:0%"></div></div>
+            <div class="bar-wrap"><div class="bar-fill bar-old" id="barBurstOrig" style="width:0%"></div></div>
+            <div class="m-detail" id="detBurst"></div>
+          </div>
+          <div class="metric">
+            <div class="m-label">Coherence</div>
+            <div class="m-val" id="mCoher">—</div>
+            <div class="bar-wrap"><div class="bar-fill bar-new" id="barCoher" style="width:0%"></div></div>
+            <div class="bar-wrap"><div class="bar-fill bar-old" id="barCoherOrig" style="width:0%"></div></div>
+            <div class="m-detail" id="detCoher"></div>
+          </div>
+          <div class="metric">
+            <div class="m-label">Readability</div>
+            <div class="m-val" id="mRead">—</div>
+            <div class="bar-wrap"><div class="bar-fill bar-new" id="barRead" style="width:0%"></div></div>
+            <div class="bar-wrap"><div class="bar-fill bar-old" id="barReadOrig" style="width:0%"></div></div>
+            <div class="m-detail" id="detRead"></div>
+          </div>
+          <div class="metric">
+            <div class="m-label">Connectors</div>
+            <div class="m-val" id="mConn">—</div>
+            <div class="bar-wrap"><div class="bar-fill bar-new" id="barConn" style="width:0%"></div></div>
+            <div class="bar-wrap"><div class="bar-fill bar-old" id="barConnOrig" style="width:0%"></div></div>
+            <div class="conn-chips" id="connList"></div>
+          </div>
+        </div>
+        <div class="sim-row">
+          <span>Meaning preserved:</span>
+          <span class="sim-val" id="simScore"></span>
+          <span id="simScoreLbl" style="color:var(--ink3)"></span>
+          <div class="legend">
+            <span><span class="leg-dot" style="background:var(--accent)"></span>refined</span>
+            <span><span class="leg-dot" style="background:var(--ink3)"></span>original</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar">
+      <div class="scard">
+        <span class="slabel">Writing Style</span>
+        <div class="tone-list">
+          <button class="tone-btn sel" onclick="setTone('formal_report', this)">
+            <span class="tone-btn-name">Formal / Professional</span>
+            <span class="tone-btn-desc">Reports, proposals, business</span>
+          </button>
+          <button class="tone-btn" onclick="setTone('academic', this)">
+            <span class="tone-btn-name">Academic</span>
+            <span class="tone-btn-desc">Research, essays, thesis</span>
+          </button>
+          <button class="tone-btn" onclick="setTone('casual', this)">
+            <span class="tone-btn-name">Conversational</span>
+            <span class="tone-btn-desc">Blogs, newsletters, casual</span>
+          </button>
+          <button class="tone-btn" onclick="setTone('technical', this)">
+            <span class="tone-btn-name">Technical</span>
+            <span class="tone-btn-desc">Documentation, specs</span>
+          </button>
+          <button class="tone-btn" onclick="setTone('creative', this)">
+            <span class="tone-btn-name">Creative</span>
+            <span class="tone-btn-desc">Stories, editorial, expressive</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="scard">
+        <span class="slabel">Rewrite Intensity</span>
+        <div class="intensity-row">
+          <button class="int-btn" onclick="setIntensity(1, this)">Light</button>
+          <button class="int-btn sel" onclick="setIntensity(2, this)">Medium</button>
+          <button class="int-btn" onclick="setIntensity(3, this)">Deep</button>
+        </div>
+        <p style="font-size:11px;color:var(--ink3);margin-top:10px;line-height:1.5" id="intensityHint">
+          Preserves your voice while improving flow and structure.
+        </p>
+      </div>
+
+      <div class="scard">
+        <button class="run-btn" id="runBtn" onclick="runPipeline()">Refine Writing →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  let tone = 'formal_report';
+  let intensity = 2;
+  let uploadedText = '';
+  let currentTab = 'text';
+  const API = 'http://localhost:8000';
+
+  const intensityHints = {
+    1: 'Light touch — fixes awkward phrasing and obvious AI patterns.',
+    2: 'Preserves your voice while improving flow and structure.',
+    3: 'Full rewrite — restructures sentences and vocabulary substantially.'
+  };
+
+  document.getElementById('inputText').addEventListener('input', function () {
+    document.getElementById('charCount').textContent = this.value.length.toLocaleString() + ' characters';
+  });
+
+  function switchTab(tab, el) {
+    currentTab = tab;
+    document.querySelectorAll('.itab').forEach(t => t.classList.remove('active'));
+    el.classList.add('active');
+    document.getElementById('tabText').style.display = tab === 'text' ? 'block' : 'none';
+    document.getElementById('tabFile').style.display = tab === 'file' ? 'block' : 'none';
+  }
+
+  function onDragOver(e) { e.preventDefault(); document.getElementById('uploadArea').classList.add('drag'); }
+  function onDragLeave(e) { document.getElementById('uploadArea').classList.remove('drag'); }
+  function onDrop(e) {
+    e.preventDefault();
+    document.getElementById('uploadArea').classList.remove('drag');
+    const file = e.dataTransfer.files[0];
+    if (file) handleFile(file);
+  }
+  function onFileSelected(e) { const file = e.target.files[0]; if (file) handleFile(file); }
+
+  function handleFile(file) {
+    const ext = file.name.split('.').pop().toLowerCase();
+    const allowedExt = ['txt', 'md', 'pdf', 'docx'];
+    if (!allowedExt.includes(ext)) {
+      setStatus('Unsupported file type. Please upload .txt, .md, .pdf, or .docx.', 'err');
+      return;
+    }
+    document.getElementById('fileName').textContent = file.name;
+    document.getElementById('fileSize').textContent = formatSize(file.size);
+    document.getElementById('fileLoaded').classList.add('show');
+    document.getElementById('charCount').textContent = 'File loaded';
+    if (ext === 'txt' || ext === 'md') {
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        uploadedText = e.target.result;
+        document.getElementById('charCount').textContent = uploadedText.length.toLocaleString() + ' characters';
+      };
+      reader.readAsText(file);
+    } else {
+      uploadedText = '__FILE__';
+      window._uploadedFile = file;
+    }
+  }
+
+  function removeFile() {
+    uploadedText = '';
+    window._uploadedFile = null;
+    document.getElementById('fileLoaded').classList.remove('show');
+    document.getElementById('fileName').textContent = '—';
+    document.getElementById('fileSize').textContent = '';
+    document.getElementById('fileInput').value = '';
+    document.getElementById('charCount').textContent = '0 characters';
+  }
+
+  function formatSize(bytes) {
+    if (bytes < 1024) return bytes + ' B';
+    if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
+    return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
+  }
+
+  function setTone(t, el) {
+    tone = t;
+    document.querySelectorAll('.tone-btn').forEach(b => b.classList.remove('sel'));
+    el.classList.add('sel');
+  }
+
+  function setIntensity(n, el) {
+    intensity = n;
+    document.querySelectorAll('.int-btn').forEach(b => b.classList.remove('sel'));
+    el.classList.add('sel');
+    document.getElementById('intensityHint').textContent = intensityHints[n];
+  }
+
+  function setStatus(msg, cls = '') {
+    const el = document.getElementById('statusMsg');
+    el.textContent = msg;
+    el.className = 'status-bar ' + cls;
+  }
+
+  async function runPipeline() {
+    let text = '';
+    if (currentTab === 'text') {
+      text = document.getElementById('inputText').value.trim();
+      if (!text) { setStatus('Please enter some text to refine.', 'err'); return; }
+    } else {
+      if (!uploadedText) { setStatus('Please upload a file first.', 'err'); return; }
+      if (uploadedText === '__FILE__') { await runWithFile(); return; }
+      text = uploadedText;
+    }
+    await runWithText(text);
+  }
+
+  async function runWithText(text) {
+    const btn = document.getElementById('runBtn');
+    btn.disabled = true; btn.textContent = 'Processing…';
+    document.getElementById('lbar').classList.add('on');
+    document.getElementById('outActions').classList.remove('show');
+    document.getElementById('outputText').innerHTML = '<span class="output-placeholder">Processing through pipeline…</span>';
+    document.getElementById('evalCard').classList.remove('show');
+    try {
+      const res = await fetch(API + '/rewrite', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text, tone, aggressiveness: intensity })
+      });
+      if (!res.ok) { const e = await res.json(); throw new Error(e.detail || 'Server error'); }
+      const data = await res.json();
+      document.getElementById('outputText').textContent = data.rewritten;
+      document.getElementById('outActions').classList.add('show');
+      const words = data.rewritten.split(/\s+/).filter(Boolean).length;
+      document.getElementById('wcount').textContent = words.toLocaleString() + ' words';
+      document.getElementById('outLabel').textContent = 'Complete';
+      setStatus('Refinement complete — evaluating quality…', 'ok');
+      await runEval(text, data.rewritten);
+      setStatus('Done', 'ok');
+    } catch (err) {
+      setStatus('Error: ' + err.message + ' — Is the backend running?', 'err');
+      document.getElementById('outputText').innerHTML = '<span class="output-placeholder">Something went wrong. Please try again.</span>';
+    }
+    document.getElementById('lbar').classList.remove('on');
+    btn.disabled = false; btn.textContent = 'Refine Writing →';
+  }
+
+  async function runWithFile() {
+    const btn = document.getElementById('runBtn');
+    btn.disabled = true; btn.textContent = 'Processing…';
+    document.getElementById('lbar').classList.add('on');
+    document.getElementById('outActions').classList.remove('show');
+    document.getElementById('outputText').innerHTML = '<span class="output-placeholder">Extracting and processing file…</span>';
+    document.getElementById('evalCard').classList.remove('show');
+    setStatus('Uploading file to backend…');
+    try {
+      const formData = new FormData();
+      formData.append('file', window._uploadedFile);
+      formData.append('tone', tone);
+      formData.append('aggressiveness', intensity);
+      const res = await fetch(API + '/rewrite-file', { method: 'POST', body: formData });
+      if (!res.ok) { const e = await res.json(); throw new Error(e.detail || 'Server error'); }
+      const data = await res.json();
+      document.getElementById('outputText').textContent = data.rewritten;
+      document.getElementById('outActions').classList.add('show');
+      const words = data.rewritten.split(/\s+/).filter(Boolean).length;
+      document.getElementById('wcount').textContent = words.toLocaleString() + ' words';
+      document.getElementById('outLabel').textContent = 'Complete';
+      setStatus('Refinement complete — evaluating quality…', 'ok');
+      await runEval(data.original || '', data.rewritten);
+      setStatus('Done', 'ok');
+    } catch (err) {
+      setStatus('Error: ' + err.message + ' — Is the backend running?', 'err');
+      document.getElementById('outputText').innerHTML = '<span class="output-placeholder">Something went wrong. Please try again.</span>';
+    }
+    document.getElementById('lbar').classList.remove('on');
+    btn.disabled = false; btn.textContent = 'Refine Writing →';
+  }
+
+  async function runEval(original, rewritten) {
+    try {
+      const res = await fetch(API + '/evaluate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ original, rewritten })
+      });
+      if (!res.ok) return;
+      const d = await res.json();
+      document.getElementById('evalCard').classList.add('show');
+      document.getElementById('hlsScore').textContent = (d.hls * 100).toFixed(0) + '%';
+      document.getElementById('hlsInterp').textContent = d.interpretation;
+      const imp = d.improvement;
+      const ibadge = document.getElementById('improvBadge');
+      ibadge.textContent = (imp >= 0 ? '↑ +' : '↓ ') + (imp * 100).toFixed(0) + '% vs original';
+      ibadge.style.borderColor = imp >= 0 ? 'var(--success)' : 'var(--danger)';
+      ibadge.style.color       = imp >= 0 ? 'var(--success)' : 'var(--danger)';
+      ibadge.style.background  = imp >= 0 ? 'var(--success-light)' : 'var(--danger-light)';
+      const b = d.dimensions.burstiness, bo = d.original_dimensions.burstiness;
+      document.getElementById('mBurst').textContent = (b.score * 100).toFixed(0) + '%';
+      document.getElementById('barBurst').style.width = (b.score * 100) + '%';
+      document.getElementById('barBurstOrig').style.width = (bo * 100) + '%';
+      document.getElementById('detBurst').textContent = 'σ ' + b.std_dev + 'w · avg ' + b.mean_sentence_len + 'w · ' + b.sentence_count + ' sentences';
+      const c = d.dimensions.coherence, co = d.original_dimensions.coherence;
+      document.getElementById('mCoher').textContent = (c.score * 100).toFixed(0) + '%';
+      document.getElementById('barCoher').style.width = (c.score * 100) + '%';
+      document.getElementById('barCoherOrig').style.width = (co * 100) + '%';
+      document.getElementById('detCoher').textContent = 'Avg sentence similarity: ' + c.avg_similarity;
+      const r = d.dimensions.readability, ro = d.original_dimensions.readability;
+      document.getElementById('mRead').textContent = (r.score * 100).toFixed(0) + '%';
+      document.getElementById('barRead').style.width = (r.score * 100) + '%';
+      document.getElementById('barReadOrig').style.width = (ro * 100) + '%';
+      document.getElementById('detRead').textContent = 'Flesch ' + r.flesch_ease + ' · Grade ' + r.fk_grade + '\n' + r.assessment;
+      const cn = d.dimensions.connectors, cno = d.original_dimensions.connectors;
+      document.getElementById('mConn').textContent = cn.count + ' found';
+      document.getElementById('barConn').style.width = (cn.score * 100) + '%';
+      document.getElementById('barConnOrig').style.width = (cno * 100) + '%';
+      document.getElementById('connList').innerHTML = cn.found.slice(0, 8).map(x => '<span class="chip">' + x + '</span>').join('');
+      document.getElementById('simScore').textContent = (d.similarity_score * 100).toFixed(0) + '%';
+      document.getElementById('simScoreLbl').textContent = '· ' + d.meaning_preserved;
+    } catch (e) { console.error('Eval error:', e); }
+  }
+
+  function copyOut() {
+    const t = document.getElementById('outputText').textContent;
+    navigator.clipboard.writeText(t).then(() => setStatus('Copied to clipboard.', 'ok'));
+  }
+
+  function clearAll() {
+    document.getElementById('inputText').value = '';
+    document.getElementById('outputText').innerHTML = '<span class="output-placeholder">Your refined text will appear here after processing.</span>';
+    document.getElementById('outActions').classList.remove('show');
+    document.getElementById('charCount').textContent = '0 characters';
+    document.getElementById('outLabel').textContent = '—';
+    document.getElementById('evalCard').classList.remove('show');
+    uploadedText = ''; window._uploadedFile = null;
+    document.getElementById('fileLoaded').classList.remove('show');
+    document.getElementById('fileInput').value = '';
+    setStatus('');
+  }
+</script>
+</body>
+</html>
