@@ -9,7 +9,7 @@ import logging
 logger = logging.getLogger(__name__)
 
 OLLAMA_URL = "http://localhost:11434/api/generate"
-MODEL_NAME = "mistral"
+MODEL_NAME = "llama3.1:8b"
 
 FLOW_PROMPT = """You are a human editor doing a final pass to make text completely undetectable by AI detectors like ZeroGPT.
 
@@ -79,16 +79,14 @@ async def smooth_chunk(text: str, client: httpx.AsyncClient) -> str:
         return text
 
 
+# FIX: Process EVERY paragraph — no skipping short ones
 async def flow_smooth(text: str) -> str:
     paragraphs = split_into_paragraphs(text)
     smoothed_paragraphs = []
 
     async with httpx.AsyncClient(timeout=None) as client:
         for paragraph in paragraphs:
-            if len(paragraph.split()) < 15:
-                smoothed_paragraphs.append(paragraph)
-            else:
-                result = await smooth_chunk(paragraph, client)
-                smoothed_paragraphs.append(result)
+            result = await smooth_chunk(paragraph, client)
+            smoothed_paragraphs.append(result)
 
     return "\n\n".join(smoothed_paragraphs)
