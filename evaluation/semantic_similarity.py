@@ -1,7 +1,11 @@
-from sentence_transformers import SentenceTransformer
-from sklearn.metrics.pairwise import cosine_similarity
+"""
+evaluation/semantic_similarity.py
 
-sbert = SentenceTransformer("all-MiniLM-L6-v2")
+"""
+
+from sklearn.metrics.pairwise import cosine_similarity
+from shared_models import sbert
+
 
 def semantic_similarity(original: str, rewritten: str) -> dict:
     """
@@ -14,15 +18,15 @@ def semantic_similarity(original: str, rewritten: str) -> dict:
         < 0.65 → too much meaning lost
 
     Returns:
-        score: 0-1 cosine similarity
-        preserved: bool (True if > 0.65)
-        label: human-readable assessment
+        score:     0-1 cosine similarity
+        preserved: bool (True if >= 0.65)
+        label:     human-readable assessment
     """
     if not original.strip() or not rewritten.strip():
         return {"score": 0.0, "preserved": False, "label": "Empty input"}
 
     emb_orig = sbert.encode([original])
-    emb_new = sbert.encode([rewritten])
+    emb_new  = sbert.encode([rewritten])
 
     score = float(cosine_similarity(emb_orig, emb_new)[0][0])
 
