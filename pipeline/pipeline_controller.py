@@ -1,24 +1,47 @@
-"""
-pipeline/pipeline_controller.py
-"""
 import logging
+
 from pipeline.chunker import chunk_text
 from pipeline.semantic_merge import semantic_merge
 from pipeline.style_rewriter import style_rewrite
 from pipeline.flow_smoother import flow_smooth
-from pipeline.turnitin_bypass import turnitin_bypass
+from evaluation.hls import compute_hls
 
 logger = logging.getLogger(__name__)
 
 MAX_WORDS = 5000
+NUM_CANDIDATES = 3
+
+
+def _quality_score(hls_result: dict) -> float:
+    dims = hls_result["dimensions"]
+    return round(
+        0.20 * dims["burstiness"]["score"]
+        + 0.30 * dims["coherence"]["score"]
+        + 0.20 * dims["readability"]["score"]
+        + 0.10 * dims["connectors"]["score"]
+        + 0.20 * dims["similarity"]["score"],
+        3,
+    )
+
+
+async def _build_candidate(text: str, tone: str, aggressiveness: int) -> str:
+    chunks = chunk_text(text)
+    merged = semantic_merge(chunks)
+    rewritten = await style_rewrite(merged, tone, aggressiveness)
+    combined = "\n\n".join(rewritten)
+    smoothed = await flow_smooth(combined)
+    return smoothed
+
 
 async def run_pipeline(text: str, tone: str = "formal_report", aggressiveness: int = 2) -> dict:
     word_count = len(text.split())
     if word_count > MAX_WORDS:
         raise ValueError(f"Input too long: {word_count} words. Maximum is {MAX_WORDS} words.")
 
+    logger.info(f"Pipeline start: {word_count} words")
+
     # Stage 1 — Chunking
-    logger.info(f"Stage 1: Chunking {word_count} words...")
+    logger.info("Stage 1: Chunking...")
     chunks = chunk_text(text)
     logger.info(f"  → {len(chunks)} chunks created")
 
@@ -27,28 +50,38 @@ async def run_pipeline(text: str, tone: str = "formal_report", aggressiveness: i
     merged = semantic_merge(chunks)
     logger.info(f"  → {len(merged)} units after merge")
 
-    # Stage 3 — Style rewrite
-    logger.info(f"Stage 3: Style rewrite (tone={tone}, aggressiveness={aggressiveness})...")
-    rewritten = await style_rewrite(merged, tone, aggressiveness)
+    # Stage 3 + 4 — Generate and score candidates
+    logger.info(f"Stage 3: Generating {NUM_CANDIDATES} rewrite candidate(s)...")
+    candidates = []
+    for _ in range(NUM_CANDIDATES):
+        rewritten = await style_rewrite(merged, tone, aggressiveness)
+        combined = "\n\n".join(rewritten)
+        smoothed = await flow_smooth(combined)
+        candidates.append(smoothed)
 
-    # Stage 4 — Flow smoothing
-    logger.info("Stage 4: Flow smoothing...")
-    combined = "\n\n".join(rewritten)
-    smoothed = await flow_smooth(combined)
+    best_text = text
+    best_score = -1.0
+    best_eval = None
 
-    # Stage 5 — Turnitin bypass
-    logger.info("Stage 5: Turnitin bypass...")
-    final = await turnitin_bypass(smoothed)
+    logger.info("Stage 4: Selecting best candidate...")
+    for candidate in candidates:
+        evaluation = compute_hls(text, candidate)
+        score = _quality_score(evaluation)
+        if score > best_score:
+            best_score = score
+            best_text = candidate
+            best_eval = evaluation
 
-    logger.info("Pipeline complete.")
+    logger.info(f"Best candidate score: {best_score}")
 
     return {
-        "final": final,
+        "final": best_text,
         "stages": {
             "chunking": f"{len(chunks)} chunks created",
             "semantic_merge": f"{len(merged)} units after merge",
-            "style_rewrite": f"{len(rewritten)} segments rewritten",
-            "flow_smoothing": "done",
-            "turnitin_bypass": "done"
-        }
+            "candidates": f"{NUM_CANDIDATES} candidates generated",
+            "selection": "best candidate selected by quality score",
+        },
+        "evaluation": best_eval,
+        "best_score": best_score,
     }
