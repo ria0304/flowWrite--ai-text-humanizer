@@ -1,7 +1,7 @@
 """
 pipeline/turnitin_bypass.py
-Stage 5 — Targets Turnitin and other sophisticated AI detectors.
-Adds deliberate human imperfections, mixed formality, and natural inconsistencies.
+Final polish stage for natural readability, clarity, and consistency.
+Removes repetitive AI-like phrasing without targeting any detector.
 """
 import httpx
 import json
@@ -13,50 +13,44 @@ logger = logging.getLogger(__name__)
 OLLAMA_URL = "http://localhost:11434/api/generate"
 MODEL_NAME = "llama3.2:latest"
 
-SYSTEM_INSTRUCTION = """You are a human writing coach doing a final edit. Output ONLY the edited text.
+SYSTEM_INSTRUCTION = """You are a human editor doing a final polish.
+Output ONLY the edited text.
+
 STRICT RULES:
 - Output ONLY the edited text. Nothing else.
-- Do NOT add any commentary, notes, or explanations before or after.
-- Do NOT say "Here is", "I've edited", "Note:", or anything like that.
-- Do NOT refuse. Just edit."""
+- Do NOT add commentary, notes, explanations, or bullet points.
+- Do NOT say "Here is", "I've edited", "Note:", or similar phrases.
+- Preserve the original meaning.
+- Improve clarity, flow, and naturalness.
+- Remove repetition and awkward phrasing.
+- Vary sentence openings and sentence lengths when appropriate.
+- Keep the tone consistent with the source text.
+"""
 
-TURNITIN_PROMPT = """{system}
+POLISH_PROMPT = """{system}
 
-You are making this text pass AI detectors by writing like a real human. Target these specific detector signals:
-
-SENTENCE LENGTH — AI averages 29 words per sentence. Humans average 20-23.
-→ Break any sentence over 25 words into two. Add some 5-8 word sentences.
-
-FUNCTION WORDS — AI uses ~33% function words. Humans use ~40%.
-→ Add more: the, it, is, was, are, were, this, that, these, those, they, their, there
-
-PRONOUN SUBJECTS — AI uses noun subjects ("The implementation of X..."). Humans use pronouns.
-→ Change "The implementation of AI presents challenges" to "It's not easy to implement AI"
-→ Use "we", "it", "they", "you" to start sentences
-
-BANNED WORDS — Replace every instance of: crucial, fundamental, significant, unprecedented,
-multifaceted, leverage, delve, furthermore, additionally, it is worth noting, it is imperative,
-Crucially, Fundamentally, Ultimately (as sentence starters)
-
-EM DASH OVERUSE — Maximum 1 em dash in the entire text. Remove the rest.
-
-REPETITIVE FILLER — "isn't it?", "to be honest", "that said" should appear MAX once each.
-If they appear more, remove the duplicates.
-
-KEEP:
-- All the facts and meaning exactly the same
-- The general tone and style
-- Paragraph structure
+EDITING INSTRUCTIONS:
+1. Keep the facts and meaning the same.
+2. Improve readability and flow.
+3. Remove repetitive wording and filler.
+4. Replace stiff or overly formal phrasing with natural wording.
+5. Avoid repeated sentence openings.
+6. Keep paragraph structure intact unless a small change improves flow.
+7. Do not add new ideas or extra commentary.
 
 INPUT TEXT:
 {text}
 
-EDITED TEXT:"""
+POLISHED TEXT:"""
 
 
 def clean_output(text: str) -> str:
     text = text.strip()
-    for phrase in ["Here is", "Here's", "I've", "I have", "Note:", "Edited:", "Sure,", "Certainly,"]:
+
+    for phrase in [
+        "Here is", "Here's", "I've", "I have", "Note:",
+        "Edited:", "Sure,", "Certainly,"
+    ]:
         if text.startswith(phrase):
             newline_idx = text.find("\n")
             if newline_idx != -1:
@@ -64,31 +58,38 @@ def clean_output(text: str) -> str:
 
     lines = text.split("\n")
     clean_lines = []
+
     for line in lines:
         stripped = line.strip()
-        if any(stripped.startswith(p) for p in ["Note:", "(Note", "I've", "I have", "I kept", "I removed", "I made"]):
+        if any(stripped.startswith(p) for p in [
+            "Note:", "(Note", "I've", "I have",
+            "I kept", "I removed", "I made"
+        ]):
             break
         clean_lines.append(line)
 
     result = "\n".join(clean_lines).strip()
-    result = re.sub(r'\s*\(Note:.*?\)\s*$', '', result, flags=re.DOTALL).strip()
+    result = re.sub(r"\s*\(Note:.*?\)\s*$", "", result, flags=re.DOTALL).strip()
     return result if result else text
 
 
 async def turnitin_bypass(text: str) -> str:
-    """Stage 5 — Add human imperfections to fool Turnitin and similar detectors."""
-    prompt = TURNITIN_PROMPT.format(system=SYSTEM_INSTRUCTION, text=text)
+    """
+    Final polish stage for natural readability.
+    This stage is no longer detector-targeted.
+    """
+    prompt = POLISH_PROMPT.format(system=SYSTEM_INSTRUCTION, text=text)
 
     payload = {
         "model": MODEL_NAME,
         "prompt": prompt,
         "stream": True,
         "options": {
-            "temperature": 0.85,
-            "top_p": 0.93,
-            "top_k": 55,
-            "repeat_penalty": 1.2,
-            "num_predict": 1400
+            "temperature": 0.6,
+            "top_p": 0.92,
+            "top_k": 50,
+            "repeat_penalty": 1.15,
+            "num_predict": 1200
         }
     }
 
@@ -104,8 +105,9 @@ async def turnitin_bypass(text: str) -> str:
                         if chunk.get("done", False):
                             break
 
-        return clean_output(result_text) if result_text.strip() else text
+        cleaned = clean_output(result_text)
+        return cleaned if cleaned.strip() else text
 
     except Exception as e:
-        logger.warning(f"Turnitin bypass failed, returning original. Error: {e}")
+        logger.warning(f"Final polish failed, returning original. Error: {e}")
         return text
