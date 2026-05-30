@@ -9,39 +9,31 @@ import logging
 logger = logging.getLogger(__name__)
 
 OLLAMA_URL = "http://localhost:11434/api/generate"
-MODEL_NAME = "llama3.1:8b"
+MODEL_NAME = "llama3.2:latest"
 
-FLOW_PROMPT = """You are a human editor doing a final pass to make text completely undetectable by AI detectors like ZeroGPT.
+SYSTEM_INSTRUCTION = """You are a text editor. Your ONLY job is to output the improved text.
+STRICT RULES:
+- Output ONLY the improved text. Nothing else.
+- Do NOT write anything before the improved text.
+- Do NOT write anything after the improved text.
+- Do NOT say "Here is", "I've edited", "Note:", "I cannot", or any other commentary.
+- Do NOT refuse. Just improve the text.
+- Do NOT add bullet points or lists."""
 
-Your job:
-1. REMOVE every single AI phrase — zero tolerance:
-   "it is worth noting", "furthermore", "subsequently", "it is imperative", "in conclusion",
-   "it can be observed", "delve", "tapestry", "nuanced", "notably", "additionally", "moreover",
-   "it is important to note", "in order to", "one must consider", "it should be noted"
+FLOW_PROMPT = """{system}
 
-2. REPLACE stiff transitions with human ones:
-   Use: "so", "which means", "and", "but", "because of this", "that's why", "here's the thing",
-   "in practice", "that said", "turns out", "honestly", "what's interesting"
+EDITING INSTRUCTIONS:
+1. Remove ALL AI phrases: "furthermore", "subsequently", "it is worth noting", "it is imperative", "in conclusion", "it can be observed", "additionally", "moreover", "it is important to note", "notably", "delve", "tapestry", "nuanced"
+2. Replace with human phrases: "so", "which means", "and", "but", "because of this", "that's why", "in practice", "that said", "turns out", "honestly"
+3. Vary sentence lengths: after two long sentences add one short one (under 8 words)
+4. Add contractions: "it's", "that's", "don't", "can't", "we've", "isn't", "doesn't"
+5. Start 1-2 sentences with "And", "But", or "So"
+6. Keep meaning exactly the same
 
-3. VARY sentence lengths aggressively:
-   - After two long sentences, add one very short one (under 8 words)
-   - Break up sentences that are all the same length
-   - Example rhythm: long. long. Short. long. Short. Short. long.
-
-4. ADD human voice markers naturally:
-   - Contractions: "it's", "that's", "don't", "can't", "we've", "isn't", "doesn't"
-   - Occasional hedging: "in practice", "to be fair", "which is interesting"
-   - Start 1-2 sentences with "And", "But", or "So"
-
-5. Keep meaning exactly the same — do NOT add new information
-
-6. Do NOT add bullet points
-7. Do NOT add any intro or preamble — output the improved text only
-
-Text:
+INPUT TEXT:
 {text}
 
-Improved:"""
+IMPROVED TEXT:"""
 
 
 def split_into_paragraphs(text: str) -> list[str]:
@@ -50,7 +42,7 @@ def split_into_paragraphs(text: str) -> list[str]:
 
 
 async def smooth_chunk(text: str, client: httpx.AsyncClient) -> str:
-    prompt = FLOW_PROMPT.format(text=text)
+    prompt = FLOW_PROMPT.format(system=SYSTEM_INSTRUCTION, text=text)
     payload = {
         "model": MODEL_NAME,
         "prompt": prompt,
@@ -73,13 +65,22 @@ async def smooth_chunk(text: str, client: httpx.AsyncClient) -> str:
                     result_text += chunk.get("response", "")
                     if chunk.get("done", False):
                         break
-        return result_text.strip() if result_text.strip() else text
+
+        # Strip accidental preamble
+        cleaned = result_text.strip()
+        for prefix in ["Here is", "Here's", "I've", "I have", "Note:", "Improved:", "Output:"]:
+            if cleaned.startswith(prefix):
+                newline_idx = cleaned.find("\n")
+                if newline_idx != -1:
+                    cleaned = cleaned[newline_idx:].strip()
+
+        return cleaned if cleaned else text
+
     except Exception as e:
         logger.warning(f"Flow smooth failed, returning original. Error: {e}")
         return text
 
 
-# FIX: Process EVERY paragraph — no skipping short ones
 async def flow_smooth(text: str) -> str:
     paragraphs = split_into_paragraphs(text)
     smoothed_paragraphs = []
