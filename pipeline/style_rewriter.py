@@ -9,143 +9,49 @@ import logging
 logger = logging.getLogger(__name__)
 
 OLLAMA_URL = "http://localhost:11434/api/generate"
-MODEL_NAME = "llama3.1:8b"
+MODEL_NAME = "llama3.2:latest"
 
 TONE_PROMPTS = {
-    "btech_student": """Rewrite the text below so it sounds like a real BTech student wrote it.
-
-Rules:
-- Write like a real student — casual, direct, sometimes imperfect
-- Use "we", "our", "basically", "so", "turns out", "which is why"
-- Mix sentence lengths aggressively — some one-liners, some longer
-- Add personal observations: "what's interesting is", "we noticed that", "honestly"
-- Start some sentences with "And", "But", "So" — students do this naturally
-- Remove ALL of these: "furthermore", "subsequently", "it is worth noting", "it can be observed", "in conclusion", "it is imperative", "additionally", "moreover"
-- Use contractions: "it's", "we've", "don't", "that's", "isn't"
-- Do NOT use bullet points
-- Do NOT add any intro — just write it directly""",
-
-    "storytelling": """Rewrite the text below so it sounds like a real person telling a story.
-
-Rules:
-- Write like a human narrator — warm, direct, with personality
-- Use contractions: "it's", "we've", "don't", "that's", "wasn't"
-- Mix sentence lengths — short dramatic ones, longer flowing ones
-- Add personal voice: "what surprised us", "turns out", "honestly", "which is why"
-- Start some sentences with "And", "But", "So" — storytellers do this
-- Remove ALL: "furthermore", "subsequently", "it is worth noting", "additionally", "moreover"
-- Sound like a real person who lived through this
-- Do NOT use bullet points
-- Do NOT add any intro — just write it directly""",
-
-    "formal_report": """Rewrite the text below for a formal report written by a real thoughtful human — NOT AI.
-
-Rules:
-- Vary sentence length dramatically — one short sentence after two long ones creates human rhythm
-- Add occasional hedging: "in practice", "to be fair", "that said", "this is worth considering"
-- Use contractions sparingly but naturally: "it's", "that's", "doesn't"
-- Remove ALL of: "furthermore", "subsequently", "it is worth noting", "it can be observed", "in conclusion", "it is imperative", "additionally", "moreover", "it is important to note"
-- Replace with: "in practice", "that said", "which means", "so", "this is why", "as a result"
-- Occasionally start a sentence with "And" or "But" — formal human writers do this
-- Sound like a senior analyst wrote this on a deadline — sharp, direct, no fluff
-- Do NOT use bullet points
-- Do NOT add any intro — just write it directly""",
-
-    "academic": """Rewrite the text below for an academic paper written by a real researcher — NOT AI.
-
-Rules:
-- Use academic vocabulary but avoid all AI clichés
-- Remove ALL of: "furthermore", "subsequently", "it is worth noting", "it can be observed", "delve", "tapestry", "nuanced", "it is imperative", "additionally", "moreover"
-- Add natural academic hedging: "this suggests", "one possible explanation", "it appears that", "the data points to"
-- Vary sentence length — short sentences for emphasis after long analytical ones
-- Occasionally use informal bridging: "that said", "in practice", "put simply"
-- Sound like a PhD student writing under pressure — intelligent but human
-- Do NOT use bullet points
-- Do NOT add any intro — just write it directly""",
-
-    "casual": """Rewrite the text below so it sounds like a real person casually explaining something.
-
-Rules:
-- Write like you're talking to a smart friend — relaxed, direct, real
-- Use contractions everywhere: "it's", "we've", "don't", "can't", "that's", "isn't"
-- Short sentences are great. Use them a lot.
-- Add filler-like phrases humans use: "basically", "the thing is", "honestly", "I mean", "which is kind of wild"
-- Remove ALL of: "furthermore", "subsequently", "it is worth noting", "additionally", "moreover"
-- Start sentences with "And", "But", "So" — this is natural
-- Sound genuinely human — imperfect rhythm makes it real
-- Do NOT use bullet points
-- Do NOT add any intro — just write it directly""",
-
-    "formal_professional": """Rewrite the text below for a professional business context written by a real human.
-
-Rules:
-- Be sharp and direct — no vague filler
-- Remove ALL of: "it is worth noting", "furthermore", "subsequently", "it is imperative", "in conclusion", "additionally", "moreover"
-- Use concrete language — say exactly what something does or what happened
-- Vary sentence length — short punchy sentences after longer explanations
-- Add occasional real-person phrases: "in practice", "that said", "to be direct"
-- Sound like a competent professional who writes quickly and clearly
-- Do NOT use bullet points
-- Do NOT add any intro — just write it directly""",
-
-    "conversational": """Rewrite the text below as a blog post written by a real enthusiastic human.
-
-Rules:
-- Write like you genuinely care about this topic
-- Use contractions everywhere: "it's", "we've", "you'll", "that's", "isn't", "don't"
-- Mix short punchy sentences with longer flowing ones
-- Add personal voice: "here's the thing", "what's interesting", "honestly", "that's actually why"
-- Remove ALL: "furthermore", "subsequently", "it is worth noting", "additionally", "moreover"
-- Start sentences with "And", "But", "So", "Here's" — bloggers do this
-- Sound warm, real, and slightly informal
-- Do NOT use bullet points
-- Do NOT add any intro — just write it directly""",
-
-    "technical": """Rewrite the text below as technical documentation written by a real engineer.
-
-Rules:
-- Be precise — say exactly what something does
-- Remove ALL vague filler: "it is important to note", "it can be observed", "in order to", "it is worth noting"
-- Use active voice: "the system fetches..." not "the fetching of data is performed by..."
-- Keep sentences short and scannable — engineers skim
-- Add occasional dev-voice phrases: "in practice", "under the hood", "which means", "so basically"
-- Start some sentences with "And" or "But" — engineers write like this
-- Sound like a developer writing for other developers
-- Do NOT use bullet points
-- Do NOT add any intro — just write it directly""",
-
-    "creative": """Rewrite the text below in a creative, expressive way that sounds like a real human writer.
-
-Rules:
-- Use vivid but natural language — not over-the-top
-- Vary sentence rhythm dramatically — short punchy ones, then longer flowing ones
-- Avoid ALL AI clichés: "delve", "it is worth noting", "furthermore", "tapestry", "nuanced", "moreover"
-- Write with personality — let your voice show
-- Add human asides: "which is fascinating", "honestly", "and that matters"
-- Imperfect rhythm is good — it sounds more real
-- Do NOT use bullet points
-- Do NOT add any intro — just write it directly""",
+    "btech_student": "Rewrite as a real BTech student. Use 'we', 'our', 'basically', 'so', contractions. Mix short and long sentences. Start some with 'And', 'But', 'So'. No AI phrases like 'furthermore', 'additionally', 'it is worth noting'.",
+    "storytelling": "Rewrite as a human storyteller. Warm, direct, personal. Use contractions. Mix sentence lengths. Start some with 'And', 'But', 'So'. No AI phrases.",
+    "formal_report": "Rewrite for a formal report by a real human. Vary sentence lengths. Use 'in practice', 'that said', 'which means'. Occasional contractions. No AI phrases like 'furthermore', 'additionally', 'it is worth noting', 'it is imperative'.",
+    "academic": "Rewrite for an academic paper by a real researcher. Use hedging: 'this suggests', 'it appears that'. Vary sentence lengths. Use 'that said', 'in practice'. No AI phrases like 'furthermore', 'additionally', 'it is worth noting'.",
+    "casual": "Rewrite casually like talking to a friend. Use contractions everywhere. Short sentences. Add 'basically', 'the thing is', 'honestly'. Start sentences with 'And', 'But', 'So'. No AI phrases.",
+    "formal_professional": "Rewrite for professional business context. Sharp and direct. Vary sentence lengths. Use 'in practice', 'that said'. No AI phrases like 'furthermore', 'additionally', 'it is worth noting'.",
+    "conversational": "Rewrite as a blog post by a real person. Use contractions everywhere. Mix short and long sentences. Add 'here's the thing', 'honestly', 'what's interesting'. Start sentences with 'And', 'But', 'So'. No AI phrases.",
+    "technical": "Rewrite as technical docs by a real engineer. Precise and direct. Active voice. Short sentences. Use 'in practice', 'under the hood'. No vague filler phrases.",
+    "creative": "Rewrite creatively with personality. Vary sentence rhythm dramatically. No AI clichés: 'delve', 'tapestry', 'nuanced', 'furthermore'. Add human asides.",
 }
 
 AGGRESSIVENESS_INSTRUCTIONS = {
-    1: "Make light changes — fix flow and awkward phrasing but stay close to the original wording. Keep most sentences intact.",
-    2: "Moderately rewrite — restructure sentences, improve naturalness, add human-sounding connectors and occasional contractions.",
-    3: "Heavily rewrite — significantly rephrase everything. Vary sentence lengths dramatically. Add personal voice, contractions, and natural human hesitations. Make it sound like a real person wrote this from scratch while keeping the core meaning."
+    1: "Make light changes only. Stay close to original wording.",
+    2: "Moderately rewrite. Restructure sentences and add natural connectors.",
+    3: "Heavily rewrite. Vary lengths dramatically. Add contractions and personal voice."
 }
+
+SYSTEM_INSTRUCTION = """You are a text rewriter. Your ONLY job is to output the rewritten text.
+STRICT RULES:
+- Output ONLY the rewritten text. Nothing else.
+- Do NOT write anything before the rewritten text.
+- Do NOT write anything after the rewritten text.
+- Do NOT say "Here is", "I've rewritten", "Note:", "I cannot", or any other commentary.
+- Do NOT refuse. Just rewrite.
+- Do NOT add bullet points or lists."""
 
 
 async def rewrite_chunk(text: str, tone: str, aggressiveness: int, client: httpx.AsyncClient) -> str:
-    tone_prompt = TONE_PROMPTS.get(tone, TONE_PROMPTS["formal_report"])
+    tone_instruction = TONE_PROMPTS.get(tone, TONE_PROMPTS["formal_report"])
     aggr_instruction = AGGRESSIVENESS_INSTRUCTIONS.get(aggressiveness, AGGRESSIVENESS_INSTRUCTIONS[2])
 
-    prompt = f"""{tone_prompt}
+    prompt = f"""{SYSTEM_INSTRUCTION}
 
-Aggressiveness level: {aggr_instruction}
+Style: {tone_instruction}
+Intensity: {aggr_instruction}
 
-Text to rewrite:
+INPUT TEXT:
 {text}
 
-Rewritten:"""
+REWRITTEN TEXT:"""
 
     temperature = 0.75 + (aggressiveness * 0.1)
 
@@ -172,14 +78,23 @@ Rewritten:"""
                     result_text += chunk.get("response", "")
                     if chunk.get("done", False):
                         break
-        return result_text.strip() if result_text.strip() else text
+
+        # Strip any accidental preamble the model adds
+        cleaned = result_text.strip()
+        for prefix in ["Here is", "Here's", "I've", "I have", "Note:", "Rewritten:", "Output:"]:
+            if cleaned.startswith(prefix):
+                # Find the first newline and skip the preamble line
+                newline_idx = cleaned.find("\n")
+                if newline_idx != -1:
+                    cleaned = cleaned[newline_idx:].strip()
+
+        return cleaned if cleaned else text
 
     except Exception as e:
-        logger.warning(f"LLM rewrite failed for chunk, returning original. Error: {e}")
+        logger.warning(f"LLM rewrite failed, returning original. Error: {e}")
         return text
 
 
-# FIX: Process each unit individually — no batching
 async def style_rewrite(merged_units: list[str], tone: str, aggressiveness: int) -> list[str]:
     rewritten = []
     async with httpx.AsyncClient(timeout=None) as client:
