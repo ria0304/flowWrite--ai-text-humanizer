@@ -1,7 +1,3 @@
-"""
-pipeline/style_rewriter.py
-"""
-
 import httpx
 import json
 import logging
@@ -12,34 +8,36 @@ OLLAMA_URL = "http://localhost:11434/api/generate"
 MODEL_NAME = "llama3.2:latest"
 
 TONE_PROMPTS = {
-    "btech_student": "Rewrite as a real BTech student writing a report. Use 'we', 'our', 'basically', 'so', contractions. Mix short and long sentences. Start some with 'And', 'But', 'So'. Use pronouns like 'we found', 'we noticed'. NEVER use: 'furthermore', 'additionally', 'it is worth noting', 'crucial', 'fundamental', 'significant', 'ultimately', 'leverage', 'delve', 'multifaceted', 'unprecedented'.",
-    "storytelling": "Rewrite as a human storyteller. Warm, direct, personal. Use contractions. Mix sentence lengths dramatically — one very short, one long. Start some with 'And', 'But', 'So'. NEVER use: 'furthermore', 'additionally', 'crucial', 'significant', 'unprecedented', 'multifaceted'.",
-    "formal_report": "Rewrite for a formal report by a real human analyst. Vary sentence lengths — some under 10 words, some over 25. Use 'in practice', 'that said', 'which means'. Occasional contractions like 'it's', 'that's'. NEVER use: 'furthermore', 'additionally', 'it is worth noting', 'it is imperative', 'crucial', 'fundamental', 'leverage', 'multifaceted', 'unprecedented'.",
-    "academic": "Rewrite for an academic paper by a real researcher. Use hedging: 'this suggests', 'it appears that', 'our results indicate'. Vary sentence lengths. Use 'that said', 'in practice'. Use first person plural 'we'. NEVER use: 'furthermore', 'additionally', 'it is worth noting', 'crucial', 'fundamental', 'unprecedented'.",
-    "casual": "Rewrite casually like texting a smart friend. Use contractions everywhere. Short punchy sentences. Add 'basically', 'the thing is', 'honestly', 'look'. Start sentences with 'And', 'But', 'So'. NEVER use: 'furthermore', 'additionally', 'crucial', 'significant', 'unprecedented', 'multifaceted', 'leverage'.",
-    "formal_professional": "Rewrite for a professional business memo. Sharp and direct. Vary sentence lengths. Use 'in practice', 'that said', 'the reality is'. NEVER use: 'furthermore', 'additionally', 'it is worth noting', 'crucial', 'leverage', 'multifaceted', 'unprecedented'.",
-    "conversational": "Rewrite as a blog post by a real person. Use contractions everywhere. Mix short and long sentences. Add 'here's the thing', 'honestly', 'what's interesting is'. Start sentences with 'And', 'But', 'So'. Use 'I' and 'you'. NEVER use: 'furthermore', 'additionally', 'crucial', 'significant', 'unprecedented', 'multifaceted'.",
-    "technical": "Rewrite as technical docs by a real engineer. Precise and direct. Active voice. Short sentences preferred. Use 'in practice', 'under the hood', 'the key thing here'. NEVER use vague filler or: 'furthermore', 'additionally', 'crucial', 'leverage', 'multifaceted'.",
-    "creative": "Rewrite creatively with personality and rhythm. Vary sentence lengths dramatically. Add human asides and opinions. NEVER use: 'delve', 'tapestry', 'nuanced', 'furthermore', 'crucial', 'multifaceted', 'unprecedented', 'leverage'.",
+    "btech_student": "Rewrite as a real BTech student writing a report. Keep it natural, clear, and direct. Use a simple student voice. Preserve the meaning.",
+    "storytelling": "Rewrite as a human storyteller. Make it warm, direct, and personal. Keep the meaning the same.",
+    "formal_report": "Rewrite for a formal report. Keep it professional, clear, and readable. Preserve the meaning and structure as much as possible.",
+    "academic": "Rewrite for an academic paper. Keep the tone measured, precise, and clear. Preserve the meaning.",
+    "casual": "Rewrite casually like texting a smart friend. Keep it natural and easy to read. Preserve the meaning.",
+    "formal_professional": "Rewrite for a professional business memo. Keep it sharp, clear, and direct. Preserve the meaning.",
+    "conversational": "Rewrite as a blog post by a real person. Keep it natural, conversational, and easy to follow. Preserve the meaning.",
+    "technical": "Rewrite as technical documentation by a real engineer. Keep it precise, direct, and clear. Preserve the meaning.",
+    "creative": "Rewrite creatively with personality and rhythm. Keep it natural while preserving the meaning.",
 }
 
 AGGRESSIVENESS_INSTRUCTIONS = {
-    1: "Make light changes only. Stay close to original wording but fix any AI phrases.",
-    2: "Moderately rewrite. Restructure sentences, add natural connectors, vary lengths clearly.",
-    3: "Heavily rewrite. Vary sentence lengths dramatically (some 5 words, some 30+). Add contractions, personal voice, and natural imperfections. Break up long formal sentences."
+    1: "Make light edits only. Improve wording and clarity while staying very close to the original.",
+    2: "Moderately rewrite. Improve flow, sentence variety, and readability while preserving meaning.",
+    3: "Heavily rewrite. Improve structure and flow more noticeably while keeping all facts and meaning intact."
 }
 
-SYSTEM_INSTRUCTION = """You are a text rewriter. Your ONLY job is to output the rewritten text.
-STRICT RULES:
-- Output ONLY the rewritten text. Nothing else.
-- Do NOT write anything before or after the rewritten text.
-- Do NOT say "Here is", "I've rewritten", "Note:", "I cannot", or any commentary.
-- Do NOT refuse. Just rewrite.
-- Do NOT add bullet points or lists.
-- REDUCE average sentence length — aim for 18-22 words average, not 28+.
-- USE more pronouns (I, we, you, they) as sentence subjects instead of abstract nouns.
-- AVOID starting 3 sentences in a row with the same structure."""
+SYSTEM_INSTRUCTION = """You are a text rewriter.
+Your only job is to output the rewritten text.
 
+STRICT RULES:
+- Output only the rewritten text.
+- Do not add commentary, bullet points, or explanations.
+- Do not add headings unless they already exist in the input.
+- Preserve the meaning.
+- Keep the tone consistent with the selected style.
+- Improve clarity, flow, and readability.
+- Avoid repetition.
+- Do not introduce new facts or opinions.
+"""
 
 async def rewrite_chunk(text: str, tone: str, aggressiveness: int, client: httpx.AsyncClient) -> str:
     tone_instruction = TONE_PROMPTS.get(tone, TONE_PROMPTS["formal_report"])
@@ -47,25 +45,28 @@ async def rewrite_chunk(text: str, tone: str, aggressiveness: int, client: httpx
 
     prompt = f"""{SYSTEM_INSTRUCTION}
 
-Style: {tone_instruction}
-Intensity: {aggr_instruction}
+Style:
+{tone_instruction}
+
+Editing level:
+{aggr_instruction}
 
 INPUT TEXT:
 {text}
 
 REWRITTEN TEXT:"""
 
-    temperature = 0.82 + (aggressiveness * 0.08)
+    temperature = 0.75 + (aggressiveness * 0.05)
 
     payload = {
         "model": MODEL_NAME,
         "prompt": prompt,
         "stream": True,
         "options": {
-            "temperature": min(temperature, 1.0),
-            "top_p": 0.93,
-            "top_k": 55,
-            "repeat_penalty": 1.25,
+            "temperature": min(temperature, 0.95),
+            "top_p": 0.92,
+            "top_k": 50,
+            "repeat_penalty": 1.15,
             "num_predict": 1024
         }
     }
