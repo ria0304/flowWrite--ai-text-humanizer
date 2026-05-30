@@ -1,16 +1,18 @@
+"""
+pipeline/pipeline_controller.py
+"""
 import logging
-
 from pipeline.chunker import chunk_text
 from pipeline.semantic_merge import semantic_merge
 from pipeline.style_rewriter import style_rewrite
 from pipeline.flow_smoother import flow_smooth
+from pipeline.line_breaker import apply_line_break_trick
 from evaluation.hls import compute_hls
 
 logger = logging.getLogger(__name__)
 
 MAX_WORDS = 5000
 NUM_CANDIDATES = 3
-
 
 def _quality_score(hls_result: dict) -> float:
     dims = hls_result["dimensions"]
@@ -22,16 +24,6 @@ def _quality_score(hls_result: dict) -> float:
         + 0.20 * dims["similarity"]["score"],
         3,
     )
-
-
-async def _build_candidate(text: str, tone: str, aggressiveness: int) -> str:
-    chunks = chunk_text(text)
-    merged = semantic_merge(chunks)
-    rewritten = await style_rewrite(merged, tone, aggressiveness)
-    combined = "\n\n".join(rewritten)
-    smoothed = await flow_smooth(combined)
-    return smoothed
-
 
 async def run_pipeline(text: str, tone: str = "formal_report", aggressiveness: int = 2) -> dict:
     word_count = len(text.split())
@@ -74,13 +66,20 @@ async def run_pipeline(text: str, tone: str = "formal_report", aggressiveness: i
 
     logger.info(f"Best candidate score: {best_score}")
 
+    # Stage 5 — Line break fragmentation
+    logger.info("Stage 5: Line break fragmentation...")
+    final = apply_line_break_trick(best_text)
+
+    logger.info("Pipeline complete.")
+
     return {
-        "final": best_text,
+        "final": final,
         "stages": {
             "chunking": f"{len(chunks)} chunks created",
             "semantic_merge": f"{len(merged)} units after merge",
             "candidates": f"{NUM_CANDIDATES} candidates generated",
             "selection": "best candidate selected by quality score",
+            "line_break_fragmentation": "done",
         },
         "evaluation": best_eval,
         "best_score": best_score,
