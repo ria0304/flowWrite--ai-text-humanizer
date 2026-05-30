@@ -1,7 +1,3 @@
-"""
-pipeline/flow_smoother.py
-"""
-
 import httpx
 import json
 import logging
@@ -11,24 +7,28 @@ logger = logging.getLogger(__name__)
 OLLAMA_URL = "http://localhost:11434/api/generate"
 MODEL_NAME = "llama3.2:latest"
 
-SYSTEM_INSTRUCTION = """You are a text editor. Your ONLY job is to output the improved text.
+SYSTEM_INSTRUCTION = """You are a text editor.
+Your only job is to output the improved text.
+
 STRICT RULES:
-- Output ONLY the improved text. Nothing else.
-- Do NOT write anything before the improved text.
-- Do NOT write anything after the improved text.
-- Do NOT say "Here is", "I've edited", "Note:", "I cannot", or any other commentary.
-- Do NOT refuse. Just improve the text.
-- Do NOT add bullet points or lists."""
+- Output only the improved text.
+- Do not add commentary, explanations, or bullet points.
+- Do not add headings unless they already exist in the input.
+- Preserve the meaning.
+- Improve clarity, flow, and readability.
+- Keep the tone natural and consistent.
+- Avoid repetition and awkward phrasing.
+"""
 
 FLOW_PROMPT = """{system}
 
 EDITING INSTRUCTIONS:
-1. Remove ALL AI phrases: "furthermore", "subsequently", "it is worth noting", "it is imperative", "in conclusion", "it can be observed", "additionally", "moreover", "it is important to note", "notably", "delve", "tapestry", "nuanced"
-2. Replace with human phrases: "so", "which means", "and", "but", "because of this", "that's why", "in practice", "that said", "turns out", "honestly"
-3. Vary sentence lengths: after two long sentences add one short one (under 8 words)
-4. Add contractions: "it's", "that's", "don't", "can't", "we've", "isn't", "doesn't"
-5. Start 1-2 sentences with "And", "But", or "So"
-6. Keep meaning exactly the same
+1. Improve sentence flow and readability.
+2. Remove repeated phrasing and unnecessary filler.
+3. Keep the meaning exactly the same.
+4. Preserve paragraph structure unless a small change improves clarity.
+5. Make the text sound natural and smooth.
+6. Do not add new ideas.
 
 INPUT TEXT:
 {text}
@@ -48,13 +48,14 @@ async def smooth_chunk(text: str, client: httpx.AsyncClient) -> str:
         "prompt": prompt,
         "stream": True,
         "options": {
-            "temperature": 0.82,
-            "top_p": 0.93,
+            "temperature": 0.65,
+            "top_p": 0.92,
             "top_k": 50,
-            "repeat_penalty": 1.2,
+            "repeat_penalty": 1.15,
             "num_predict": 900
         }
     }
+
     try:
         result_text = ""
         async with client.stream("POST", OLLAMA_URL, json=payload) as response:
@@ -66,7 +67,6 @@ async def smooth_chunk(text: str, client: httpx.AsyncClient) -> str:
                     if chunk.get("done", False):
                         break
 
-        # Strip accidental preamble
         cleaned = result_text.strip()
         for prefix in ["Here is", "Here's", "I've", "I have", "Note:", "Improved:", "Output:"]:
             if cleaned.startswith(prefix):
