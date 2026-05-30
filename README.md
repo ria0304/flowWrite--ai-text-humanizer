@@ -10,6 +10,23 @@ A multi-pass NLP pipeline that rewrites AI-generated text into natural, human-li
 
 ---
 
+## Detection Results
+
+Tested on 1000+ word AI-generated text:
+
+| Detector | Before | After |
+|:---------|:------:|:-----:|
+| Turnitin | ❌ AI | ✅ Human |
+| GPTZero | ❌ AI | ✅ Human |
+| ZeroGPT | ❌ AI | ✅ Human |
+| Copyleaks | ❌ AI | ✅ Human |
+| OriginalityAI | ❌ AI | ✅ Human |
+| Sapling.ai | ❌ AI | ✅ Human |
+| Crossplag | ❌ AI | ✅ Human |
+| Gowinston.ai | ❌ AI | ✅ Human |
+
+---
+
 ## How It Works
 
 FlowWrite runs text through 5 sequential stages, generates multiple rewrite candidates, scores each one using a Human Likeness Score (HLS), and returns the best result.
@@ -54,23 +71,6 @@ Input Text
                        ▼
                  Human-like Output
 ```
-
----
-
-## Detection Results
-
-Tested on 1000+ word AI-generated text:
-
-| Detector | Before | After |
-|:---------|:------:|:-----:|
-| Turnitin | ❌ AI | ✅ Human |
-| GPTZero | ❌ AI | ✅ Human |
-| ZeroGPT | ❌ AI | ✅ Human |
-| Copyleaks | ❌ AI | ✅ Human |
-| OriginalityAI | ❌ AI | ✅ Human |
-| Sapling.ai | ❌ AI | ✅ Human |
-| Crossplag | ❌ AI | ✅ Human |
-| Gowinston.ai | ❌ AI | ✅ Human |
 
 ---
 
@@ -173,7 +173,7 @@ curl -X POST http://localhost:8000/rewrite \
 
 ## Human Likeness Score (HLS)
 
-Every rewrite is scored across 6 dimensions. The pipeline generates 3 candidates and returns the one with the highest weighted HLS.
+Every rewrite is scored across 5 dimensions. The pipeline generates 3 candidates and returns the one with the highest weighted HLS.
 
 | Metric | Weight | What it measures |
 |:-------|:------:|:----------------|
@@ -182,6 +182,34 @@ Every rewrite is scored across 6 dimensions. The pipeline generates 3 candidates
 | Coherence | 10% | Logical flow between sentences |
 | Connector density | 10% | Natural transition word usage |
 | Semantic similarity | 10% | Meaning preserved vs original |
+
+---
+
+## Benchmark
+
+FlowWrite includes a benchmark suite of 10 AI-generated sample texts across 5 domains for testing and evaluation.
+
+| Domain | Files | Tone used |
+|:-------|:-----:|:----------|
+| Academic | 3 | `academic` |
+| Blog | 2 | `conversational` |
+| Technical | 2 | `technical` |
+| Business | 2 | `formal_professional` |
+| Healthcare | 1 | `formal_report` |
+
+Run a benchmark test:
+
+```bash
+curl -X POST http://localhost:8000/rewrite-and-evaluate \
+  -H "Content-Type: application/json" \
+  -d '{
+    "text": "'$(cat tests/samples/academic_01.txt)'",
+    "tone": "academic",
+    "aggressiveness": 2
+  }'
+```
+
+Results are tracked in [`tests/samples/benchmark_notes.md`](./tests/samples/benchmark_notes.md).
 
 ---
 
@@ -210,7 +238,7 @@ SIMILARITY_THRESHOLD = 0.55  # higher = less merging, lower = more merging
 ## Project Structure
 
 ```
-humanizer_fixed/
+flowWrite--ai-text-humanizer/
 ├── evaluation/
 │   ├── ai_phrase_detector.py
 │   ├── burstiness.py
@@ -226,6 +254,19 @@ humanizer_fixed/
 │   ├── flow_smoother.py
 │   ├── line_breaker.py
 │   └── pipeline_controller.py
+├── tests/
+│   └── samples/
+│       ├── academic_01.txt
+│       ├── academic_02.txt
+│       ├── academic_03.txt
+│       ├── blog_01.txt
+│       ├── blog_02.txt
+│       ├── technical_01.txt
+│       ├── technical_02.txt
+│       ├── business_01.txt
+│       ├── business_02.txt
+│       ├── healthcare_01.txt
+│       └── benchmark_notes.md
 ├── shared_models.py
 ├── main.py
 ├── index.html
