@@ -2,6 +2,7 @@ from fastapi import FastAPI, HTTPException, UploadFile, File, Form
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from pipeline.pipeline_controller import run_pipeline
+from pipeline.pipeline_controller_v2 import run_pipeline_v2
 from evaluation.hls import compute_hls
 import logging
 import time
@@ -59,7 +60,6 @@ async def rewrite(req: RewriteRequest):
     """Rewrite text through the full pipeline."""
     if not req.text.strip():
         raise HTTPException(status_code=400, detail="Text cannot be empty.")
-
     if req.aggressiveness not in (1, 2, 3):
         raise HTTPException(status_code=400, detail="Aggressiveness must be 1, 2, or 3.")
 
@@ -80,28 +80,36 @@ async def rewrite(req: RewriteRequest):
         raise HTTPException(status_code=500, detail=str(e))
 
 
-@app.post("/evaluate")
-async def evaluate(req: EvaluateRequest):
-    """Evaluate original and rewritten text using HLS metrics."""
-    if not req.original.strip() or not req.rewritten.strip():
-        raise HTTPException(status_code=400, detail="Both original and rewritten text required.")
+@app.post("/rewrite-v2", response_model=RewriteResponse)
+async def rewrite_v2(req: RewriteRequest):
+    """V2 pipeline — no flow smoother. For Day 2 comparison testing."""
+    if not req.text.strip():
+        raise HTTPException(status_code=400, detail="Text cannot be empty.")
+    if req.aggressiveness not in (1, 2, 3):
+        raise HTTPException(status_code=400, detail="Aggressiveness must be 1, 2, or 3.")
+
+    start = time.time()
     try:
-        result = compute_hls(req.original, req.rewritten)
-        return result
+        result = await run_pipeline_v2(req.text, req.tone, req.aggressiveness)
+        elapsed = round(time.time() - start, 2)
+        logger.info(f"/rewrite-v2 completed in {elapsed}s")
+        return RewriteResponse(
+            original=req.text,
+            rewritten=result["final"],
+            stages=result["stages"]
+        )
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
     except Exception as e:
-        logger.error(f"Evaluation error: {e}", exc_info=True)
+        logger.error(f"Pipeline v2 error: {e}", exc_info=True)
         raise HTTPException(status_code=500, detail=str(e))
 
 
 @app.post("/rewrite-and-evaluate")
 async def rewrite_and_evaluate(req: RewriteRequest):
-    """
-    Rewrite text and evaluate it in one API call.
-    Returns rewritten text plus HLS evaluation scores.
-    """
+    """Rewrite text and evaluate it in one API call."""
     if not req.text.strip():
         raise HTTPException(status_code=400, detail="Text cannot be empty.")
-
     if req.aggressiveness not in (1, 2, 3):
         raise HTTPException(status_code=400, detail="Aggressiveness must be 1, 2, or 3.")
 
@@ -110,10 +118,8 @@ async def rewrite_and_evaluate(req: RewriteRequest):
         result = await run_pipeline(req.text, req.tone, req.aggressiveness)
         rewritten = result["final"]
         evaluation = compute_hls(req.text, rewritten)
-
         elapsed = round(time.time() - start, 2)
         logger.info(f"/rewrite-and-evaluate completed in {elapsed}s")
-
         return {
             "original": req.text,
             "rewritten": rewritten,
@@ -125,6 +131,49 @@ async def rewrite_and_evaluate(req: RewriteRequest):
         raise HTTPException(status_code=400, detail=str(e))
     except Exception as e:
         logger.error(f"Rewrite+evaluate error: {e}", exc_info=True)
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.post("/rewrite-and-evaluate-v2")
+async def rewrite_and_evaluate_v2(req: RewriteRequest):
+    """V2 pipeline — rewrite and evaluate in one call. For Day 2 comparison testing."""
+    if not req.text.strip():
+        raise HTTPException(status_code=400, detail="Text cannot be empty.")
+    if req.aggressiveness not in (1, 2, 3):
+        raise HTTPException(status_code=400, detail="Aggressiveness must be 1, 2, or 3.")
+
+    start = time.time()
+    try:
+        result = await run_pipeline_v2(req.text, req.tone, req.aggressiveness)
+        rewritten = result["final"]
+        evaluation = compute_hls(req.text, rewritten)
+        elapsed = round(time.time() - start, 2)
+        logger.info(f"/rewrite-and-evaluate-v2 completed in {elapsed}s")
+        return {
+            "original": req.text,
+            "rewritten": rewritten,
+            "stages": result["stages"],
+            "evaluation": evaluation,
+            "processing_time_seconds": elapsed,
+            "pipeline_version": "v2"
+        }
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+    except Exception as e:
+        logger.error(f"Rewrite+evaluate v2 error: {e}", exc_info=True)
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.post("/evaluate")
+async def evaluate(req: EvaluateRequest):
+    """Evaluate original and rewritten text using HLS metrics."""
+    if not req.original.strip() or not req.rewritten.strip():
+        raise HTTPException(status_code=400, detail="Both original and rewritten text required.")
+    try:
+        result = compute_hls(req.original, req.rewritten)
+        return result
+    except Exception as e:
+        logger.error(f"Evaluation error: {e}", exc_info=True)
         raise HTTPException(status_code=500, detail=str(e))
 
 
