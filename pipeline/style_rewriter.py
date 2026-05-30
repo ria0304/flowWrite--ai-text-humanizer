@@ -12,31 +12,33 @@ OLLAMA_URL = "http://localhost:11434/api/generate"
 MODEL_NAME = "llama3.2:latest"
 
 TONE_PROMPTS = {
-    "btech_student": "Rewrite as a real BTech student. Use 'we', 'our', 'basically', 'so', contractions. Mix short and long sentences. Start some with 'And', 'But', 'So'. No AI phrases like 'furthermore', 'additionally', 'it is worth noting'.",
-    "storytelling": "Rewrite as a human storyteller. Warm, direct, personal. Use contractions. Mix sentence lengths. Start some with 'And', 'But', 'So'. No AI phrases.",
-    "formal_report": "Rewrite for a formal report by a real human. Vary sentence lengths. Use 'in practice', 'that said', 'which means'. Occasional contractions. No AI phrases like 'furthermore', 'additionally', 'it is worth noting', 'it is imperative'.",
-    "academic": "Rewrite for an academic paper by a real researcher. Use hedging: 'this suggests', 'it appears that'. Vary sentence lengths. Use 'that said', 'in practice'. No AI phrases like 'furthermore', 'additionally', 'it is worth noting'.",
-    "casual": "Rewrite casually like talking to a friend. Use contractions everywhere. Short sentences. Add 'basically', 'the thing is', 'honestly'. Start sentences with 'And', 'But', 'So'. No AI phrases.",
-    "formal_professional": "Rewrite for professional business context. Sharp and direct. Vary sentence lengths. Use 'in practice', 'that said'. No AI phrases like 'furthermore', 'additionally', 'it is worth noting'.",
-    "conversational": "Rewrite as a blog post by a real person. Use contractions everywhere. Mix short and long sentences. Add 'here's the thing', 'honestly', 'what's interesting'. Start sentences with 'And', 'But', 'So'. No AI phrases.",
-    "technical": "Rewrite as technical docs by a real engineer. Precise and direct. Active voice. Short sentences. Use 'in practice', 'under the hood'. No vague filler phrases.",
-    "creative": "Rewrite creatively with personality. Vary sentence rhythm dramatically. No AI clichés: 'delve', 'tapestry', 'nuanced', 'furthermore'. Add human asides.",
+    "btech_student": "Rewrite as a real BTech student writing a report. Use 'we', 'our', 'basically', 'so', contractions. Mix short and long sentences. Start some with 'And', 'But', 'So'. Use pronouns like 'we found', 'we noticed'. NEVER use: 'furthermore', 'additionally', 'it is worth noting', 'crucial', 'fundamental', 'significant', 'ultimately', 'leverage', 'delve', 'multifaceted', 'unprecedented'.",
+    "storytelling": "Rewrite as a human storyteller. Warm, direct, personal. Use contractions. Mix sentence lengths dramatically — one very short, one long. Start some with 'And', 'But', 'So'. NEVER use: 'furthermore', 'additionally', 'crucial', 'significant', 'unprecedented', 'multifaceted'.",
+    "formal_report": "Rewrite for a formal report by a real human analyst. Vary sentence lengths — some under 10 words, some over 25. Use 'in practice', 'that said', 'which means'. Occasional contractions like 'it's', 'that's'. NEVER use: 'furthermore', 'additionally', 'it is worth noting', 'it is imperative', 'crucial', 'fundamental', 'leverage', 'multifaceted', 'unprecedented'.",
+    "academic": "Rewrite for an academic paper by a real researcher. Use hedging: 'this suggests', 'it appears that', 'our results indicate'. Vary sentence lengths. Use 'that said', 'in practice'. Use first person plural 'we'. NEVER use: 'furthermore', 'additionally', 'it is worth noting', 'crucial', 'fundamental', 'unprecedented'.",
+    "casual": "Rewrite casually like texting a smart friend. Use contractions everywhere. Short punchy sentences. Add 'basically', 'the thing is', 'honestly', 'look'. Start sentences with 'And', 'But', 'So'. NEVER use: 'furthermore', 'additionally', 'crucial', 'significant', 'unprecedented', 'multifaceted', 'leverage'.",
+    "formal_professional": "Rewrite for a professional business memo. Sharp and direct. Vary sentence lengths. Use 'in practice', 'that said', 'the reality is'. NEVER use: 'furthermore', 'additionally', 'it is worth noting', 'crucial', 'leverage', 'multifaceted', 'unprecedented'.",
+    "conversational": "Rewrite as a blog post by a real person. Use contractions everywhere. Mix short and long sentences. Add 'here's the thing', 'honestly', 'what's interesting is'. Start sentences with 'And', 'But', 'So'. Use 'I' and 'you'. NEVER use: 'furthermore', 'additionally', 'crucial', 'significant', 'unprecedented', 'multifaceted'.",
+    "technical": "Rewrite as technical docs by a real engineer. Precise and direct. Active voice. Short sentences preferred. Use 'in practice', 'under the hood', 'the key thing here'. NEVER use vague filler or: 'furthermore', 'additionally', 'crucial', 'leverage', 'multifaceted'.",
+    "creative": "Rewrite creatively with personality and rhythm. Vary sentence lengths dramatically. Add human asides and opinions. NEVER use: 'delve', 'tapestry', 'nuanced', 'furthermore', 'crucial', 'multifaceted', 'unprecedented', 'leverage'.",
 }
 
 AGGRESSIVENESS_INSTRUCTIONS = {
-    1: "Make light changes only. Stay close to original wording.",
-    2: "Moderately rewrite. Restructure sentences and add natural connectors.",
-    3: "Heavily rewrite. Vary lengths dramatically. Add contractions and personal voice."
+    1: "Make light changes only. Stay close to original wording but fix any AI phrases.",
+    2: "Moderately rewrite. Restructure sentences, add natural connectors, vary lengths clearly.",
+    3: "Heavily rewrite. Vary sentence lengths dramatically (some 5 words, some 30+). Add contractions, personal voice, and natural imperfections. Break up long formal sentences."
 }
 
 SYSTEM_INSTRUCTION = """You are a text rewriter. Your ONLY job is to output the rewritten text.
 STRICT RULES:
 - Output ONLY the rewritten text. Nothing else.
-- Do NOT write anything before the rewritten text.
-- Do NOT write anything after the rewritten text.
-- Do NOT say "Here is", "I've rewritten", "Note:", "I cannot", or any other commentary.
+- Do NOT write anything before or after the rewritten text.
+- Do NOT say "Here is", "I've rewritten", "Note:", "I cannot", or any commentary.
 - Do NOT refuse. Just rewrite.
-- Do NOT add bullet points or lists."""
+- Do NOT add bullet points or lists.
+- REDUCE average sentence length — aim for 18-22 words average, not 28+.
+- USE more pronouns (I, we, you, they) as sentence subjects instead of abstract nouns.
+- AVOID starting 3 sentences in a row with the same structure."""
 
 
 async def rewrite_chunk(text: str, tone: str, aggressiveness: int, client: httpx.AsyncClient) -> str:
@@ -53,7 +55,7 @@ INPUT TEXT:
 
 REWRITTEN TEXT:"""
 
-    temperature = 0.75 + (aggressiveness * 0.1)
+    temperature = 0.82 + (aggressiveness * 0.08)
 
     payload = {
         "model": MODEL_NAME,
@@ -61,9 +63,9 @@ REWRITTEN TEXT:"""
         "stream": True,
         "options": {
             "temperature": min(temperature, 1.0),
-            "top_p": 0.92,
-            "top_k": 50,
-            "repeat_penalty": 1.2,
+            "top_p": 0.93,
+            "top_k": 55,
+            "repeat_penalty": 1.25,
             "num_predict": 1024
         }
     }
@@ -79,11 +81,9 @@ REWRITTEN TEXT:"""
                     if chunk.get("done", False):
                         break
 
-        # Strip any accidental preamble the model adds
         cleaned = result_text.strip()
         for prefix in ["Here is", "Here's", "I've", "I have", "Note:", "Rewritten:", "Output:"]:
             if cleaned.startswith(prefix):
-                # Find the first newline and skip the preamble line
                 newline_idx = cleaned.find("\n")
                 if newline_idx != -1:
                     cleaned = cleaned[newline_idx:].strip()
