@@ -7,28 +7,36 @@ logger = logging.getLogger(__name__)
 OLLAMA_URL = "http://localhost:11434/api/generate"
 MODEL_NAME = "llama3.2:latest"
 
-SYSTEM_INSTRUCTION = """You are a text editor.
-Your only job is to output the improved text.
-
+SYSTEM_INSTRUCTION = """You are a text editor. Output ONLY the edited text.
 STRICT RULES:
-- Output only the improved text.
-- Do not add commentary, explanations, or bullet points.
-- Do not add headings unless they already exist in the input.
-- Preserve the meaning.
-- Improve clarity, flow, and readability.
-- Keep the tone natural and consistent.
-- Avoid repetition and awkward phrasing.
+- Output ONLY the edited text. Nothing else.
+- Do NOT add commentary, explanations, or bullet points.
+- Do NOT say "Here is", "I've edited", "Note:", or anything similar.
+- Preserve the meaning exactly.
+- Do NOT make the text more formal or complex.
+- Do NOT replace simple words with longer ones.
+- Do NOT add words like: significant, crucial, fundamental, leverage, implement, facilitate.
 """
 
 FLOW_PROMPT = """{system}
 
 EDITING INSTRUCTIONS:
-1. Improve sentence flow and readability.
-2. Remove repeated phrasing and unnecessary filler.
-3. Keep the meaning exactly the same.
-4. Preserve paragraph structure unless a small change improves clarity.
-5. Make the text sound natural and smooth.
-6. Do not add new ideas.
+1. Fix awkward phrasing and improve flow — but keep words simple.
+2. Target Flesch Reading Ease of 60-70 (conversational, magazine level).
+3. If any sentence is over 25 words, split it into two.
+4. Replace long words with shorter ones wherever possible:
+   - 'implementation' → 'use' or 'setup'
+   - 'utilization' → 'use'
+   - 'facilitate' → 'help'
+   - 'significant' → 'big' or 'major'
+   - 'leverage' → 'use'
+   - 'demonstrate' → 'show'
+   - 'consequently' → 'so'
+   - 'nevertheless' → 'still' or 'but'
+5. Keep sentence length varied — mix short (5-8 words) and medium (15-20 words).
+6. Remove repeated filler phrases.
+7. Keep the tone exactly as it came in — do NOT make it more formal.
+8. Do not add new ideas.
 
 INPUT TEXT:
 {text}
@@ -48,14 +56,13 @@ async def smooth_chunk(text: str, client: httpx.AsyncClient) -> str:
         "prompt": prompt,
         "stream": True,
         "options": {
-            "temperature": 0.65,
-            "top_p": 0.92,
+            "temperature": 0.75,
+            "top_p": 0.93,
             "top_k": 50,
-            "repeat_penalty": 1.15,
+            "repeat_penalty": 1.2,
             "num_predict": 900
         }
     }
-
     try:
         result_text = ""
         async with client.stream("POST", OLLAMA_URL, json=payload) as response:
@@ -84,10 +91,8 @@ async def smooth_chunk(text: str, client: httpx.AsyncClient) -> str:
 async def flow_smooth(text: str) -> str:
     paragraphs = split_into_paragraphs(text)
     smoothed_paragraphs = []
-
     async with httpx.AsyncClient(timeout=None) as client:
         for paragraph in paragraphs:
             result = await smooth_chunk(paragraph, client)
             smoothed_paragraphs.append(result)
-
     return "\n\n".join(smoothed_paragraphs)
