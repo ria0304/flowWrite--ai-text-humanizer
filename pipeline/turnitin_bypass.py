@@ -3,7 +3,6 @@ pipeline/turnitin_bypass.py
 Stage 5 — Targets Turnitin and other sophisticated AI detectors.
 Adds deliberate human imperfections, mixed formality, and natural inconsistencies.
 """
-
 import httpx
 import json
 import logging
@@ -23,22 +22,31 @@ STRICT RULES:
 
 TURNITIN_PROMPT = """{system}
 
-You are making this text look like it was genuinely written by a human student or professional.
-Sophisticated AI detectors like Turnitin look for:
-- Uniform sentence complexity (fix this by mixing simple and complex sentences)
-- Perfect logical flow (fix this by adding slight tangents or hesitations)  
-- Consistent formality (fix this by occasionally dropping to simpler language)
-- No personal voice (fix this by adding opinion markers)
+You are making this text pass AI detectors by writing like a real human. Target these specific detector signals:
 
-MAKE THESE SPECIFIC CHANGES:
-1. Add 1-2 em dashes for asides: "this approach — while not perfect — works well"
-2. Add 1-2 parenthetical comments: "(which is worth keeping in mind)" or "(and that matters)"
-3. Add personal opinion markers: "I'd argue", "in my view", "to be honest", "frankly"
-4. Create ONE very short paragraph (1 sentence only) somewhere in the middle
-5. Mix vocabulary complexity — use one very simple word where a complex one would be expected
-6. Add ONE natural comma splice (two independent clauses joined with just a comma)
-7. Vary paragraph lengths: make sure no two consecutive paragraphs are the same length
-8. Keep ALL the meaning exactly the same — just change the style
+SENTENCE LENGTH — AI averages 29 words per sentence. Humans average 20-23.
+→ Break any sentence over 25 words into two. Add some 5-8 word sentences.
+
+FUNCTION WORDS — AI uses ~33% function words. Humans use ~40%.
+→ Add more: the, it, is, was, are, were, this, that, these, those, they, their, there
+
+PRONOUN SUBJECTS — AI uses noun subjects ("The implementation of X..."). Humans use pronouns.
+→ Change "The implementation of AI presents challenges" to "It's not easy to implement AI"
+→ Use "we", "it", "they", "you" to start sentences
+
+BANNED WORDS — Replace every instance of: crucial, fundamental, significant, unprecedented,
+multifaceted, leverage, delve, furthermore, additionally, it is worth noting, it is imperative,
+Crucially, Fundamentally, Ultimately (as sentence starters)
+
+EM DASH OVERUSE — Maximum 1 em dash in the entire text. Remove the rest.
+
+REPETITIVE FILLER — "isn't it?", "to be honest", "that said" should appear MAX once each.
+If they appear more, remove the duplicates.
+
+KEEP:
+- All the facts and meaning exactly the same
+- The general tone and style
+- Paragraph structure
 
 INPUT TEXT:
 {text}
@@ -53,6 +61,7 @@ def clean_output(text: str) -> str:
             newline_idx = text.find("\n")
             if newline_idx != -1:
                 text = text[newline_idx:].strip()
+
     lines = text.split("\n")
     clean_lines = []
     for line in lines:
@@ -60,6 +69,7 @@ def clean_output(text: str) -> str:
         if any(stripped.startswith(p) for p in ["Note:", "(Note", "I've", "I have", "I kept", "I removed", "I made"]):
             break
         clean_lines.append(line)
+
     result = "\n".join(clean_lines).strip()
     result = re.sub(r'\s*\(Note:.*?\)\s*$', '', result, flags=re.DOTALL).strip()
     return result if result else text
@@ -68,18 +78,20 @@ def clean_output(text: str) -> str:
 async def turnitin_bypass(text: str) -> str:
     """Stage 5 — Add human imperfections to fool Turnitin and similar detectors."""
     prompt = TURNITIN_PROMPT.format(system=SYSTEM_INSTRUCTION, text=text)
+
     payload = {
         "model": MODEL_NAME,
         "prompt": prompt,
         "stream": True,
         "options": {
-            "temperature": 0.88,
-            "top_p": 0.94,
-            "top_k": 60,
-            "repeat_penalty": 1.15,
-            "num_predict": 1200
+            "temperature": 0.85,
+            "top_p": 0.93,
+            "top_k": 55,
+            "repeat_penalty": 1.2,
+            "num_predict": 1400
         }
     }
+
     try:
         async with httpx.AsyncClient(timeout=None) as client:
             result_text = ""
@@ -91,7 +103,9 @@ async def turnitin_bypass(text: str) -> str:
                         result_text += chunk.get("response", "")
                         if chunk.get("done", False):
                             break
+
         return clean_output(result_text) if result_text.strip() else text
+
     except Exception as e:
         logger.warning(f"Turnitin bypass failed, returning original. Error: {e}")
         return text
