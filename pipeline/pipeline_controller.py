@@ -1,7 +1,6 @@
 """
 pipeline/pipeline_controller.py
 """
-
 import logging
 from pipeline.chunker import chunk_text
 from pipeline.semantic_merge import semantic_merge
@@ -13,8 +12,7 @@ logger = logging.getLogger(__name__)
 
 MAX_WORDS = 5000
 
-
-async def run_pipeline(text: str, tone: str = "formal_report", aggressiveness: int = 2) -> str:
+async def run_pipeline(text: str, tone: str = "formal_report", aggressiveness: int = 2) -> dict:
     word_count = len(text.split())
     if word_count > MAX_WORDS:
         raise ValueError(f"Input too long: {word_count} words. Maximum is {MAX_WORDS} words.")
@@ -43,4 +41,14 @@ async def run_pipeline(text: str, tone: str = "formal_report", aggressiveness: i
     final = await turnitin_bypass(smoothed)
 
     logger.info("Pipeline complete.")
-    return final
+
+    return {
+        "final": final,
+        "stages": {
+            "chunking": f"{len(chunks)} chunks created",
+            "semantic_merge": f"{len(merged)} units after merge",
+            "style_rewrite": f"{len(rewritten)} segments rewritten",
+            "flow_smoothing": "done",
+            "turnitin_bypass": "done"
+        }
+    }
