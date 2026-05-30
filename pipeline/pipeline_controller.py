@@ -17,14 +17,13 @@ NUM_CANDIDATES = 3
 def _quality_score(hls_result: dict) -> float:
     dims = hls_result["dimensions"]
     return round(
-        0.20 * dims["burstiness"]["score"]
-        + 0.30 * dims["coherence"]["score"]
-        + 0.20 * dims["readability"]["score"]
+        0.35 * dims["burstiness"]["score"]      # was 0.20
+        + 0.10 * dims["coherence"]["score"]     # was 0.30
+        + 0.35 * dims["readability"]["score"]   # was 0.20
         + 0.10 * dims["connectors"]["score"]
-        + 0.20 * dims["similarity"]["score"],
+        + 0.10 * dims["similarity"]["score"],   # was 0.20
         3,
     )
-
 async def run_pipeline(text: str, tone: str = "formal_report", aggressiveness: int = 2) -> dict:
     word_count = len(text.split())
     if word_count > MAX_WORDS:
