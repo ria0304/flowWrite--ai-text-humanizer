@@ -195,7 +195,7 @@ curl -X POST http://localhost:8000/rewrite \
 
 | Tone | Description |
 |:-----|:------------|
-| `btech_student` | Student report voice — "we", "our", contractions |
+| `student` | Student report voice — "we", "our", contractions |
 | `academic` | Research paper — hedged, first-person plural |
 | `formal_report` | Human analyst style — varied lengths, natural |
 | `formal_professional` | Business memo — sharp and direct |
