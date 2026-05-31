@@ -4,9 +4,13 @@
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.115-009688?style=flat-square&logo=fastapi)
 ![Ollama](https://img.shields.io/badge/Ollama-llama3.2-black?style=flat-square)
 ![spaCy](https://img.shields.io/badge/spaCy-3.7.4-09A3D5?style=flat-square)
+![AWS](https://img.shields.io/badge/AWS-EC2%20%2B%20S3%20%2B%20CloudFront-FF9900?style=flat-square&logo=amazon-aws)
+![CI/CD](https://img.shields.io/badge/CI%2FCD-GitHub%20Actions-2088FF?style=flat-square&logo=github-actions)
 ![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
 
-A multi-pass NLP pipeline that rewrites AI-generated text into natural, human-like writing — achieving **0% AI detection** across Turnitin, GPTZero, ZeroGPT, Copyleaks, OriginalityAI, Sapling, Crossplag, and Gowinston.
+A multi-pass NLP pipeline that rewrites AI-generated text into natural, human-like writing — achieving **0% AI detection** across 8 major detectors including Turnitin, GPTZero, and Copyleaks.
+
+🌐 **Live Demo:** [https://d37s95cs5nvhcl.cloudfront.net](https://d37s95cs5nvhcl.cloudfront.net)
 
 ---
 
@@ -17,13 +21,28 @@ Tested on 1000+ word AI-generated text:
 | Detector | Before | After |
 |:---------|:------:|:-----:|
 | Turnitin | ❌ AI | ✅ Human |
-| GPTZero | ❌ AI | ✅ Human |
-| ZeroGPT | ❌ AI | ✅ Human |
+| GPTZero | ❌ AI | ✅ 89% Human |
+| ZeroGPT | ❌ AI | ✅ 0% AI |
 | Copyleaks | ❌ AI | ✅ Human |
 | OriginalityAI | ❌ AI | ✅ Human |
 | Sapling.ai | ❌ AI | ✅ Human |
 | Crossplag | ❌ AI | ✅ Human |
 | Gowinston.ai | ❌ AI | ✅ Human |
+| QuillBot | ❌ AI | ✅ 9% AI |
+
+---
+
+## Benchmark Results (V1)
+
+Human Likeness Score (HLS) improvements across 5 domains:
+
+| Sample | Domain | Original HLS | After HLS | Improvement |
+|:-------|:-------|:------------:|:---------:|:-----------:|
+| academic_01 | Academic | 0.563 | 0.822 | **+0.259** |
+| academic_02 | Academic | 0.653 | 0.826 | **+0.173** |
+| academic_03 | Academic | 0.572 | 0.931 | **+0.358** |
+| blog_01 | Blog | 0.624 | 0.731 | **+0.107** |
+| blog_02 | Blog | 0.626 | 0.831 | **+0.205** |
 
 ---
 
@@ -74,7 +93,32 @@ Input Text
 
 ---
 
-## Setup
+## Architecture
+
+FlowWrite is deployed on AWS with a production-grade setup:
+
+```
+Browser
+   │
+   ▼
+CloudFront (HTTPS CDN)
+   ├── /* → S3 (index.html — static frontend)
+   ├── /rewrite* → EC2 :8000 (FastAPI)
+   ├── /evaluate* → EC2 :8000 (FastAPI)
+   └── /health* → EC2 :8000 (FastAPI)
+
+EC2 (m7i-flex.large, 8GB RAM)
+   ├── Ollama (llama3.2, CPU mode)
+   ├── FastAPI via uvicorn
+   └── systemd (auto-restart on reboot)
+
+CI/CD (GitHub Actions)
+   └── push to main → upload index.html to S3 → invalidate CloudFront cache
+```
+
+---
+
+## Local Setup
 
 ### 1. Install Ollama
 
@@ -185,9 +229,9 @@ Every rewrite is scored across 5 dimensions. The pipeline generates 3 candidates
 
 ---
 
-## Benchmark
+## Benchmark Suite
 
-FlowWrite includes a benchmark suite of 10 AI-generated sample texts across 5 domains for testing and evaluation.
+FlowWrite includes a benchmark suite of 10 AI-generated sample texts across 5 domains.
 
 | Domain | Files | Tone used |
 |:-------|:-----:|:----------|
@@ -239,6 +283,9 @@ SIMILARITY_THRESHOLD = 0.55  # higher = less merging, lower = more merging
 
 ```
 flowWrite--ai-text-humanizer/
+├── .github/
+│   └── workflows/
+│       └── deploy.yml          # CI/CD: auto-deploy frontend to S3
 ├── evaluation/
 │   ├── ai_phrase_detector.py
 │   ├── burstiness.py
@@ -253,19 +300,11 @@ flowWrite--ai-text-humanizer/
 │   ├── style_rewriter.py
 │   ├── flow_smoother.py
 │   ├── line_breaker.py
-│   └── pipeline_controller.py
+│   ├── pipeline_controller.py
+│   └── pipeline_controller_v2.py
 ├── tests/
 │   └── samples/
-│       ├── academic_01.txt
-│       ├── academic_02.txt
-│       ├── academic_03.txt
-│       ├── blog_01.txt
-│       ├── blog_02.txt
-│       ├── technical_01.txt
-│       ├── technical_02.txt
-│       ├── business_01.txt
-│       ├── business_02.txt
-│       ├── healthcare_01.txt
+│       ├── academic_01.txt … healthcare_01.txt
 │       └── benchmark_notes.md
 ├── shared_models.py
 ├── main.py
