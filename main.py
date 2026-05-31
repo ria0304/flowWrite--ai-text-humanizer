@@ -7,6 +7,7 @@ from evaluation.hls import compute_hls
 import logging
 import time
 import io
+import httpx
 
 try:
     import docx as python_docx
@@ -215,9 +216,23 @@ async def rewrite_file(
 
 
 @app.get("/health")
-def health():
-    """Health check endpoint."""
-    return {"status": "ok", "version": "1.2.0"}
+async def health():
+    """Health check — reports API and Ollama status."""
+    ollama_status = "ok"
+    ollama_model = "llama3.2:latest"
+    try:
+        async with httpx.AsyncClient(timeout=3) as client:
+            r = await client.get("http://localhost:11434")
+            ollama_status = "ok" if r.status_code == 200 else "unreachable"
+    except Exception:
+        ollama_status = "unreachable"
+
+    return {
+        "status": "ok",
+        "version": "1.2.0",
+        "ollama": ollama_status,
+        "model": ollama_model
+    }
 
 
 def extract_text_from_file(filename: str, content: bytes) -> str:
