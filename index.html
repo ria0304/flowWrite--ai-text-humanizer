@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>FlowWrite — Writing Assistant</title>
+<title>FlowWrite </title>
 <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
   :root {
@@ -133,10 +133,7 @@
       <span class="brand-dot"></span>
       <span class="brand-sub">Writing Assistant</span>
     </div>
-    <div class="header-badges">
-      <span class="hbadge">4-stage pipeline</span>
-      <span class="hbadge">AI-powered</span>
-    </div>
+
   </header>
 
   <div class="workspace">
@@ -300,7 +297,7 @@
   let intensity = 2;
   let uploadedText = '';
   let currentTab = 'text';
-  const API = 'https://d37s95cs5nvhcl.cloudfront.net';
+  const API = 'http://localhost:8000';  // backend runs locally
 
   const intensityHints = {
     1: 'Light touch — fixes awkward phrasing and obvious AI patterns.',
@@ -426,7 +423,7 @@
       await runEval(text, data.rewritten);
       setStatus('Done', 'ok');
     } catch (err) {
-      setStatus('Error: ' + err.message + ' — Is the backend running?', 'err');
+      setStatus('Error: ' + err.message + ' — Is the backend running? Start it with: uvicorn main:app --port 8000', 'err');
       document.getElementById('outputText').innerHTML = '<span class="output-placeholder">Something went wrong. Please try again.</span>';
     }
     document.getElementById('lbar').classList.remove('on');
@@ -458,7 +455,7 @@
       await runEval(data.original || '', data.rewritten);
       setStatus('Done', 'ok');
     } catch (err) {
-      setStatus('Error: ' + err.message + ' — Is the backend running?', 'err');
+      setStatus('Error: ' + err.message + ' — Is the backend running? Start it with: uvicorn main:app --port 8000', 'err');
       document.getElementById('outputText').innerHTML = '<span class="output-placeholder">Something went wrong. Please try again.</span>';
     }
     document.getElementById('lbar').classList.remove('on');
