@@ -4,11 +4,14 @@
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.115-009688?style=flat-square&logo=fastapi)
 ![Ollama](https://img.shields.io/badge/Ollama-llama3.2-black?style=flat-square)
 ![spaCy](https://img.shields.io/badge/spaCy-3.7.4-09A3D5?style=flat-square)
+![CI/CD](https://img.shields.io/badge/CI%2FCD-GitHub%20Actions-2088FF?style=flat-square&logo=github-actions)
 ![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
 
 A multi-pass NLP pipeline that rewrites AI-generated text into natural, human-like writing — achieving **exceptionally low AI-detection scores** across 8 major detectors including Turnitin, GPTZero, and Copyleaks.
 
-> **Architecture note:** The frontend is hosted on AWS S3 + CloudFront. The backend runs **locally on your machine** — AWS is not involved in any processing. You must start the backend yourself before using the app.
+🌐 **Live Demo:** [https://d37s95cs5nvhcl.cloudfront.net](https://d37s95cs5nvhcl.cloudfront.net)
+
+> **Architecture note:** The frontend is hosted on AWS S3 + CloudFront and is publicly accessible. The backend runs **locally on your machine** — AWS is not involved in any processing. You must start the local backend before the demo will work.
 
 ---
 
@@ -309,6 +312,17 @@ flowWrite--ai-text-humanizer/
 ## Tech Stack
 
 See [TECH_STACK.md](./TECH_STACK.md) for the full architecture breakdown.
+
+---
+
+## CI/CD
+
+The frontend deploys automatically via GitHub Actions on every push to `main`:
+
+1. Uploads `index.html` to S3 with a `no-cache` header
+2. Invalidates the CloudFront cache so visitors always get the latest version
+
+The backend is not part of the CI/CD pipeline — it runs locally and is started manually.
 
 ---
 
