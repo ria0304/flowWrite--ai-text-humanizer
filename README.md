@@ -4,13 +4,11 @@
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.115-009688?style=flat-square&logo=fastapi)
 ![Ollama](https://img.shields.io/badge/Ollama-llama3.2-black?style=flat-square)
 ![spaCy](https://img.shields.io/badge/spaCy-3.7.4-09A3D5?style=flat-square)
-![AWS](https://img.shields.io/badge/AWS-EC2%20%2B%20S3%20%2B%20CloudFront-FF9900?style=flat-square&logo=amazon-aws)
-![CI/CD](https://img.shields.io/badge/CI%2FCD-GitHub%20Actions-2088FF?style=flat-square&logo=github-actions)
 ![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
 
 A multi-pass NLP pipeline that rewrites AI-generated text into natural, human-like writing — achieving **exceptionally low AI-detection scores** across 8 major detectors including Turnitin, GPTZero, and Copyleaks.
 
-🌐 **Live Demo:** [https://d37s95cs5nvhcl.cloudfront.net](https://d37s95cs5nvhcl.cloudfront.net)
+> **Architecture note:** The frontend is hosted on AWS S3 + CloudFront. The backend runs **locally on your machine** — AWS is not involved in any processing. You must start the backend yourself before using the app.
 
 ---
 
@@ -95,34 +93,30 @@ Input Text
 
 ## Architecture
 
-FlowWrite is deployed on AWS with a production-grade setup:
+The frontend is hosted on AWS. The backend and all AI processing run entirely on your local machine — no data is sent to any cloud service.
 
 ```
 Browser
    │
    ▼
-CloudFront (HTTPS CDN)
-   ├── /* → S3 (index.html — static frontend)
-   ├── /rewrite* → EC2 :8000 (FastAPI)
-   ├── /evaluate* → EC2 :8000 (FastAPI)
-   └── /health* → EC2 :8000 (FastAPI)
+CloudFront (HTTPS CDN)          ← AWS: serves the frontend only
+   └── /* → S3 (index.html)
 
-EC2 (m7i-flex.large, 8GB RAM)
-   ├── Ollama (llama3.2, CPU mode)
-   ├── FastAPI via uvicorn
-   └── systemd (auto-restart on reboot)
-
-CI/CD (GitHub Actions)
-   └── push to main → upload index.html to S3 → invalidate CloudFront cache
+Your Machine                    ← All processing happens here
+   ├── FastAPI (localhost:8000)
+   ├── Ollama (llama3.2, CPU)
+   └── spaCy / SBERT
 ```
+
+When you click "Refine Writing", the page loaded from S3 sends requests directly to `http://localhost:8000` on your machine. AWS does not handle or see any of your text.
 
 ---
 
-## Local Setup
+## Setup
 
 ### 1. Install Ollama
 
-Download from [https://ollama.com](https://ollama.com), then pull a model:
+Download from [https://ollama.com](https://ollama.com), then pull the model:
 
 ```bash
 ollama pull llama3.2
@@ -138,18 +132,18 @@ python -m spacy download en_core_web_sm
 ### 3. Start the backend
 
 ```bash
-python -m uvicorn main:app --reload --port 8000
+python -m uvicorn main:app --port 8000
 ```
 
-### 4. Start the frontend
+### 4. Open the app
 
-```bash
-python -m http.server 3000
-```
+Visit the live frontend: [https://d37s95cs5nvhcl.cloudfront.net](https://d37s95cs5nvhcl.cloudfront.net)
 
-Open [http://localhost:3000/index.html](http://localhost:3000/index.html) in your browser.
+The page will connect to your local backend automatically. Keep the backend running while you use the app.
 
-> **Windows shortcut:** double-click `run.bat` — starts both servers automatically.
+> **Windows shortcut:** double-click `run.bat` to start the backend in one step.
+
+> **Note:** The app only works on the machine running the backend. It is not accessible to others via the CloudFront URL.
 
 ---
 
@@ -170,8 +164,8 @@ curl -X POST http://localhost:8000/rewrite \
   -H "Content-Type: application/json" \
   -d '{
     "text": "Your AI-generated text here.",
-    "tone": "btech_student",
-    "aggressiveness": 3
+    "tone": "academic",
+    "aggressiveness": 2
   }'
 ```
 
@@ -283,9 +277,6 @@ SIMILARITY_THRESHOLD = 0.55  # higher = less merging, lower = more merging
 
 ```
 flowWrite--ai-text-humanizer/
-├── .github/
-│   └── workflows/
-│       └── deploy.yml          # CI/CD: auto-deploy frontend to S3
 ├── evaluation/
 │   ├── ai_phrase_detector.py
 │   ├── burstiness.py
