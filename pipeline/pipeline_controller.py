@@ -12,7 +12,7 @@ from evaluation.hls import compute_hls
 logger = logging.getLogger(__name__)
 
 MAX_WORDS = 5000
-NUM_CANDIDATES = 1
+NUM_CANDIDATES = 3
 
 def _quality_score(hls_result: dict) -> float:
     dims = hls_result["dimensions"]
