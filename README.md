@@ -9,7 +9,7 @@
 
 A multi-pass NLP pipeline that rewrites AI-generated text into natural, human-like writing — achieving **exceptionally low AI-detection scores** across 8 major detectors including Turnitin, GPTZero, and Copyleaks.
 
-🌐 **Live Demo:** [https://d37s95cs5nvhcl.cloudfront.net](https://d37s95cs5nvhcl.cloudfront.net)
+🌐 **Live Demo:** [https://d15932fcjfkzr2.cloudfront.net](https://d15932fcjfkzr2.cloudfront.net)
 
 > **Architecture note:** The frontend is hosted on AWS S3 + CloudFront and is publicly accessible. The backend runs **locally on your machine** — AWS is not involved in any processing. You must start the local backend before the demo will work.
 
