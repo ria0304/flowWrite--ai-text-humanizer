@@ -9,7 +9,7 @@
 
 A multi-pass NLP pipeline that rewrites AI-generated text into natural, human-like writing — achieving **exceptionally low AI-detection scores** across 8 major detectors including Turnitin, GPTZero, and Copyleaks.
 
-🌐 **Live Demo:** [https://d15932fcjfkzr2.cloudfront.net](https://d15932fcjfkzr2.cloudfront.net)
+🌐 **Live Demo:** [https://d15932fcjfkzr2.cloudfront.net/](https://d15932fcjfkzr2.cloudfront.net/)
 
 > **Architecture note:** The frontend is hosted on AWS S3 + CloudFront and is publicly accessible. The backend runs **locally on your machine** — AWS is not involved in any processing. You must start the local backend before the demo will work.
 
@@ -138,15 +138,92 @@ python -m spacy download en_core_web_sm
 python -m uvicorn main:app --port 8000
 ```
 
+You should see output like:
+
+```
+INFO:     Started server process [xxxxx]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+```
+
+The backend is now ready to accept requests from the frontend.
+
+> **Windows shortcut:** double-click `run.bat` to start the backend in one step instead of running the command above.
+
+> **Keep the terminal open** while using the app — closing it will shut down the backend.
+
 ### 4. Open the app
 
-Visit the live frontend: [https://d37s95cs5nvhcl.cloudfront.net](https://d37s95cs5nvhcl.cloudfront.net)
+Visit the live frontend: [https://d15932fcjfkzr2.cloudfront.net/](https://d15932fcjfkzr2.cloudfront.net/)
 
-The page will connect to your local backend automatically. Keep the backend running while you use the app.
-
-> **Windows shortcut:** double-click `run.bat` to start the backend in one step.
+The page will connect to your local backend automatically.
 
 > **Note:** The app only works on the machine running the backend. It is not accessible to others via the CloudFront URL.
+
+---
+
+## Running the Backend
+
+### Quick start (any platform)
+
+```bash
+# Step 1 — Start Ollama (must be running before the backend)
+ollama serve
+
+# Step 2 — In a new terminal, start the FastAPI backend
+python -m uvicorn main:app --port 8000
+```
+
+### Windows
+
+Double-click `run.bat` — it handles both steps automatically.
+
+### macOS / Linux
+
+```bash
+# Make the script executable (first time only)
+chmod +x run.sh
+
+# Run it
+./run.sh
+```
+
+Or run the two commands manually in separate terminals:
+
+```bash
+# Terminal 1
+ollama serve
+
+# Terminal 2
+python -m uvicorn main:app --port 8000 --reload
+```
+
+### Verify the backend is running
+
+Open your browser and go to:
+
+```
+http://localhost:8000/health
+```
+
+You should see:
+
+```json
+{ "status": "ok" }
+```
+
+If you see a connection error, make sure both Ollama and the FastAPI server are running.
+
+### Common issues
+
+| Problem | Fix |
+|:--------|:----|
+| `Connection refused` on the frontend | Backend is not running — start it with the commands above |
+| `ollama: command not found` | Install Ollama from [https://ollama.com](https://ollama.com) |
+| `model not found` error | Run `ollama pull llama3.2` to download the model |
+| Port 8000 already in use | Run `python -m uvicorn main:app --port 8001` and update the frontend URL accordingly |
+| Slow rewriting | Normal on CPU — llama3.2 takes 30–90 seconds per rewrite without a GPU |
 
 ---
 
