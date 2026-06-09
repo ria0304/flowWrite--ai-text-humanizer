@@ -35,6 +35,13 @@
   .brand-sub { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--ink3); border: 1px solid var(--border-strong); padding: 3px 8px; border-radius: 4px; }
   .header-badges { display: flex; gap: 8px; align-items: center; }
   .hbadge { font-size: 11px; padding: 4px 10px; border-radius: 20px; background: var(--surface2); color: var(--ink2); border: 1px solid var(--border); font-family: 'JetBrains Mono', monospace; letter-spacing: 0.5px; }
+  .api-config { display: flex; align-items: center; gap: 8px; background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 6px 10px; }
+  .api-config label { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: var(--ink3); white-space: nowrap; }
+  .api-input { font-family: 'JetBrains Mono', monospace; font-size: 11px; background: var(--surface); border: 1px solid var(--border); border-radius: 5px; padding: 4px 8px; color: var(--ink); outline: none; width: 200px; transition: border-color 0.12s; }
+  .api-input:focus { border-color: var(--accent); }
+  .api-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--ink3); flex-shrink: 0; transition: background 0.2s; }
+  .api-dot.ok { background: var(--success); }
+  .api-dot.err { background: var(--danger); }
   .workspace { display: grid; grid-template-columns: 1fr 280px; gap: 20px; align-items: start; }
   @media (max-width: 800px) { .workspace { grid-template-columns: 1fr; } }
   .card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
@@ -133,7 +140,11 @@
       <span class="brand-dot"></span>
       <span class="brand-sub">Writing Assistant</span>
     </div>
-
+    <div class="api-config">
+      <label>Backend URL</label>
+      <input class="api-input" id="apiUrlInput" type="text" value="http://localhost:8000" placeholder="http://your-ip:8000" oninput="updateApiUrl(this.value)" />
+      <span class="api-dot" id="apiDot" title="Connection status"></span>
+    </div>
   </header>
 
   <div class="workspace">
@@ -297,7 +308,30 @@
   let intensity = 2;
   let uploadedText = '';
   let currentTab = 'text';
-  const API = 'http://localhost:8000';  // backend runs locally
+  let API = localStorage.getItem('flowwrite_api') || 'http://localhost:8000';
+
+  // Set input to saved value on load
+  document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('apiUrlInput').value = API;
+    checkBackend();
+  });
+
+  function updateApiUrl(val) {
+    API = val.trim().replace(/\/$/, '');
+    localStorage.setItem('flowwrite_api', API);
+    checkBackend();
+  }
+
+  async function checkBackend() {
+    const dot = document.getElementById('apiDot');
+    dot.className = 'api-dot';
+    try {
+      const res = await fetch(API + '/health', { signal: AbortSignal.timeout(3000) });
+      dot.className = res.ok ? 'api-dot ok' : 'api-dot err';
+    } catch {
+      dot.className = 'api-dot err';
+    }
+  }
 
   const intensityHints = {
     1: 'Light touch — fixes awkward phrasing and obvious AI patterns.',
