@@ -1,0 +1,48 @@
+{
+  "experiment_id": "1061e8e4-9189-4ca3-8fc4-02713d1a113f",
+  "document_id": "academic_gpt_008",
+  "dataset_id": "flowwrite_simulated_v1",
+  "dataset_version": "1.0.0",
+  "condition": "control",
+  "stage5_enabled": false,
+  "timestamp": "2026-09-04T05:53:20.276785Z",
+  "pipeline_success": true,
+  "failure_reason": null,
+  "input_text": "The Impact of Urbanization And Public Transportation\n\nEmpirical evidence indicates urbanization and public transportation represents a significant area of focus in contemporary discussions. Thus, the variables aspects require careful consideration of multiple factors. Therefore, the variables aspects require careful consideration of multiple factors. It furthermore, it should be mentioned understanding these dynamics. This perspective highlights the complexity inherent in addressing urbanization",
+  "input_length": 2192,
+  "intermediate_length": 2206,
+  "final_output_length": 2206,
+  "stage5_metadata": null,
+  "evaluation_metrics": {
+    "hls": {
+      "total_score": 0.0,
+      "dimensions": {
+        "burstiness": 0.607,
+        "coherence": 1.0,
+        "readability": 0.0,
+        "connectors": 0.749,
+        "similarity": 1.0
+      }
+    }
+  },
+  "content_preservation": {
+    "char_difference": 14,
+    "word_precision": 1.0,
+    "word_recall": 1.0,
+    "word_f1": 1.0,
+    "semantic_similarity": 1.0
+  },
+  "system_metadata": {
+    "python_version": "3.12.10",
+    "platform": "Linux",
+    "platform_version": "#1 SMP Tue Sep 26 10:25:51 UTC 2023",
+    "package_versions": {
+      "torch": "2.7.1",
+      "transformers": "5.16.1",
+      "sentence-transformers": "6.0.1",
+      "numpy": "2.3.1",
+      "pandas": "2.3.1"
+    }
+  },
+  "output_text": "The Impact of Urbanization And Public Transportation\n\nEmpirical evidence indicates urbanization and public transportation represents a significant area of focus in contemporary discussions.\n\nThus, the variables aspects require careful consideration of multiple factors. Therefore, the variables aspects require careful consideration of multiple factors.\n\nIt furthermore, it should be mentioned understanding these dynamics.\n\nThis perspective highlights the complexity inherent in addressing urbanization and public transportation. Theoretical frameworks propose urbanization and public transportation represents a significant area of focus in contemporary discussions.\n\nFurthermore, the cross-sectional aspects require careful consideration of multiple factors. Hence, the framework aspects require careful consideration of multiple factors.\n\nTherefore, the substantial aspects require careful consideration of multiple factors.\n\nThus, the cross-sectional aspects require careful consideration of multiple factors.\n\nIt in the realm of understanding these dynamics.\n\nThis perspective highlights the complexity inherent in addressing urbanization and public transportation.\n\nA growing body of research supports urbanization and public transportation represents a significant area of focus in contemporary discussions.\n\nThus, the empirical aspects require careful consideration of multiple factors. Hence, the empirical aspects require careful consideration of multiple factors.\n\nCorrespondingly, the pronounced aspects require careful consideration of multiple factors.\n\nIt shed light on this matter understanding these dynamics.\n\nThis perspective highlights the complexity inherent in addressing urbanization and public transportation.\n\nTheoretical frameworks propose urbanization and public transportation represents a significant area of focus in contemporary discussions.\n\nFurthermore, the hypothesis aspects require careful consideration of multiple factors. Thus, the hypothesis aspects require c"
+}

@@ -1,0 +1,21 @@
+{
+  "doc_id": "healthcare_gpt_107",
+  "domain": "healthcare",
+  "llm_source": "gpt",
+  "original_word_count": 258,
+  "pipeline": "V1",
+  "processing_time_actual": 1006.2,
+  "rewritten_text": "Exploring Health Screening Protocols in Modern Context\n\nThis section continues: Treatment options encompass health screening protocols represents a significant area of focus in contemporary discussions.\n\nClinically, the diagnosis aspects require careful consideration of multiple factors.\n\nAccordingly, the etiology aspects require careful consideration of multiple factors.\n\nThis perspective highlights the complexity inherent in addressing health screening protocols.\n\nResearch has established health screening protocols represents a significant area of focus in contemporary discussions.\n\nConsequently, the contraindication aspects require careful consideration of multiple factors.\n\nDiagnostically, the palliative aspects require careful consideration of multiple factors.\n\nFurthermore, the systemic aspects require careful consideration of multiple factors.\n\nIt this underscores the importance of understanding these dynamics.\n\nFurthermore, perspective highlights the complexity inherent in addressing health screening protocols.\n\nTreatment options encompass health screening protocols represents a significant area of focus in contemporary discussions.\n\nClinically, the diagnosis aspects require careful consideration of multiple factors.\n\nTherapeutically, the palliative aspects require careful consideration of multiple factors.\n\nClinically, the prophylactic aspects require careful consideration of multiple factors.\n\nIt plays a crucial role in understanding these dynamics.\n\nThis perspective highlights the complexity inherent in addressing health screening protocols.\n\nSpecifically, practice suggests health screening protocols represents a significant area of focus in contemporary discussions.\n\nClinically, the etiology aspects require careful consideration of multiple factors.\n\nConsequently, the treatment aspects require careful consideration of multiple factors.\n\nTherapeutically, the treatment aspects require careful consideration of multiple factors.\n\nProphylactically, the treatment aspects require careful consideration of multiple factors.\n\nIt this underscores the importance of understanding these dynamics.\n\nTherefore, perspective highlights the complexity inherent in addressing health screening protocols.",
+  "stages_completed": 5,
+  "hls": 0.62,
+  "hls_original": 0.529,
+  "hls_improvement": 0.091,
+  "burstiness": 0.598,
+  "coherence": 1.0,
+  "readability": 0.0,
+  "connector_density": 0.511,
+  "semantic_similarity": 0.989,
+  "ai_phrase_count": 3,
+  "flesch_ease": 0.0,
+  "fk_grade": 17.0
+}

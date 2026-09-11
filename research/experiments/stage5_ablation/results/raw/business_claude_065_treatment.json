@@ -1,0 +1,54 @@
+{
+  "experiment_id": "c7c1a6ff-6b3c-405b-b2c6-a5ee93295b45",
+  "document_id": "business_claude_065",
+  "dataset_id": "flowwrite_simulated_v1",
+  "dataset_version": "1.0.0",
+  "condition": "treatment",
+  "stage5_enabled": true,
+  "timestamp": "2026-09-04T05:54:08.161845Z",
+  "pipeline_success": true,
+  "failure_reason": null,
+  "input_text": "Supply Chain Optimization: A Comprehensive Overview\n\nStrategic priorities include supply chain optimization represents a significant area of focus in contemporary discussions. Operationally, the alignment aspects require careful consideration of multiple factors. In summary, the alignment aspects require careful consideration of multiple factors. Consequently, the KPI aspects require careful consideration of multiple factors. It important to consider understanding these dynamics. This perspectiv",
+  "input_length": 3785,
+  "intermediate_length": 3805,
+  "final_output_length": 3805,
+  "stage5_metadata": {
+    "zwsp_count": 0,
+    "shy_count": 0,
+    "total_insertions": 0,
+    "utf8_valid": true,
+    "success": true
+  },
+  "evaluation_metrics": {
+    "hls": {
+      "total_score": 0.0,
+      "dimensions": {
+        "burstiness": 0.536,
+        "coherence": 1.0,
+        "readability": 0.0,
+        "connectors": 0.94,
+        "similarity": 1.0
+      }
+    }
+  },
+  "content_preservation": {
+    "char_difference": 7,
+    "word_precision": 1.0,
+    "word_recall": 1.0,
+    "word_f1": 1.0,
+    "semantic_similarity": 1.0
+  },
+  "system_metadata": {
+    "python_version": "3.12.10",
+    "platform": "Linux",
+    "platform_version": "#1 SMP Tue Sep 26 10:25:51 UTC 2023",
+    "package_versions": {
+      "torch": "2.7.1",
+      "transformers": "5.16.1",
+      "sentence-transformers": "6.0.1",
+      "numpy": "2.3.1",
+      "pandas": "2.3.1"
+    }
+  },
+  "output_text": "Supply Chain Optimization: A Comprehensive Overview Strategic priorities include supply chain optimization represents a significant area of focus in contemporary discussions. Operationally, the ​alignment aspects require careful consideration of multiple factors. In summary, the ​alignment aspects require careful consideration of multiple factors. Consequently, the KPI aspects require careful consideration of multiple factors. It important to consider understanding these dynamics. This perspective highlights the ​complexity inherent in addressing supply chain optimization. Customer insights reveal supply chain optimization represents a significant area of focus in contemporary discussions. Operationally, the KPI aspects require careful consideration of multiple factors. Moreover, the ​portfolio aspects require careful consideration of multiple factors. In summary, the ​forecast aspects require careful consideration of multiple factors. This perspective highlights the ​complexity inherent in addressing supply chain optimization. Revenue projections are based on supply chain optimization represents a significant area of focus in contemporary discussions. In summary, the ​leverage aspects require careful consideration of multiple factors. Additionally, the ​leverage aspects require careful consideration of multiple factors. Operationally, the ​stakeholder aspects require careful consideration of multiple factors. It it is clear ​that understanding these dynamics. This perspective highlights the ​complexity inherent in addressing supply chain optimization. Our analysis reveals supply chain optimization represents a significant area of focus in contemporary discussions. Moving forward, the ​initiative aspects require careful consideration of multiple factors. Strategically, the ROI aspects require careful consideration of multiple factors. Strategically, the ​initiative aspects require careful consideration of multiple factors. Consequently, the ROI aspects require caref"
+}

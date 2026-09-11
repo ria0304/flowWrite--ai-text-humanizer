@@ -1,0 +1,13 @@
+Metric,Value
+V1 Mean HLS,0.655
+V2 Mean HLS,0.641
+HLS Difference,+0.014
+V1 Mean Time (s),1318.23
+V2 Mean Time (s),1054.58
+Speedup Factor,1.25x
+HLS t-statistic,3.3974
+HLS p-value,0.000881
+HLS Cohen's d,0.2841
+Time t-statistic,54.3892
+Time p-value,0.000000
+Time Cohen's d,4.5483

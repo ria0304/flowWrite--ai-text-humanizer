@@ -1,0 +1,20 @@
+{
+  "total_documents": 144,
+  "by_domain": {
+    "academic": 24,
+    "technical": 24,
+    "business": 24,
+    "blog": 24,
+    "healthcare": 24,
+    "general": 24
+  },
+  "by_llm_style": {
+    "llama": 36,
+    "gpt": 36,
+    "claude": 36,
+    "gemini": 36
+  },
+  "avg_word_count": 338.00694444444446,
+  "min_word_count": 204,
+  "max_word_count": 508
+}

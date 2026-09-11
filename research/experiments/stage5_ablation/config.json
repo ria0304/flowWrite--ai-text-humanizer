@@ -1,0 +1,48 @@
+{
+    "experiment_name": "stage5_ablation_pilot",
+    "description": "Pilot experiment for Stage 5 (Line Break Fragmentation) ablation study",
+    "version": "1.0.0",
+    "pipeline": {
+        "use_v2": true,
+        "tone": "formal_report",
+        "aggressiveness": 2,
+        "max_words": 5000
+    },
+    "conditions": {
+        "control": {
+            "name": "Stage 5 OFF",
+            "enable_stage5": false,
+            "description": "Pipeline executes Stages 1-4 only, skips Stage 5"
+        },
+        "treatment": {
+            "name": "Stage 5 ON",
+            "enable_stage5": true,
+            "description": "Full pipeline including Stage 5 Unicode perturbation"
+        }
+    },
+    "dataset": {
+        "source": "research/datasets/generated",
+        "sample_size": 20,
+        "domains": ["academic", "technical", "business", "blog", "healthcare", "general"],
+        "note": "For pilot: 20 documents total. For full experiment: 100+ documents."
+    },
+    "random_seed": 42,
+    "evaluation": {
+        "metrics": ["hls", "semantic_similarity", "character_diff", "word_precision_recall"],
+        "record_stage5_metadata": true,
+        "record_detector_scores": false,
+        "note": "Detector evaluation requires external API integration"
+    },
+    "output": {
+        "raw_results_dir": "research/experiments/stage5_ablation/results/raw",
+        "processed_results_dir": "research/experiments/stage5_ablation/results/processed",
+        "tables_dir": "research/experiments/stage5_ablation/results/tables",
+        "figures_dir": "research/experiments/stage5_ablation/results/figures"
+    },
+    "reproducibility": {
+        "record_python_version": true,
+        "record_package_versions": true,
+        "record_timestamp": true,
+        "seed_all_random": true
+    }
+}

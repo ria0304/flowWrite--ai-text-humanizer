@@ -1,0 +1,48 @@
+{
+  "experiment_id": "c6fc1459-1304-4859-9ead-3b204be9f30a",
+  "document_id": "business_gemini_072",
+  "dataset_id": "flowwrite_simulated_v1",
+  "dataset_version": "1.0.0",
+  "condition": "control",
+  "stage5_enabled": false,
+  "timestamp": "2026-09-04T05:54:24.822077Z",
+  "pipeline_success": true,
+  "failure_reason": null,
+  "input_text": "Exploring Brand Positioning Tactics in Modern Context\n\nRevenue projections are based on brand positioning tactics represents a significant area of focus in contemporary discussions. Moving forward, the ROI aspects require careful consideration of multiple factors. Additionally, the initiative aspects require careful consideration of multiple factors. Operationally, the ROI aspects require careful consideration of multiple factors. This perspective highlights the complexity inherent in addressing",
+  "input_length": 2542,
+  "intermediate_length": 2556,
+  "final_output_length": 2556,
+  "stage5_metadata": null,
+  "evaluation_metrics": {
+    "hls": {
+      "total_score": 0.0,
+      "dimensions": {
+        "burstiness": 0.575,
+        "coherence": 1.0,
+        "readability": 0.0,
+        "connectors": 0.76,
+        "similarity": 1.0
+      }
+    }
+  },
+  "content_preservation": {
+    "char_difference": 14,
+    "word_precision": 1.0,
+    "word_recall": 1.0,
+    "word_f1": 1.0,
+    "semantic_similarity": 1.0
+  },
+  "system_metadata": {
+    "python_version": "3.12.10",
+    "platform": "Linux",
+    "platform_version": "#1 SMP Tue Sep 26 10:25:51 UTC 2023",
+    "package_versions": {
+      "torch": "2.7.1",
+      "transformers": "5.16.1",
+      "sentence-transformers": "6.0.1",
+      "numpy": "2.3.1",
+      "pandas": "2.3.1"
+    }
+  },
+  "output_text": "Exploring Brand Positioning Tactics in Modern Context\n\nRevenue projections are based on brand positioning tactics represents a significant area of focus in contemporary discussions.\n\nMoving forward, the ROI aspects require careful consideration of multiple factors. Additionally, the initiative aspects require careful consideration of multiple factors.\n\nOperationally, the ROI aspects require careful consideration of multiple factors.\n\nThis perspective highlights the complexity inherent in addressing brand positioning tactics. Our analysis reveals brand positioning tactics represents a significant area of focus in contemporary discussions.\n\nStrategically, the benchmark aspects require careful consideration of multiple factors. Accordingly, the roadmap aspects require careful consideration of multiple factors.\n\nThis perspective highlights the complexity inherent in addressing brand positioning tactics.\n\nCustomer insights reveal brand positioning tactics represents a significant area of focus in contemporary discussions.\n\nConsequently, the portfolio aspects require careful consideration of multiple factors. In summary, the initiative aspects require careful consideration of multiple factors.\n\nConsequently, the portfolio aspects require careful consideration of multiple factors.\n\nThis perspective highlights the complexity inherent in addressing brand positioning tactics. Customer insights reveal brand positioning tactics represents a significant area of focus in contemporary discussions.\n\nConsequently, the synergy aspects require careful consideration of multiple factors.\n\nStrategically, the KPI aspects require careful consideration of multiple factors. Operationally, the alignment aspects require careful consideration of multiple factors.\n\nConsequently, the synergy aspects require careful consideration of multiple factors.\n\nIt interestingly understanding these dynamics.\n\nThis perspective highlights the complexity inherent in addressing brand positioning tactics.\n\nKey pe"
+}

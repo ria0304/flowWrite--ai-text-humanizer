@@ -1,0 +1,48 @@
+{
+  "experiment_id": "c6fe19b6-31b2-4d89-8020-073f7a32d1a6",
+  "document_id": "business_gemini_069",
+  "dataset_id": "flowwrite_simulated_v1",
+  "dataset_version": "1.0.0",
+  "condition": "control",
+  "stage5_enabled": false,
+  "timestamp": "2026-09-04T05:54:15.058275Z",
+  "pipeline_success": true,
+  "failure_reason": null,
+  "input_text": "An Analysis of Revenue Growth Projections\n\nOur analysis reveals revenue growth projections represents a significant area of focus in contemporary discussions. Consequently, the stakeholder aspects require careful consideration of multiple factors. Accordingly, the leverage aspects require careful consideration of multiple factors. Additionally, the KPI aspects require careful consideration of multiple factors. Operationally, the initiative aspects require careful consideration of multiple factor",
+  "input_length": 2405,
+  "intermediate_length": 2419,
+  "final_output_length": 2419,
+  "stage5_metadata": null,
+  "evaluation_metrics": {
+    "hls": {
+      "total_score": 0.0,
+      "dimensions": {
+        "burstiness": 0.601,
+        "coherence": 1.0,
+        "readability": 0.0,
+        "connectors": 0.347,
+        "similarity": 1.0
+      }
+    }
+  },
+  "content_preservation": {
+    "char_difference": 14,
+    "word_precision": 1.0,
+    "word_recall": 1.0,
+    "word_f1": 1.0,
+    "semantic_similarity": 1.0
+  },
+  "system_metadata": {
+    "python_version": "3.12.10",
+    "platform": "Linux",
+    "platform_version": "#1 SMP Tue Sep 26 10:25:51 UTC 2023",
+    "package_versions": {
+      "torch": "2.7.1",
+      "transformers": "5.16.1",
+      "sentence-transformers": "6.0.1",
+      "numpy": "2.3.1",
+      "pandas": "2.3.1"
+    }
+  },
+  "output_text": "An Analysis of Revenue Growth Projections\n\nOur analysis reveals revenue growth projections represents a significant area of focus in contemporary discussions.\n\nConsequently, the stakeholder aspects require careful consideration of multiple factors. Accordingly, the leverage aspects require careful consideration of multiple factors.\n\nAdditionally, the KPI aspects require careful consideration of multiple factors. Operationally, the initiative aspects require careful consideration of multiple factors.\n\nIt interestingly understanding these dynamics.\n\nThis perspective highlights the complexity inherent in addressing revenue growth projections. Key performance indicators show revenue growth projections represents a significant area of focus in contemporary discussions.\n\nOperationally, the framework aspects require careful consideration of multiple factors.\n\nStrategically, the initiative aspects require careful consideration of multiple factors.\n\nIt worth mentioning understanding these dynamics.\n\nThis perspective highlights the complexity inherent in addressing revenue growth projections.\n\nMarket trends indicate revenue growth projections represents a significant area of focus in contemporary discussions.\n\nOperationally, the KPI aspects require careful consideration of multiple factors. Operationally, the portfolio aspects require careful consideration of multiple factors.\n\nThis perspective highlights the complexity inherent in addressing revenue growth projections. Key performance indicators show revenue growth projections represents a significant area of focus in contemporary discussions.\n\nMoreover, the benchmark aspects require careful consideration of multiple factors.\n\nStrategically, the stakeholder aspects require careful consideration of multiple factors. Moving forward, the synergy aspects require careful consideration of multiple factors.\n\nThis perspective highlights the complexity inherent in addressing revenue growth projections.\n\nKey performance indicators sho"
+}

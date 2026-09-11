@@ -1,0 +1,21 @@
+{
+  "doc_id": "healthcare_gpt_103",
+  "domain": "healthcare",
+  "llm_source": "gpt",
+  "original_word_count": 231,
+  "pipeline": "V1",
+  "processing_time_actual": 900.9000000000001,
+  "rewritten_text": "The Impact of Post-Operative Care Instructions\n\nThis section continues: Clinical guidelines recommend post-operative care instructions represents a significant area of focus in contemporary discussions.\n\nSpecifically, the palliative aspects require careful consideration of multiple factors.\n\nProphylactically, the treatment aspects require careful consideration of multiple factors.\n\nAdditionally, the prognosis aspects require careful consideration of multiple factors.\n\nThis perspective highlights the complexity inherent in addressing post-operative care instructions.\n\nStandard protocols include post-operative care instructions represents a significant area of focus in contemporary discussions.\n\nDiagnostically, the palliative aspects require careful consideration of multiple factors.\n\nAccordingly, the treatment aspects require careful consideration of multiple factors.\n\nTherapeutically, the prognosis aspects require careful consideration of multiple factors.\n\nSimilarly, perspective highlights the complexity inherent in addressing post-operative care instructions.\n\nEvidence-based practice suggests post-operative care instructions represents a significant area of focus in contemporary discussions.\n\nAccordingly, the symptom aspects require careful consideration of multiple factors.\n\nDiagnostically, the symptom aspects require careful consideration of multiple factors.\n\nNotably, the acute aspects require careful consideration of multiple factors.\n\nThis perspective highlights the complexity inherent in addressing post-operative care instructions.\n\nRisk factors associated with post-operative care instructions represents a significant area of focus in contemporary discussions.\n\nFurthermore, the therapeutic aspects require careful consideration of multiple factors.\n\nConsequently, the systemic aspects require careful consideration of multiple factors.\n\nAdditionally, the systemic aspects require careful consideration of multiple factors.\n\nThis perspective highlights the complexity inherent in addressing post-operative care instructions.",
+  "stages_completed": 5,
+  "hls": 0.657,
+  "hls_original": 0.643,
+  "hls_improvement": 0.014,
+  "burstiness": 0.577,
+  "coherence": 1.0,
+  "readability": 0.0,
+  "connector_density": 0.712,
+  "semantic_similarity": 0.994,
+  "ai_phrase_count": 1,
+  "flesch_ease": 0.0,
+  "fk_grade": 17.75
+}

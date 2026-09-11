@@ -1,0 +1,21 @@
+{
+  "doc_id": "healthcare_gemini_116",
+  "domain": "healthcare",
+  "llm_source": "gemini",
+  "original_word_count": 267,
+  "pipeline": "V2",
+  "processing_time_actual": 833.04,
+  "rewritten_text": "Exploring Nutrition And Wellness in Modern Context\n\nClinical guidelines recommend nutrition and wellness represents a significant area of focus in contemporary discussions.\n\nProphylactically, the therapeutic aspects require careful consideration of multiple factors.\n\nTherefore, the treatment aspects require careful consideration of multiple factors.\n\nProphylactically, the treatment aspects require careful consideration of multiple factors.\n\nIt notably understanding these dynamics.\n\nThis perspective highlights the complexity inherent in addressing nutrition and wellness.\n\nTreatment options encompass nutrition and wellness represents a significant area of focus in contemporary discussions.\n\nAdditionally, the systemic aspects require careful consideration of multiple factors.\n\nClinically, the therapeutic aspects require careful consideration of multiple factors.\n\nHowever, the systemic aspects require careful consideration of multiple factors.\n\nAdditionally, the therapeutic aspects require careful consideration of multiple factors.\n\nThis perspective highlights the complexity inherent in addressing nutrition and wellness.\n\nResearch has established nutrition and wellness represents a significant area of focus in contemporary discussions.\n\nSpecifically, the prognosis aspects require careful consideration of multiple factors.\n\nFurthermore, the symptom aspects require careful consideration of multiple factors.\n\nFurthermore, the pathology aspects require careful consideration of multiple factors.\n\nHowever, the symptom aspects require careful consideration of multiple factors.\n\nIt also understanding these dynamics.\n\nThis perspective highlights the complexity inherent in addressing nutrition and wellness.\n\nClinical guidelines recommend nutrition and wellness represents a significant area of focus in contemporary discussions.\n\nAccordingly, the chronic aspects require careful consideration of multiple factors.\n\nAdditionally, the treatment aspects require careful consideration of multiple factors.\n\nDiagnostically, the treatment aspects require careful consideration of multiple factors.\n\nIt another point understanding these dynamics.\n\nThis perspective highlights the complexity inherent in addressing nutrition and wellness.",
+  "stages_completed": 4,
+  "hls": 0.607,
+  "hls_original": 0.675,
+  "hls_improvement": -0.068,
+  "burstiness": 0.624,
+  "coherence": 1.0,
+  "readability": 0.0,
+  "connector_density": 0.421,
+  "semantic_similarity": 0.984,
+  "ai_phrase_count": 2,
+  "flesch_ease": 0.0,
+  "fk_grade": 16.99
+}

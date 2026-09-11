@@ -1,0 +1,1 @@
+Nothing should be ignored in this case, as the changes only include source/config files (.py, .md) without any build artifacts, dependencies, or temp files.

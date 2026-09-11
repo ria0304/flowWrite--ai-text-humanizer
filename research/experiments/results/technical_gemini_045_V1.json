@@ -1,0 +1,21 @@
+{
+  "doc_id": "technical_gemini_045",
+  "domain": "technical",
+  "llm_source": "gemini",
+  "original_word_count": 230,
+  "pipeline": "V1",
+  "processing_time_actual": 896.9999999999999,
+  "rewritten_text": "Understanding Database Optimization Techniques: Key Insights\n\nThis section continues: Scalability is achieved through database optimization techniques represents a significant area of focus in contemporary discussions.\n\nFunctionally, the asynchronous aspects require careful consideration of multiple factors.\n\nSpecifically, the synchronization aspects require careful consideration of multiple factors.\n\nFunctionally, the throughput aspects require careful consideration of multiple factors.\n\nIt notably understanding these dynamics.\n\nThis perspective highlights the complexity inherent in addressing database optimization techniques.\n\nThe recommended approach utilizes database optimization techniques represents a significant area of focus in contemporary discussions.\n\nAccordingly, the distributed aspects require careful consideration of multiple factors.\n\nStructurally, the redundancy aspects require careful consideration of multiple factors.\n\nSpecifically, the endpoint aspects require careful consideration of multiple factors.\n\nSpecifically, the endpoint aspects require careful consideration of multiple factors.\n\nThis perspective highlights the complexity inherent in addressing database optimization techniques.\n\nPerformance optimization depends on database optimization techniques represents a significant area of focus in contemporary discussions.\n\nAlternatively, the redundancy aspects require careful consideration of multiple factors.\n\nTechnically, the scalability aspects require careful consideration of multiple factors.\n\nThis perspective highlights the complexity inherent in addressing database optimization techniques.\n\nThe system architecture consists of database optimization techniques represents a significant area of focus in contemporary discussions.\n\nSpecifically, the distributed aspects require careful consideration of multiple factors.\n\nIn contrast, the encryption aspects require careful consideration of multiple factors.\n\nThis perspective highlights the complexity inherent in addressing database optimization techniques.",
+  "stages_completed": 5,
+  "hls": 0.678,
+  "hls_original": 0.639,
+  "hls_improvement": 0.039,
+  "burstiness": 0.682,
+  "coherence": 1.0,
+  "readability": 0.0,
+  "connector_density": 0.712,
+  "semantic_similarity": 0.996,
+  "ai_phrase_count": 0,
+  "flesch_ease": 0.0,
+  "fk_grade": 19.83
+}

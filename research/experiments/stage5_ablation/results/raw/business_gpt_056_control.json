@@ -1,0 +1,48 @@
+{
+  "experiment_id": "39a134d0-84dd-47ef-94a8-4d81ec7d4528",
+  "document_id": "business_gpt_056",
+  "dataset_id": "flowwrite_simulated_v1",
+  "dataset_version": "1.0.0",
+  "condition": "control",
+  "stage5_enabled": false,
+  "timestamp": "2026-09-04T05:54:47.545139Z",
+  "pipeline_success": true,
+  "failure_reason": null,
+  "input_text": "Understanding Supply Chain Optimization: Key Insights\n\nIndustry benchmarks demonstrate supply chain optimization represents a significant area of focus in contemporary discussions. Additionally, the projection aspects require careful consideration of multiple factors. Moving forward, the initiative aspects require careful consideration of multiple factors. Accordingly, the stakeholder aspects require careful consideration of multiple factors. Additionally, the optimization aspects require carefu",
+  "input_length": 2925,
+  "intermediate_length": 2940,
+  "final_output_length": 2940,
+  "stage5_metadata": null,
+  "evaluation_metrics": {
+    "hls": {
+      "total_score": 0.0,
+      "dimensions": {
+        "burstiness": 0.521,
+        "coherence": 1.0,
+        "readability": 0.0,
+        "connectors": 0.563,
+        "similarity": 1.0
+      }
+    }
+  },
+  "content_preservation": {
+    "char_difference": 15,
+    "word_precision": 1.0,
+    "word_recall": 1.0,
+    "word_f1": 1.0,
+    "semantic_similarity": 1.0
+  },
+  "system_metadata": {
+    "python_version": "3.12.10",
+    "platform": "Linux",
+    "platform_version": "#1 SMP Tue Sep 26 10:25:51 UTC 2023",
+    "package_versions": {
+      "torch": "2.7.1",
+      "transformers": "5.16.1",
+      "sentence-transformers": "6.0.1",
+      "numpy": "2.3.1",
+      "pandas": "2.3.1"
+    }
+  },
+  "output_text": "Understanding Supply Chain Optimization: Key Insights\n\nIndustry benchmarks demonstrate supply chain optimization represents a significant area of focus in contemporary discussions.\n\nAdditionally, the projection aspects require careful consideration of multiple factors. Moving forward, the initiative aspects require careful consideration of multiple factors.\n\nAccordingly, the stakeholder aspects require careful consideration of multiple factors. Additionally, the optimization aspects require careful consideration of multiple factors.\n\nIt plays a crucial role in understanding these dynamics.\n\nThis perspective highlights the complexity inherent in addressing supply chain optimization. Revenue projections are based on supply chain optimization represents a significant area of focus in contemporary discussions.\n\nMoving forward, the KPI aspects require careful consideration of multiple factors.\n\nOperationally, the optimization aspects require careful consideration of multiple factors.\n\nThis perspective highlights the complexity inherent in addressing supply chain optimization. Stakeholder feedback suggests supply chain optimization represents a significant area of focus in contemporary discussions.\n\nAdditionally, the milestone aspects require careful consideration of multiple factors. Accordingly, the deliverable aspects require careful consideration of multiple factors.\n\nThis perspective highlights the complexity inherent in addressing supply chain optimization.\n\nRevenue projections are based on supply chain optimization represents a significant area of focus in contemporary discussions.\n\nStrategically, the optimization aspects require careful consideration of multiple factors. Consequently, the optimization aspects require careful consideration of multiple factors.\n\nOperationally, the KPI aspects require careful consideration of multiple factors. Additionally, the optimization aspects require careful consideration of multiple factors.\n\nThis perspective highlights the co"
+}

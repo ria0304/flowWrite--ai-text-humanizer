@@ -1,0 +1,21 @@
+{
+  "doc_id": "healthcare_claude_111",
+  "domain": "healthcare",
+  "llm_source": "claude",
+  "original_word_count": 294,
+  "pipeline": "V1",
+  "processing_time_actual": 1146.6,
+  "rewritten_text": "An Analysis of Medication Adherence Strategies\n\nThis section continues: Clinical guidelines recommend medication adherence strategies represents a significant area of focus in contemporary discussions.\n\nTherefore, the therapeutic aspects require careful consideration of multiple factors.\n\nMoreover, the therapeutic aspects require careful consideration of multiple factors.\n\nAdditionally, the systemic aspects require careful consideration of multiple factors.\n\nThis perspective highlights the complexity inherent in addressing medication adherence strategies.\n\nHealthcare providers should consider medication adherence strategies represents a significant area of focus in contemporary discussions.\n\nTherapeutically, the localized aspects require careful consideration of multiple factors.\n\nDiagnostically, the localized aspects require careful consideration of multiple factors.\n\nConsequently, the bilateral aspects require careful consideration of multiple factors.\n\nThis perspective highlights the complexity inherent in addressing medication adherence strategies.\n\nTreatment options encompass medication adherence strategies represents a significant area of focus in contemporary discussions.\n\nAccordingly, the diagnosis aspects require careful consideration of multiple factors.\n\nAccordingly, the contraindication aspects require careful consideration of multiple factors.\n\nProphylactically, the intervention aspects require careful consideration of multiple factors.\n\nDiagnostically, the contraindication aspects require careful consideration of multiple factors.\n\nThis perspective highlights the complexity inherent in addressing medication adherence strategies.\n\nRisk factors associated with medication adherence strategies represents a significant area of focus in contemporary discussions.\n\nAdditionally, the systemic aspects require careful consideration of multiple factors.\n\nTherefore, the bilateral aspects require careful consideration of multiple factors.\n\nIt important to consider understanding these dynamics.\n\nThis perspective highlights the complexity inherent in addressing medication adherence strategies.\n\nHealthcare providers should consider medication adherence strategies represents a significant area of focus in contemporary discussions.\n\nClinically, the diagnosis aspects require careful consideration of multiple factors.\n\nTherapeutically, the diagnosis aspects require careful consideration of multiple factors.\n\nIt it is clear that understanding these dynamics.\n\nThis perspective highlights the complexity inherent in addressing medication adherence strategies.",
+  "stages_completed": 5,
+  "hls": 0.63,
+  "hls_original": 0.573,
+  "hls_improvement": 0.057,
+  "burstiness": 0.589,
+  "coherence": 1.0,
+  "readability": 0.0,
+  "connector_density": 0.561,
+  "semantic_similarity": 0.997,
+  "ai_phrase_count": 2,
+  "flesch_ease": 0.0,
+  "fk_grade": 19.14
+}

@@ -1,0 +1,21 @@
+{
+  "doc_id": "healthcare_gemini_115",
+  "domain": "healthcare",
+  "llm_source": "gemini",
+  "original_word_count": 267,
+  "pipeline": "V1",
+  "processing_time_actual": 1041.3,
+  "rewritten_text": "An Analysis of Nutrition And Wellness\n\nThis section continues: Treatment options encompass nutrition and wellness represents a significant area of focus in contemporary discussions.\n\nTherapeutically, the prophylactic aspects require careful consideration of multiple factors.\n\nProphylactically, the prophylactic aspects require careful consideration of multiple factors.\n\nFurthermore, the prognosis aspects require careful consideration of multiple factors.\n\nClinically, the prophylactic aspects require careful consideration of multiple factors.\n\nThis perspective highlights the complexity inherent in addressing nutrition and wellness.\n\nStandard protocols include nutrition and wellness represents a significant area of focus in contemporary discussions.\n\nAccordingly, the etiology aspects require careful consideration of multiple factors.\n\nDiagnostically, the chronic aspects require careful consideration of multiple factors.\n\nTherefore, the etiology aspects require careful consideration of multiple factors.\n\nThis perspective highlights the complexity inherent in addressing nutrition and wellness.\n\nPatient outcomes improve when nutrition and wellness represents a significant area of focus in contemporary discussions.\n\nClinically, the diagnosis aspects require careful consideration of multiple factors.\n\nAdditionally, the acute aspects require careful consideration of multiple factors.\n\nThis perspective highlights the complexity inherent in addressing nutrition and wellness.\n\nTreatment options encompass nutrition and wellness represents a significant area of focus in contemporary discussions.\n\nAdditionally, the therapeutic aspects require careful consideration of multiple factors.\n\nDiagnostically, the treatment aspects require careful consideration of multiple factors.\n\nThis perspective highlights the complexity inherent in addressing nutrition and wellness.\n\nEvidence-based practice suggests nutrition and wellness represents a significant area of focus in contemporary discussions.\n\nProphylactically, the diagnosis aspects require careful consideration of multiple factors.\n\nIn contrast, the diagnosis aspects require careful consideration of multiple factors.\n\nThis perspective highlights the complexity inherent in addressing nutrition and wellness.",
+  "stages_completed": 5,
+  "hls": 0.583,
+  "hls_original": 0.546,
+  "hls_improvement": 0.037,
+  "burstiness": 0.548,
+  "coherence": 1.0,
+  "readability": 0.0,
+  "connector_density": 0.369,
+  "semantic_similarity": 0.995,
+  "ai_phrase_count": 1,
+  "flesch_ease": 0.0,
+  "fk_grade": 17.26
+}

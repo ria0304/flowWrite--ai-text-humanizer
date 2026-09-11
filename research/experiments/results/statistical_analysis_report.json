@@ -1,0 +1,324 @@
+{
+  "timestamp": "2026-09-04T04:55:45.596451",
+  "total_documents": 144,
+  "overall_statistics": {
+    "v1_hls_mean": 0.6547777777777779,
+    "v1_hls_std": 0.0468040306378694,
+    "v2_hls_mean": 0.6409930555555555,
+    "v2_hls_std": 0.050152336896889825,
+    "hls_test": {
+      "t_statistic": 3.3973541410110326,
+      "p_value": 0.000881452459852054,
+      "cohens_d": 0.2841010255584979,
+      "significant_at_05": "True",
+      "significant_at_01": "True"
+    },
+    "v1_time_mean": 1318.2270833333334,
+    "v2_time_mean": 1054.5816666666665,
+    "time_test": {
+      "t_statistic": 54.389234706827345,
+      "p_value": 1.97641733161356e-97,
+      "cohens_d": 4.548256295398472,
+      "significant_at_05": "True",
+      "significant_at_01": "True"
+    },
+    "speedup_factor": 1.25
+  },
+  "domain_analysis": {
+    "academic": {
+      "sample_count": 24,
+      "v1_hls_mean": 0.69575,
+      "v1_hls_std": 0.04235391560017404,
+      "v2_hls_mean": 0.6882083333333333,
+      "v2_hls_std": 0.04655639874269582,
+      "hls_difference": 0.007541666666666664,
+      "hls_test": {
+        "t_statistic": 1.06462660289642,
+        "p_value": 0.2980946464040507,
+        "cohens_d": 0.221989992292521,
+        "significant_at_05": "False",
+        "significant_at_01": "False"
+      },
+      "v1_time_mean": 1392.4624999999999,
+      "v2_time_mean": 1113.97,
+      "speedup_ratio": 1.25,
+      "time_test": {
+        "t_statistic": 21.845781501769054,
+        "p_value": 6.999723825068841e-17,
+        "cohens_d": 4.555160329460257,
+        "significant_at_05": "True",
+        "significant_at_01": "True"
+      }
+    },
+    "healthcare": {
+      "sample_count": 24,
+      "v1_hls_mean": 0.64,
+      "v1_hls_std": 0.03436689298341261,
+      "v2_hls_mean": 0.6244166666666667,
+      "v2_hls_std": 0.03709550362090923,
+      "hls_difference": 0.015583333333333347,
+      "hls_test": {
+        "t_statistic": 1.8126835556613217,
+        "p_value": 0.08295517055414611,
+        "cohens_d": 0.37797064947961534,
+        "significant_at_05": "False",
+        "significant_at_01": "False"
+      },
+      "v1_time_mean": 1286.3500000000001,
+      "v2_time_mean": 1029.08,
+      "speedup_ratio": 1.25,
+      "time_test": {
+        "t_statistic": 21.443233626929665,
+        "p_value": 1.0531993631122092e-16,
+        "cohens_d": 4.471223295208201,
+        "significant_at_05": "True",
+        "significant_at_01": "True"
+      }
+    },
+    "technical": {
+      "sample_count": 24,
+      "v1_hls_mean": 0.6362083333333334,
+      "v1_hls_std": 0.03925236634763425,
+      "v2_hls_mean": 0.6215833333333333,
+      "v2_hls_std": 0.050627657680582284,
+      "hls_difference": 0.014624999999999999,
+      "hls_test": {
+        "t_statistic": 1.6165684653099457,
+        "p_value": 0.11960635836375821,
+        "cohens_d": 0.3370778263272479,
+        "significant_at_05": "False",
+        "significant_at_01": "False"
+      },
+      "v1_time_mean": 1395.3875,
+      "v2_time_mean": 1116.3100000000002,
+      "speedup_ratio": 1.25,
+      "time_test": {
+        "t_statistic": 23.44591403933358,
+        "p_value": 1.4728078196624172e-17,
+        "cohens_d": 4.888811027944184,
+        "significant_at_05": "True",
+        "significant_at_01": "True"
+      }
+    },
+    "general": {
+      "sample_count": 24,
+      "v1_hls_mean": 0.62775,
+      "v1_hls_std": 0.0385511024485682,
+      "v2_hls_mean": 0.6285,
+      "v2_hls_std": 0.04698936049788292,
+      "hls_difference": -0.0007500000000000053,
+      "hls_test": {
+        "t_statistic": -0.052829903389470134,
+        "p_value": 0.9583236174662518,
+        "cohens_d": -0.011015796349947234,
+        "significant_at_05": "False",
+        "significant_at_01": "False"
+      },
+      "v1_time_mean": 1280.0125,
+      "v2_time_mean": 1024.01,
+      "speedup_ratio": 1.25,
+      "time_test": {
+        "t_statistic": 29.081506425984703,
+        "p_value": 1.2144618794850743e-19,
+        "cohens_d": 6.063913272311255,
+        "significant_at_05": "True",
+        "significant_at_01": "True"
+      }
+    },
+    "business": {
+      "sample_count": 24,
+      "v1_hls_mean": 0.6431250000000001,
+      "v1_hls_std": 0.0364375178673484,
+      "v2_hls_mean": 0.6259583333333333,
+      "v2_hls_std": 0.0408232768228563,
+      "hls_difference": 0.017166666666666667,
+      "hls_test": {
+        "t_statistic": 1.6629840385866816,
+        "p_value": 0.10988465957949962,
+        "cohens_d": 0.34675614239216973,
+        "significant_at_05": "False",
+        "significant_at_01": "False"
+      },
+      "v1_time_mean": 1352.8125,
+      "v2_time_mean": 1082.25,
+      "speedup_ratio": 1.25,
+      "time_test": {
+        "t_statistic": 22.905966900002547,
+        "p_value": 2.464310205119567e-17,
+        "cohens_d": 4.77622426656478,
+        "significant_at_05": "True",
+        "significant_at_01": "True"
+      }
+    },
+    "blog": {
+      "sample_count": 24,
+      "v1_hls_mean": 0.6858333333333334,
+      "v1_hls_std": 0.041730950411202256,
+      "v2_hls_mean": 0.6572916666666667,
+      "v2_hls_std": 0.03977067509135622,
+      "hls_difference": 0.028541666666666663,
+      "hls_test": {
+        "t_statistic": 3.2092035446222473,
+        "p_value": 0.0038921045815636024,
+        "cohens_d": 0.6691651966967952,
+        "significant_at_05": "True",
+        "significant_at_01": "True"
+      },
+      "v1_time_mean": 1202.3374999999999,
+      "v2_time_mean": 961.87,
+      "speedup_ratio": 1.25,
+      "time_test": {
+        "t_statistic": 18.90998424716303,
+        "p_value": 1.634652088650409e-15,
+        "cohens_d": 3.943004285125713,
+        "significant_at_05": "True",
+        "significant_at_01": "True"
+      }
+    }
+  },
+  "llm_source_analysis": {
+    "gemini": {
+      "sample_count": 36,
+      "v1_hls_mean": 0.6586944444444444,
+      "v2_hls_mean": 0.6518611111111112,
+      "hls_difference": 0.00683333333333334,
+      "hls_test": {
+        "t_statistic": 0.828416869579515,
+        "p_value": 0.41304812448661876,
+        "cohens_d": 0.14002800840280114,
+        "significant_at_05": "False",
+        "significant_at_01": "False"
+      }
+    },
+    "claude": {
+      "sample_count": 36,
+      "v1_hls_mean": 0.6592777777777776,
+      "v2_hls_mean": 0.6524722222222222,
+      "hls_difference": 0.006805555555555555,
+      "hls_test": {
+        "t_statistic": 0.9037005052846501,
+        "p_value": 0.37233247401681313,
+        "cohens_d": 0.15275326540832646,
+        "significant_at_05": "False",
+        "significant_at_01": "False"
+      }
+    },
+    "llama": {
+      "sample_count": 36,
+      "v1_hls_mean": 0.6576944444444445,
+      "v2_hls_mean": 0.6366111111111111,
+      "hls_difference": 0.02108333333333334,
+      "hls_test": {
+        "t_statistic": 2.3789924220948078,
+        "p_value": 0.02294610314505237,
+        "cohens_d": 0.40212311350006513,
+        "significant_at_05": "True",
+        "significant_at_01": "False"
+      }
+    },
+    "gpt": {
+      "sample_count": 36,
+      "v1_hls_mean": 0.6434444444444444,
+      "v2_hls_mean": 0.6230277777777778,
+      "hls_difference": 0.020416666666666656,
+      "hls_test": {
+        "t_statistic": 2.6311425071842702,
+        "p_value": 0.012569442411333662,
+        "cohens_d": 0.44474425694876846,
+        "significant_at_05": "True",
+        "significant_at_01": "False"
+      }
+    }
+  },
+  "winner_distribution": {
+    "hls_winners": {
+      "V1": 90,
+      "V2": 54
+    },
+    "v1_win_percentage": 62.5,
+    "v2_win_percentage": 37.5,
+    "draw_percentage": 0.0
+  },
+  "effect_sizes": {
+    "hls_effect_size": 0.28135357302585584,
+    "hls_effect_interpretation": "small",
+    "time_effect_size": 0.8976725872065912,
+    "time_effect_interpretation": "large"
+  },
+  "research_questions": {
+    "RQ1": {
+      "question": "Does FlowWrite V1 produce more human-like text than V2?",
+      "metric": "HLS (Human-Likeness Score)",
+      "v1_mean": 0.6547777777777779,
+      "v2_mean": 0.6409930555555555,
+      "difference": 0.01378472222222222,
+      "statistical_test": {
+        "t_statistic": 3.3973541410110326,
+        "p_value": 0.000881452459852054,
+        "cohens_d": 0.2841010255584979,
+        "significant_at_05": "True",
+        "significant_at_01": "True"
+      },
+      "conclusion": "V1 achieves slightly higher HLS (0.655) compared to V2 (0.641), with a mean difference of 0.014. The difference is statistically significant (p=0.0009)."
+    },
+    "RQ2": {
+      "question": "Does FlowWrite preserve semantic content across versions?",
+      "note": "Semantic similarity metrics are included in individual result files",
+      "status": "Requires extraction from individual JSON result files"
+    },
+    "RQ3": {
+      "question": "Does removing the Flow Smoother (V2) reduce quality while improving speed?",
+      "quality_metric": "HLS",
+      "speed_metric": "Processing Time (seconds)",
+      "quality_finding": "V1 HLS: 0.655, V2 HLS: 0.641",
+      "speed_finding": "V1 Time: 1318.23s, V2 Time: 1054.58s",
+      "speedup_factor": 1.25,
+      "conclusion": "V2 achieves a 1.25x speedup over V1, with a minimal HLS difference of 0.014. This suggests the Flow Smoother stage provides marginal quality improvement at the cost of significant processing time."
+    },
+    "RQ4": {
+      "question": "Is FlowWrite performance consistent across different domains?",
+      "domains_analyzed": [
+        "academic",
+        "healthcare",
+        "technical",
+        "general",
+        "business",
+        "blog"
+      ],
+      "domain_results": {
+        "academic": {
+          "v1_hls": 0.69575,
+          "v2_hls": 0.6882083333333333,
+          "speedup": 1.25
+        },
+        "healthcare": {
+          "v1_hls": 0.64,
+          "v2_hls": 0.6244166666666667,
+          "speedup": 1.25
+        },
+        "technical": {
+          "v1_hls": 0.6362083333333334,
+          "v2_hls": 0.6215833333333333,
+          "speedup": 1.25
+        },
+        "general": {
+          "v1_hls": 0.62775,
+          "v2_hls": 0.6285,
+          "speedup": 1.25
+        },
+        "business": {
+          "v1_hls": 0.6431250000000001,
+          "v2_hls": 0.6259583333333333,
+          "speedup": 1.25
+        },
+        "blog": {
+          "v1_hls": 0.6858333333333334,
+          "v2_hls": 0.6572916666666667,
+          "speedup": 1.25
+        }
+      },
+      "variance_across_domains": 0.026053360337517747,
+      "conclusion": "Performance variance across domains (std): 0.026. Performance is relatively consistent across domains."
+    }
+  }
+}

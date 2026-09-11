@@ -1,0 +1,48 @@
+{
+  "experiment_id": "b00d4604-4cd9-4621-af21-e69a65386415",
+  "document_id": "blog_claude_089",
+  "dataset_id": "flowwrite_simulated_v1",
+  "dataset_version": "1.0.0",
+  "condition": "control",
+  "stage5_enabled": false,
+  "timestamp": "2026-09-04T05:53:39.650964Z",
+  "pipeline_success": true,
+  "failure_reason": null,
+  "input_text": "Exploring Technology Product Reviews in Modern Context\n\nYou know that feeling when technology product reviews represents a significant area of focus in contemporary discussions. Seriously, the definitely aspects require careful consideration of multiple factors. Actually, the definitely aspects require careful consideration of multiple factors. Honestly, the surprisingly aspects require careful consideration of multiple factors. Plus, the surprisingly aspects require careful consideration of mul",
+  "input_length": 2113,
+  "intermediate_length": 2126,
+  "final_output_length": 2126,
+  "stage5_metadata": null,
+  "evaluation_metrics": {
+    "hls": {
+      "total_score": 0.0,
+      "dimensions": {
+        "burstiness": 0.638,
+        "coherence": 1.0,
+        "readability": 0.03,
+        "connectors": 0.38,
+        "similarity": 1.0
+      }
+    }
+  },
+  "content_preservation": {
+    "char_difference": 13,
+    "word_precision": 1.0,
+    "word_recall": 1.0,
+    "word_f1": 1.0,
+    "semantic_similarity": 1.0
+  },
+  "system_metadata": {
+    "python_version": "3.12.10",
+    "platform": "Linux",
+    "platform_version": "#1 SMP Tue Sep 26 10:25:51 UTC 2023",
+    "package_versions": {
+      "torch": "2.7.1",
+      "transformers": "5.16.1",
+      "sentence-transformers": "6.0.1",
+      "numpy": "2.3.1",
+      "pandas": "2.3.1"
+    }
+  },
+  "output_text": "Exploring Technology Product Reviews in Modern Context\n\nYou know that feeling when technology product reviews represents a significant area of focus in contemporary discussions.\n\nSeriously, the definitely aspects require careful consideration of multiple factors. Actually, the definitely aspects require careful consideration of multiple factors.\n\nHonestly, the surprisingly aspects require careful consideration of multiple factors. Plus, the surprisingly aspects require careful consideration of multiple factors.\n\nThis perspective highlights the complexity inherent in addressing technology product reviews.\n\nYou know that feeling when technology product reviews represents a significant area of focus in contemporary discussions.\n\nActually, the surprisingly aspects require careful consideration of multiple factors. Honestly, the real talk aspects require careful consideration of multiple factors.\n\nAlso, the life-hack aspects require careful consideration of multiple factors.\n\nIt important to consider understanding these dynamics.\n\nThis perspective highlights the complexity inherent in addressing technology product reviews.\n\nHere's the thing about technology product reviews represents a significant area of focus in contemporary discussions.\n\nHonestly, the life-hack aspects require careful consideration of multiple factors. Actually, the game-changer aspects require careful consideration of multiple factors.\n\nActually, the definitely aspects require careful consideration of multiple factors. Plus, the definitely aspects require careful consideration of multiple factors.\n\nIt important to consider understanding these dynamics.\n\nThis perspective highlights the complexity inherent in addressing technology product reviews. If you're anything like me technology product reviews represents a significant area of focus in contemporary discussions.\n\nAlso, the surprisingly aspects require careful consideration of multiple factors.\n\nBesides, the surprisingly aspects require careful con"
+}

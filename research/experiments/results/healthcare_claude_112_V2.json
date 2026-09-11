@@ -1,0 +1,21 @@
+{
+  "doc_id": "healthcare_claude_112",
+  "domain": "healthcare",
+  "llm_source": "claude",
+  "original_word_count": 248,
+  "pipeline": "V2",
+  "processing_time_actual": 773.76,
+  "rewritten_text": "Understanding Mental Health Awareness: Key Insights\n\nEvidence-based practice suggests mental health awareness represents a significant area of focus in contemporary discussions.\n\nDiagnostically, the therapeutic aspects require careful consideration of multiple factors.\n\nTherapeutically, the localized aspects require careful consideration of multiple factors.\n\nThis perspective highlights the complexity inherent in addressing mental health awareness.\n\nResearch has established mental health awareness represents a significant area of focus in contemporary discussions.\n\nDiagnostically, the localized aspects require careful consideration of multiple factors.\n\nAdditionally, the intervention aspects require careful consideration of multiple factors.\n\nConsequently, the intervention aspects require careful consideration of multiple factors.\n\nSimilarly, the chronic aspects require careful consideration of multiple factors.\n\nIt it is clear that understanding these dynamics.\n\nThis perspective highlights the complexity inherent in addressing mental health awareness.\n\nStandard protocols include mental health awareness represents a significant area of focus in contemporary discussions.\n\nAccordingly, the etiology aspects require careful consideration of multiple factors.\n\nConsequently, the etiology aspects require careful consideration of multiple factors.\n\nIn contrast, the palliative aspects require careful consideration of multiple factors.\n\nClinically, the prophylactic aspects require careful consideration of multiple factors.\n\nIt additionally understanding these dynamics.\n\nThis perspective highlights the complexity inherent in addressing mental health awareness.\n\nTreatment options encompass mental health awareness represents a significant area of focus in contemporary discussions.\n\nDiagnostically, the treatment aspects require careful consideration of multiple factors.\n\nProphylactically, the chronic aspects require careful consideration of multiple factors.\n\nIt moreover understanding these dynamics.\n\nThis perspective highlights the complexity inherent in addressing mental health awareness.",
+  "stages_completed": 4,
+  "hls": 0.626,
+  "hls_original": 0.627,
+  "hls_improvement": -0.002,
+  "burstiness": 0.596,
+  "coherence": 1.0,
+  "readability": 0.0,
+  "connector_density": 0.535,
+  "semantic_similarity": 0.998,
+  "ai_phrase_count": 2,
+  "flesch_ease": 0.0,
+  "fk_grade": 17.49
+}

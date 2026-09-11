@@ -1,0 +1,21 @@
+{
+  "doc_id": "academic_claude_016",
+  "domain": "academic",
+  "llm_source": "claude",
+  "original_word_count": 230,
+  "pipeline": "V2",
+  "processing_time_actual": 717.5999999999999,
+  "rewritten_text": "Understanding Quantum Computing Limitations: Key Insights\n\nMeta-analyses have confirmed quantum computing limitations represents a significant area of focus in contemporary discussions.\n\nFurthermore, the empirical aspects require careful consideration of multiple factors.\n\nSubsequently, the hypothesis aspects require careful consideration of multiple factors.\n\nHowever, perspective highlights the complexity inherent in addressing quantum computing limitations.\n\nA growing body of research supports quantum computing limitations represents a significant area of focus in contemporary discussions.\n\nTherefore, the substantial aspects require careful consideration of multiple factors.\n\nNotably, the methodology aspects require careful consideration of multiple factors.\n\nIt research has shown understanding these dynamics.\n\nThis perspective highlights the complexity inherent in addressing quantum computing limitations.\n\nPrevious investigations have revealed quantum computing limitations represents a significant area of focus in contemporary discussions.\n\nFurthermore, the methodology aspects require careful consideration of multiple factors.\n\nConsequently, the correlation aspects require careful consideration of multiple factors.\n\nThis perspective highlights the complexity inherent in addressing quantum computing limitations.\n\nA growing body of research supports quantum computing limitations represents a significant area of focus in contemporary discussions.\n\nMoreover, the hypothesis aspects require careful consideration of multiple factors.\n\nHence, the theoretical aspects require careful consideration of multiple factors.\n\nIn contrast, the hypothesis aspects require careful consideration of multiple factors.\n\nHence, the paradigm aspects require careful consideration of multiple factors.\n\nIt key aspect understanding these dynamics.\n\nThis perspective highlights the complexity inherent in addressing quantum computing limitations.",
+  "stages_completed": 4,
+  "hls": 0.642,
+  "hls_original": 0.586,
+  "hls_improvement": 0.056,
+  "burstiness": 0.633,
+  "coherence": 1.0,
+  "readability": 0.0,
+  "connector_density": 0.577,
+  "semantic_similarity": 0.999,
+  "ai_phrase_count": 5,
+  "flesch_ease": 0.0,
+  "fk_grade": 17.62
+}

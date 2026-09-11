@@ -1,0 +1,1314 @@
+{
+  "study_info": {
+    "title": "FlowWrite Human Evaluation Study",
+    "description": "This study evaluates the quality of AI-generated text after processing through the FlowWrite rewriting system.",
+    "instructions": [
+      "Read each text sample carefully.",
+      "Rate each sample on the five criteria using the 1-5 scale.",
+      "Make your AI vs Human judgment based on your intuition.",
+      "Take breaks between samples to maintain consistency.",
+      "There are no right or wrong answers - we want your honest assessment."
+    ],
+    "criteria_definitions": {
+      "Naturalness": "Does the text sound like something a human would write, or does it feel robotic/artificial?",
+      "Fluency": "Does the text flow smoothly from sentence to sentence, or is it choppy?",
+      "Coherence": "Are the ideas logically connected and easy to follow?",
+      "Meaning Preservation": "Does the text effectively communicate its intended message?",
+      "Overall Quality": "Your holistic assessment of the writing quality."
+    },
+    "estimated_time": "15-20 minutes for 30 samples",
+    "contact": "research@flowwrite.example.com"
+  },
+  "evaluation_forms": [
+    {
+      "form_id": 1,
+      "document_id": "general_claude_136",
+      "domain": "general",
+      "llm_source": "claude",
+      "word_count": 330,
+      "text": "The Impact of Trend Analyses\n\nAnalysis reveals trend analyses represents a significant area of focus in contemporary discussions. Meanwhile, the expected aspects require careful consideration of multiple factors. Consequently, the ongoing aspects require careful consideration of multiple factors. However, the ongoing aspects require careful consideration of multiple factors. This perspective highlights the complexity inherent in addressing trend analyses.\n\nAnalysis reveals trend analyses represents a significant area of focus in contemporary discussions. Conversely, the notable aspects require careful consideration of multiple factors. Conversely, the considerable aspects require careful consideration of multiple factors. This perspective highlights the complexity inherent in addressing trend analyses.\n\nNew developments show trend analyses represents a significant area of focus in contemporary discussions. However, the emerging aspects require careful consideration of multiple factors. Additionally, the potential aspects require careful consideration of multiple factors. In related news, the potential aspects require careful consideration of multiple factors. This perspective highlights the complexity inherent in addressing trend analyses.\n\nPublic attention has focused on trend analyses represents a significant area of focus in contemporary discussions. Meanwhile, the considerable aspects require careful consideration of multiple factors. In related news, the notable aspects require careful consideration of multiple factors. Similarly, the expected aspects require careful consideration of multiple factors. This perspective highlights the complexity inherent in addressing trend analyses.\n\nAnalysis reveals trend analyses represents a significant area of focus in contemporary discussions. Conversely, the confirmed aspects require careful consideration of multiple factors. Meanwhile, the ongoing aspects require careful consideration of multiple factors. Consequently, the ongoing aspects require careful consideration of multiple factors. Additionally, the ongoing aspects require careful consideration of multiple factors. It key aspect understanding these dynamics. This perspective highlights the complexity inherent in addressing trend analyses.\n\nPublic attention has focused on trend analyses represents a significant area of focus in contemporary discussions. Similarly, the potential aspects require careful consideration of multiple factors. However, the confirmed aspects require careful consideration of multiple factors. This perspective highlights the complexity inherent in addressing trend analyses.",
+      "evaluation_criteria": {
+        "naturalness": {
+          "question": "How natural does this text sound?",
+          "scale": "1 (Very Artificial) to 5 (Completely Natural)",
+          "rating": null
+        },
+        "fluency": {
+          "question": "How fluent is the writing?",
+          "scale": "1 (Choppy/Disjointed) to 5 (Smooth/Flowing)",
+          "rating": null
+        },
+        "coherence": {
+          "question": "How coherent is the text?",
+          "scale": "1 (Confusing) to 5 (Clear and Logical)",
+          "rating": null
+        },
+        "meaning_preservation": {
+          "question": "How well does the text preserve its intended meaning?",
+          "scale": "1 (Meaning Lost) to 5 (Meaning Fully Preserved)",
+          "rating": null,
+          "note": "Compare against the original topic/intent"
+        },
+        "overall_quality": {
+          "question": "What is your overall assessment of the writing quality?",
+          "scale": "1 (Poor) to 5 (Excellent)",
+          "rating": null
+        }
+      },
+      "ai_human_judgment": {
+        "question": "Do you think this text was written by:",
+        "options": [
+          "Definitely AI",
+          "Probably AI",
+          "Unsure",
+          "Probably Human",
+          "Definitely Human"
+        ],
+        "selection": null
+      },
+      "comments": {
+        "question": "Any additional comments or observations?",
+        "response": ""
+      },
+      "evaluator_id": null,
+      "timestamp": null
+    },
+    {
+      "form_id": 2,
+      "document_id": "blog_gemini_092",
+      "domain": "blog",
+      "llm_source": "gemini",
+      "word_count": 239,
+      "text": "Exploring Career Development Lessons in Modern Context\n\nHere's the thing about career development lessons represents a significant area of focus in contemporary discussions. Anyway, the absolutely aspects require careful consideration of multiple factors. Seriously, the must-try aspects require careful consideration of multiple factors. It notably understanding these dynamics. This perspective highlights the complexity inherent in addressing career development lessons.\n\nIf you're anything like me career development lessons represents a significant area of focus in contemporary discussions. Seriously, the real talk aspects require careful consideration of multiple factors. Besides, the surprisingly aspects require careful consideration of multiple factors. Also, the absolutely aspects require careful consideration of multiple factors. This perspective highlights the complexity inherent in addressing career development lessons.\n\nIf you're anything like me career development lessons represents a significant area of focus in contemporary discussions. Seriously, the surprisingly aspects require careful consideration of multiple factors. Besides, the life-hack aspects require careful consideration of multiple factors. It also understanding these dynamics. This perspective highlights the complexity inherent in addressing career development lessons.\n\nYou know that feeling when career development lessons represents a significant area of focus in contemporary discussions. Seriously, the game-changer aspects require careful consideration of multiple factors. Anyway, the definitely aspects require careful consideration of multiple factors. Seriously, the game-changer aspects require careful consideration of multiple factors. Honestly, the definitely aspects require careful consideration of multiple factors. This perspective highlights the complexity inherent in addressing career development lessons.",
+      "evaluation_criteria": {
+        "naturalness": {
+          "question": "How natural does this text sound?",
+          "scale": "1 (Very Artificial) to 5 (Completely Natural)",
+          "rating": null
+        },
+        "fluency": {
+          "question": "How fluent is the writing?",
+          "scale": "1 (Choppy/Disjointed) to 5 (Smooth/Flowing)",
+          "rating": null
+        },
+        "coherence": {
+          "question": "How coherent is the text?",
+          "scale": "1 (Confusing) to 5 (Clear and Logical)",
+          "rating": null
+        },
+        "meaning_preservation": {
+          "question": "How well does the text preserve its intended meaning?",
+          "scale": "1 (Meaning Lost) to 5 (Meaning Fully Preserved)",
+          "rating": null,
+          "note": "Compare against the original topic/intent"
+        },
+        "overall_quality": {
+          "question": "What is your overall assessment of the writing quality?",
+          "scale": "1 (Poor) to 5 (Excellent)",
+          "rating": null
+        }
+      },
+      "ai_human_judgment": {
+        "question": "Do you think this text was written by:",
+        "options": [
+          "Definitely AI",
+          "Probably AI",
+          "Unsure",
+          "Probably Human",
+          "Definitely Human"
+        ],
+        "selection": null
+      },
+      "comments": {
+        "question": "Any additional comments or observations?",
+        "response": ""
+      },
+      "evaluator_id": null,
+      "timestamp": null
+    },
+    {
+      "form_id": 3,
+      "document_id": "general_llama_124",
+      "domain": "general",
+      "llm_source": "llama",
+      "word_count": 339,
+      "text": "Survey Results: A Comprehensive Overview\n\nSources confirm survey results represents a significant area of focus in contemporary discussions. Similarly, the notable aspects require careful consideration of multiple factors. Conversely, the notable aspects require careful consideration of multiple factors. Meanwhile, the potential aspects require careful consideration of multiple factors. However, the potential aspects require careful consideration of multiple factors. This perspective highlights the complexity inherent in addressing survey results.\n\nExperts suggest that survey results represents a significant area of focus in contemporary discussions. Conversely, the reported aspects require careful consideration of multiple factors. However, the expected aspects require careful consideration of multiple factors. Similarly, the substantial aspects require careful consideration of multiple factors. Similarly, the reported aspects require careful consideration of multiple factors. It interestingly understanding these dynamics. This perspective highlights the complexity inherent in addressing survey results.\n\nNew developments show survey results represents a significant area of focus in contemporary discussions. Conversely, the notable aspects require careful consideration of multiple factors. However, the ongoing aspects require careful consideration of multiple factors. However, the ongoing aspects require careful consideration of multiple factors. It also understanding these dynamics. This perspective highlights the complexity inherent in addressing survey results.\n\nNew developments show survey results represents a significant area of focus in contemporary discussions. Consequently, the reported aspects require careful consideration of multiple factors. However, the anticipated aspects require careful consideration of multiple factors. Meanwhile, the significant aspects require careful consideration of multiple factors. However, the anticipated aspects require careful consideration of multiple factors. It another point understanding these dynamics. This perspective highlights the complexity inherent in addressing survey results.\n\nOfficials announced survey results represents a significant area of focus in contemporary discussions. In related news, the significant aspects require careful consideration of multiple factors. Additionally, the significant aspects require careful consideration of multiple factors. On the other hand, the developing aspects require careful consideration of multiple factors. Consequently, the reported aspects require careful consideration of multiple factors. It also understanding these dynamics. This perspective highlights the complexity inherent in addressing survey results.",
+      "evaluation_criteria": {
+        "naturalness": {
+          "question": "How natural does this text sound?",
+          "scale": "1 (Very Artificial) to 5 (Completely Natural)",
+          "rating": null
+        },
+        "fluency": {
+          "question": "How fluent is the writing?",
+          "scale": "1 (Choppy/Disjointed) to 5 (Smooth/Flowing)",
+          "rating": null
+        },
+        "coherence": {
+          "question": "How coherent is the text?",
+          "scale": "1 (Confusing) to 5 (Clear and Logical)",
+          "rating": null
+        },
+        "meaning_preservation": {
+          "question": "How well does the text preserve its intended meaning?",
+          "scale": "1 (Meaning Lost) to 5 (Meaning Fully Preserved)",
+          "rating": null,
+          "note": "Compare against the original topic/intent"
+        },
+        "overall_quality": {
+          "question": "What is your overall assessment of the writing quality?",
+          "scale": "1 (Poor) to 5 (Excellent)",
+          "rating": null
+        }
+      },
+      "ai_human_judgment": {
+        "question": "Do you think this text was written by:",
+        "options": [
+          "Definitely AI",
+          "Probably AI",
+          "Unsure",
+          "Probably Human",
+          "Definitely Human"
+        ],
+        "selection": null
+      },
+      "comments": {
+        "question": "Any additional comments or observations?",
+        "response": ""
+      },
+      "evaluator_id": null,
+      "timestamp": null
+    },
+    {
+      "form_id": 4,
+      "document_id": "academic_gpt_011",
+      "domain": "academic",
+      "llm_source": "gpt",
+      "word_count": 445,
+      "text": "Understanding Social Media Effects On Mental Health: Key Insights\n\nThe literature suggests a correlation between social media effects on mental health represents a significant area of focus in contemporary discussions. Subsequently, the significant aspects require careful consideration of multiple factors. Hence, the significant aspects require careful consideration of multiple factors. In addition, the significant aspects require careful consideration of multiple factors. In addition, the meta-analysis aspects require careful consideration of multiple factors. It in the realm of understanding these dynamics. This perspective highlights the complexity inherent in addressing social media effects on mental health.\n\nThe literature suggests a correlation between social media effects on mental health represents a significant area of focus in contemporary discussions. Consequently, the cross-sectional aspects require careful consideration of multiple factors. Consequently, the cross-sectional aspects require careful consideration of multiple factors. It this underscores the importance of understanding these dynamics. This perspective highlights the complexity inherent in addressing social media effects on mental health.\n\nTheoretical frameworks propose social media effects on mental health represents a significant area of focus in contemporary discussions. In addition, the meta-analysis aspects require careful consideration of multiple factors. Moreover, the variables aspects require careful consideration of multiple factors. In addition, the variables aspects require careful consideration of multiple factors. It furthermore, it should be mentioned understanding these dynamics. This perspective highlights the complexity inherent in addressing social media effects on mental health.\n\nTheoretical frameworks propose social media effects on mental health represents a significant area of focus in contemporary discussions. Moreover, the empirical aspects require careful consideration of multiple factors. Consequently, the pronounced aspects require careful consideration of multiple factors. It in conclusion, it is evident that understanding these dynamics. This perspective highlights the complexity inherent in addressing social media effects on mental health.\n\nPrevious investigations have revealed social media effects on mental health represents a significant area of focus in contemporary discussions. Notwithstanding, the variables aspects require careful consideration of multiple factors. Hence, the notable aspects require careful consideration of multiple factors. Correspondingly, the notable aspects require careful consideration of multiple factors. It shed light on this matter understanding these dynamics. This perspective highlights the complexity inherent in addressing social media effects on mental health.\n\nTheoretical frameworks propose social media effects on mental health represents a significant area of focus in contemporary discussions. Furthermore, the theoretical aspects require careful consideration of multiple factors. Correspondingly, the hypothesis aspects require careful consideration of multiple factors. Consequently, the paradigm aspects require careful consideration of multiple factors. Notwithstanding, the paradigm aspects require careful consideration of multiple factors. It in the realm of understanding these dynamics. This perspective highlights the complexity inherent in addressing social media effects on mental health.",
+      "evaluation_criteria": {
+        "naturalness": {
+          "question": "How natural does this text sound?",
+          "scale": "1 (Very Artificial) to 5 (Completely Natural)",
+          "rating": null
+        },
+        "fluency": {
+          "question": "How fluent is the writing?",
+          "scale": "1 (Choppy/Disjointed) to 5 (Smooth/Flowing)",
+          "rating": null
+        },
+        "coherence": {
+          "question": "How coherent is the text?",
+          "scale": "1 (Confusing) to 5 (Clear and Logical)",
+          "rating": null
+        },
+        "meaning_preservation": {
+          "question": "How well does the text preserve its intended meaning?",
+          "scale": "1 (Meaning Lost) to 5 (Meaning Fully Preserved)",
+          "rating": null,
+          "note": "Compare against the original topic/intent"
+        },
+        "overall_quality": {
+          "question": "What is your overall assessment of the writing quality?",
+          "scale": "1 (Poor) to 5 (Excellent)",
+          "rating": null
+        }
+      },
+      "ai_human_judgment": {
+        "question": "Do you think this text was written by:",
+        "options": [
+          "Definitely AI",
+          "Probably AI",
+          "Unsure",
+          "Probably Human",
+          "Definitely Human"
+        ],
+        "selection": null
+      },
+      "comments": {
+        "question": "Any additional comments or observations?",
+        "response": ""
+      },
+      "evaluator_id": null,
+      "timestamp": null
+    },
+    {
+      "form_id": 5,
+      "document_id": "technical_gemini_044",
+      "domain": "technical",
+      "llm_source": "gemini",
+      "word_count": 307,
+      "text": "Understanding Microservices Architecture Patterns: Key Insights\n\nThe system architecture consists of microservices architecture patterns represents a significant area of focus in contemporary discussions. Consequently, the infrastructure aspects require careful consideration of multiple factors. Specifically, the immutable aspects require careful consideration of multiple factors. Consequently, the latency aspects require careful consideration of multiple factors. It another point understanding these dynamics. This perspective highlights the complexity inherent in addressing microservices architecture patterns.\n\nImplementation requires careful consideration of microservices architecture patterns represents a significant area of focus in contemporary discussions. Alternatively, the infrastructure aspects require careful consideration of multiple factors. In practice, the infrastructure aspects require careful consideration of multiple factors. Consequently, the throughput aspects require careful consideration of multiple factors. This perspective highlights the complexity inherent in addressing microservices architecture patterns.\n\nThe recommended approach utilizes microservices architecture patterns represents a significant area of focus in contemporary discussions. Technically, the encryption aspects require careful consideration of multiple factors. Consequently, the scalability aspects require careful consideration of multiple factors. In practice, the infrastructure aspects require careful consideration of multiple factors. Consequently, the encryption aspects require careful consideration of multiple factors. This perspective highlights the complexity inherent in addressing microservices architecture patterns.\n\nThe system architecture consists of microservices architecture patterns represents a significant area of focus in contemporary discussions. Accordingly, the asynchronous aspects require careful consideration of multiple factors. Structurally, the distributed aspects require careful consideration of multiple factors. Technically, the asynchronous aspects require careful consideration of multiple factors. It interestingly understanding these dynamics. This perspective highlights the complexity inherent in addressing microservices architecture patterns.\n\nThe primary challenge involves microservices architecture patterns represents a significant area of focus in contemporary discussions. Technically, the encryption aspects require careful consideration of multiple factors. Specifically, the scalability aspects require careful consideration of multiple factors. This perspective highlights the complexity inherent in addressing microservices architecture patterns.",
+      "evaluation_criteria": {
+        "naturalness": {
+          "question": "How natural does this text sound?",
+          "scale": "1 (Very Artificial) to 5 (Completely Natural)",
+          "rating": null
+        },
+        "fluency": {
+          "question": "How fluent is the writing?",
+          "scale": "1 (Choppy/Disjointed) to 5 (Smooth/Flowing)",
+          "rating": null
+        },
+        "coherence": {
+          "question": "How coherent is the text?",
+          "scale": "1 (Confusing) to 5 (Clear and Logical)",
+          "rating": null
+        },
+        "meaning_preservation": {
+          "question": "How well does the text preserve its intended meaning?",
+          "scale": "1 (Meaning Lost) to 5 (Meaning Fully Preserved)",
+          "rating": null,
+          "note": "Compare against the original topic/intent"
+        },
+        "overall_quality": {
+          "question": "What is your overall assessment of the writing quality?",
+          "scale": "1 (Poor) to 5 (Excellent)",
+          "rating": null
+        }
+      },
+      "ai_human_judgment": {
+        "question": "Do you think this text was written by:",
+        "options": [
+          "Definitely AI",
+          "Probably AI",
+          "Unsure",
+          "Probably Human",
+          "Definitely Human"
+        ],
+        "selection": null
+      },
+      "comments": {
+        "question": "Any additional comments or observations?",
+        "response": ""
+      },
+      "evaluator_id": null,
+      "timestamp": null
+    },
+    {
+      "form_id": 6,
+      "document_id": "academic_llama_005",
+      "domain": "academic",
+      "llm_source": "llama",
+      "word_count": 359,
+      "text": "Understanding Quantum Computing Limitations: Key Insights\n\nA growing body of research supports quantum computing limitations represents a significant area of focus in contemporary discussions. Therefore, the correlation aspects require careful consideration of multiple factors. Furthermore, the hypothesis aspects require careful consideration of multiple factors. Correspondingly, the correlation aspects require careful consideration of multiple factors. This perspective highlights the complexity inherent in addressing quantum computing limitations.\n\nThe literature suggests a correlation between quantum computing limitations represents a significant area of focus in contemporary discussions. Subsequently, the theoretical aspects require careful consideration of multiple factors. In addition, the correlation aspects require careful consideration of multiple factors. This perspective highlights the complexity inherent in addressing quantum computing limitations.\n\nMeta-analyses have confirmed quantum computing limitations represents a significant area of focus in contemporary discussions. Notwithstanding, the significant aspects require careful consideration of multiple factors. Moreover, the pronounced aspects require careful consideration of multiple factors. In addition, the causation aspects require careful consideration of multiple factors. Moreover, the pronounced aspects require careful consideration of multiple factors. This perspective highlights the complexity inherent in addressing quantum computing limitations.\n\nPrevious investigations have revealed quantum computing limitations represents a significant area of focus in contemporary discussions. In addition, the variables aspects require careful consideration of multiple factors. In addition, the causation aspects require careful consideration of multiple factors. Moreover, the variables aspects require careful consideration of multiple factors. In addition, the causation aspects require careful consideration of multiple factors. This perspective highlights the complexity inherent in addressing quantum computing limitations.\n\nRecent studies have demonstrated that quantum computing limitations represents a significant area of focus in contemporary discussions. Hence, the pronounced aspects require careful consideration of multiple factors. Notwithstanding, the hypothesis aspects require careful consideration of multiple factors. This perspective highlights the complexity inherent in addressing quantum computing limitations.\n\nThe literature suggests a correlation between quantum computing limitations represents a significant area of focus in contemporary discussions. Correspondingly, the notable aspects require careful consideration of multiple factors. Thus, the notable aspects require careful consideration of multiple factors. Furthermore, the variables aspects require careful consideration of multiple factors. This perspective highlights the complexity inherent in addressing quantum computing limitations.",
+      "evaluation_criteria": {
+        "naturalness": {
+          "question": "How natural does this text sound?",
+          "scale": "1 (Very Artificial) to 5 (Completely Natural)",
+          "rating": null
+        },
+        "fluency": {
+          "question": "How fluent is the writing?",
+          "scale": "1 (Choppy/Disjointed) to 5 (Smooth/Flowing)",
+          "rating": null
+        },
+        "coherence": {
+          "question": "How coherent is the text?",
+          "scale": "1 (Confusing) to 5 (Clear and Logical)",
+          "rating": null
+        },
+        "meaning_preservation": {
+          "question": "How well does the text preserve its intended meaning?",
+          "scale": "1 (Meaning Lost) to 5 (Meaning Fully Preserved)",
+          "rating": null,
+          "note": "Compare against the original topic/intent"
+        },
+        "overall_quality": {
+          "question": "What is your overall assessment of the writing quality?",
+          "scale": "1 (Poor) to 5 (Excellent)",
+          "rating": null
+        }
+      },
+      "ai_human_judgment": {
+        "question": "Do you think this text was written by:",
+        "options": [
+          "Definitely AI",
+          "Probably AI",
+          "Unsure",
+          "Probably Human",
+          "Definitely Human"
+        ],
+        "selection": null
+      },
+      "comments": {
+        "question": "Any additional comments or observations?",
+        "response": ""
+      },
+      "evaluator_id": null,
+      "timestamp": null
+    },
+    {
+      "form_id": 7,
+      "document_id": "blog_claude_086",
+      "domain": "blog",
+      "llm_source": "claude",
+      "word_count": 264,
+      "text": "An Analysis of Technology Product Reviews\n\nYou know that feeling when technology product reviews represents a significant area of focus in contemporary discussions. Seriously, the absolutely aspects require careful consideration of multiple factors. Seriously, the absolutely aspects require careful consideration of multiple factors. This perspective highlights the complexity inherent in addressing technology product reviews.\n\nLet me share something I've learned technology product reviews represents a significant area of focus in contemporary discussions. Also, the must-try aspects require careful consideration of multiple factors. Besides, the game-changer aspects require careful consideration of multiple factors. Also, the surprisingly aspects require careful consideration of multiple factors. It it is clear that understanding these dynamics. This perspective highlights the complexity inherent in addressing technology product reviews.\n\nSo here's what happened technology product reviews represents a significant area of focus in contemporary discussions. Actually, the awesome aspects require careful consideration of multiple factors. Seriously, the life-hack aspects require careful consideration of multiple factors. Honestly, the must-try aspects require careful consideration of multiple factors. It it is clear that understanding these dynamics. This perspective highlights the complexity inherent in addressing technology product reviews.\n\nLet me share something I've learned technology product reviews represents a significant area of focus in contemporary discussions. Actually, the real talk aspects require careful consideration of multiple factors. Seriously, the real talk aspects require careful consideration of multiple factors. Honestly, the must-try aspects require careful consideration of multiple factors. Honestly, the must-try aspects require careful consideration of multiple factors. It important to consider understanding these dynamics. This perspective highlights the complexity inherent in addressing technology product reviews.",
+      "evaluation_criteria": {
+        "naturalness": {
+          "question": "How natural does this text sound?",
+          "scale": "1 (Very Artificial) to 5 (Completely Natural)",
+          "rating": null
+        },
+        "fluency": {
+          "question": "How fluent is the writing?",
+          "scale": "1 (Choppy/Disjointed) to 5 (Smooth/Flowing)",
+          "rating": null
+        },
+        "coherence": {
+          "question": "How coherent is the text?",
+          "scale": "1 (Confusing) to 5 (Clear and Logical)",
+          "rating": null
+        },
+        "meaning_preservation": {
+          "question": "How well does the text preserve its intended meaning?",
+          "scale": "1 (Meaning Lost) to 5 (Meaning Fully Preserved)",
+          "rating": null,
+          "note": "Compare against the original topic/intent"
+        },
+        "overall_quality": {
+          "question": "What is your overall assessment of the writing quality?",
+          "scale": "1 (Poor) to 5 (Excellent)",
+          "rating": null
+        }
+      },
+      "ai_human_judgment": {
+        "question": "Do you think this text was written by:",
+        "options": [
+          "Definitely AI",
+          "Probably AI",
+          "Unsure",
+          "Probably Human",
+          "Definitely Human"
+        ],
+        "selection": null
+      },
+      "comments": {
+        "question": "Any additional comments or observations?",
+        "response": ""
+      },
+      "evaluator_id": null,
+      "timestamp": null
+    },
+    {
+      "form_id": 8,
+      "document_id": "academic_gemini_022",
+      "domain": "academic",
+      "llm_source": "gemini",
+      "word_count": 320,
+      "text": "The Impact of Remote Work Productivity Studies\n\nTheoretical frameworks propose remote work productivity studies represents a significant area of focus in contemporary discussions. Thus, the methodology aspects require careful consideration of multiple factors. Thus, the empirical aspects require careful consideration of multiple factors. This perspective highlights the complexity inherent in addressing remote work productivity studies.\n\nA growing body of research supports remote work productivity studies represents a significant area of focus in contemporary discussions. Therefore, the framework aspects require careful consideration of multiple factors. Consequently, the significant aspects require careful consideration of multiple factors. In addition, the empirical aspects require careful consideration of multiple factors. Consequently, the empirical aspects require careful consideration of multiple factors. It also understanding these dynamics. This perspective highlights the complexity inherent in addressing remote work productivity studies.\n\nMeta-analyses have confirmed remote work productivity studies represents a significant area of focus in contemporary discussions. Correspondingly, the pronounced aspects require careful consideration of multiple factors. Moreover, the framework aspects require careful consideration of multiple factors. Subsequently, the framework aspects require careful consideration of multiple factors. Moreover, the paradigm aspects require careful consideration of multiple factors. It another point understanding these dynamics. This perspective highlights the complexity inherent in addressing remote work productivity studies.\n\nA growing body of research supports remote work productivity studies represents a significant area of focus in contemporary discussions. Hence, the substantial aspects require careful consideration of multiple factors. Notwithstanding, the hypothesis aspects require careful consideration of multiple factors. This perspective highlights the complexity inherent in addressing remote work productivity studies.\n\nEmpirical evidence indicates remote work productivity studies represents a significant area of focus in contemporary discussions. Consequently, the causation aspects require careful consideration of multiple factors. Notwithstanding, the paradigm aspects require careful consideration of multiple factors. Moreover, the causation aspects require careful consideration of multiple factors. It interestingly understanding these dynamics. This perspective highlights the complexity inherent in addressing remote work productivity studies.",
+      "evaluation_criteria": {
+        "naturalness": {
+          "question": "How natural does this text sound?",
+          "scale": "1 (Very Artificial) to 5 (Completely Natural)",
+          "rating": null
+        },
+        "fluency": {
+          "question": "How fluent is the writing?",
+          "scale": "1 (Choppy/Disjointed) to 5 (Smooth/Flowing)",
+          "rating": null
+        },
+        "coherence": {
+          "question": "How coherent is the text?",
+          "scale": "1 (Confusing) to 5 (Clear and Logical)",
+          "rating": null
+        },
+        "meaning_preservation": {
+          "question": "How well does the text preserve its intended meaning?",
+          "scale": "1 (Meaning Lost) to 5 (Meaning Fully Preserved)",
+          "rating": null,
+          "note": "Compare against the original topic/intent"
+        },
+        "overall_quality": {
+          "question": "What is your overall assessment of the writing quality?",
+          "scale": "1 (Poor) to 5 (Excellent)",
+          "rating": null
+        }
+      },
+      "ai_human_judgment": {
+        "question": "Do you think this text was written by:",
+        "options": [
+          "Definitely AI",
+          "Probably AI",
+          "Unsure",
+          "Probably Human",
+          "Definitely Human"
+        ],
+        "selection": null
+      },
+      "comments": {
+        "question": "Any additional comments or observations?",
+        "response": ""
+      },
+      "evaluator_id": null,
+      "timestamp": null
+    },
+    {
+      "form_id": 9,
+      "document_id": "business_gpt_059",
+      "domain": "business",
+      "llm_source": "gpt",
+      "word_count": 370,
+      "text": "Understanding Digital Transformation Initiatives: Key Insights\n\nMarket trends indicate digital transformation initiatives represents a significant area of focus in contemporary discussions. Operationally, the deliverable aspects require careful consideration of multiple factors. Accordingly, the milestone aspects require careful consideration of multiple factors. Strategically, the benchmark aspects require careful consideration of multiple factors. This perspective highlights the complexity inherent in addressing digital transformation initiatives.\n\nKey performance indicators show digital transformation initiatives represents a significant area of focus in contemporary discussions. Consequently, the synergy aspects require careful consideration of multiple factors. Consequently, the ROI aspects require careful consideration of multiple factors. It of utmost importance understanding these dynamics. This perspective highlights the complexity inherent in addressing digital transformation initiatives.\n\nStrategic priorities include digital transformation initiatives represents a significant area of focus in contemporary discussions. Accordingly, the forecast aspects require careful consideration of multiple factors. Operationally, the forecast aspects require careful consideration of multiple factors. It in conclusion, it is evident that understanding these dynamics. This perspective highlights the complexity inherent in addressing digital transformation initiatives.\n\nStrategic priorities include digital transformation initiatives represents a significant area of focus in contemporary discussions. In summary, the framework aspects require careful consideration of multiple factors. Moving forward, the ROI aspects require careful consideration of multiple factors. It in the realm of understanding these dynamics. This perspective highlights the complexity inherent in addressing digital transformation initiatives.\n\nMarket trends indicate digital transformation initiatives represents a significant area of focus in contemporary discussions. Strategically, the milestone aspects require careful consideration of multiple factors. Moreover, the milestone aspects require careful consideration of multiple factors. Operationally, the benchmark aspects require careful consideration of multiple factors. Moreover, the benchmark aspects require careful consideration of multiple factors. It furthermore, it should be mentioned understanding these dynamics. This perspective highlights the complexity inherent in addressing digital transformation initiatives.\n\nCustomer insights reveal digital transformation initiatives represents a significant area of focus in contemporary discussions. Strategically, the KPI aspects require careful consideration of multiple factors. Moving forward, the stakeholder aspects require careful consideration of multiple factors. Strategically, the roadmap aspects require careful consideration of multiple factors. Operationally, the KPI aspects require careful consideration of multiple factors. This perspective highlights the complexity inherent in addressing digital transformation initiatives.",
+      "evaluation_criteria": {
+        "naturalness": {
+          "question": "How natural does this text sound?",
+          "scale": "1 (Very Artificial) to 5 (Completely Natural)",
+          "rating": null
+        },
+        "fluency": {
+          "question": "How fluent is the writing?",
+          "scale": "1 (Choppy/Disjointed) to 5 (Smooth/Flowing)",
+          "rating": null
+        },
+        "coherence": {
+          "question": "How coherent is the text?",
+          "scale": "1 (Confusing) to 5 (Clear and Logical)",
+          "rating": null
+        },
+        "meaning_preservation": {
+          "question": "How well does the text preserve its intended meaning?",
+          "scale": "1 (Meaning Lost) to 5 (Meaning Fully Preserved)",
+          "rating": null,
+          "note": "Compare against the original topic/intent"
+        },
+        "overall_quality": {
+          "question": "What is your overall assessment of the writing quality?",
+          "scale": "1 (Poor) to 5 (Excellent)",
+          "rating": null
+        }
+      },
+      "ai_human_judgment": {
+        "question": "Do you think this text was written by:",
+        "options": [
+          "Definitely AI",
+          "Probably AI",
+          "Unsure",
+          "Probably Human",
+          "Definitely Human"
+        ],
+        "selection": null
+      },
+      "comments": {
+        "question": "Any additional comments or observations?",
+        "response": ""
+      },
+      "evaluator_id": null,
+      "timestamp": null
+    },
+    {
+      "form_id": 10,
+      "document_id": "business_claude_062",
+      "domain": "business",
+      "llm_source": "claude",
+      "word_count": 455,
+      "text": "Understanding Risk Management Protocols: Key Insights\n\nRevenue projections are based on risk management protocols represents a significant area of focus in contemporary discussions. Moreover, the alignment aspects require careful consideration of multiple factors. Moving forward, the leverage aspects require careful consideration of multiple factors. In summary, the alignment aspects require careful consideration of multiple factors. Operationally, the milestone aspects require careful consideration of multiple factors. This perspective highlights the complexity inherent in addressing risk management protocols.\n\nCustomer insights reveal risk management protocols represents a significant area of focus in contemporary discussions. Additionally, the roadmap aspects require careful consideration of multiple factors. Moreover, the deliverable aspects require careful consideration of multiple factors. Moreover, the roadmap aspects require careful consideration of multiple factors. Accordingly, the initiative aspects require careful consideration of multiple factors. It significant factor understanding these dynamics. This perspective highlights the complexity inherent in addressing risk management protocols.\n\nIndustry benchmarks demonstrate risk management protocols represents a significant area of focus in contemporary discussions. In summary, the framework aspects require careful consideration of multiple factors. Strategically, the KPI aspects require careful consideration of multiple factors. It studies indicate understanding these dynamics. This perspective highlights the complexity inherent in addressing risk management protocols.\n\nMarket trends indicate risk management protocols represents a significant area of focus in contemporary discussions. Accordingly, the framework aspects require careful consideration of multiple factors. Accordingly, the benchmark aspects require careful consideration of multiple factors. It studies indicate understanding these dynamics. This perspective highlights the complexity inherent in addressing risk management protocols.\n\nKey performance indicators show risk management protocols represents a significant area of focus in contemporary discussions. Moving forward, the optimization aspects require careful consideration of multiple factors. Moreover, the KPI aspects require careful consideration of multiple factors. Moreover, the framework aspects require careful consideration of multiple factors. Additionally, the KPI aspects require careful consideration of multiple factors. This perspective highlights the complexity inherent in addressing risk management protocols.\n\nCustomer insights reveal risk management protocols represents a significant area of focus in contemporary discussions. In summary, the benchmark aspects require careful consideration of multiple factors. Consequently, the deliverable aspects require careful consideration of multiple factors. Strategically, the ROI aspects require careful consideration of multiple factors. Consequently, the projection aspects require careful consideration of multiple factors. This perspective highlights the complexity inherent in addressing risk management protocols.\n\nRevenue projections are based on risk management protocols represents a significant area of focus in contemporary discussions. Moreover, the roadmap aspects require careful consideration of multiple factors. Moving forward, the portfolio aspects require careful consideration of multiple factors. Additionally, the KPI aspects require careful consideration of multiple factors. It it is clear that understanding these dynamics. This perspective highlights the complexity inherent in addressing risk management protocols.",
+      "evaluation_criteria": {
+        "naturalness": {
+          "question": "How natural does this text sound?",
+          "scale": "1 (Very Artificial) to 5 (Completely Natural)",
+          "rating": null
+        },
+        "fluency": {
+          "question": "How fluent is the writing?",
+          "scale": "1 (Choppy/Disjointed) to 5 (Smooth/Flowing)",
+          "rating": null
+        },
+        "coherence": {
+          "question": "How coherent is the text?",
+          "scale": "1 (Confusing) to 5 (Clear and Logical)",
+          "rating": null
+        },
+        "meaning_preservation": {
+          "question": "How well does the text preserve its intended meaning?",
+          "scale": "1 (Meaning Lost) to 5 (Meaning Fully Preserved)",
+          "rating": null,
+          "note": "Compare against the original topic/intent"
+        },
+        "overall_quality": {
+          "question": "What is your overall assessment of the writing quality?",
+          "scale": "1 (Poor) to 5 (Excellent)",
+          "rating": null
+        }
+      },
+      "ai_human_judgment": {
+        "question": "Do you think this text was written by:",
+        "options": [
+          "Definitely AI",
+          "Probably AI",
+          "Unsure",
+          "Probably Human",
+          "Definitely Human"
+        ],
+        "selection": null
+      },
+      "comments": {
+        "question": "Any additional comments or observations?",
+        "response": ""
+      },
+      "evaluator_id": null,
+      "timestamp": null
+    },
+    {
+      "form_id": 11,
+      "document_id": "healthcare_llama_100",
+      "domain": "healthcare",
+      "llm_source": "llama",
+      "word_count": 416,
+      "text": "Understanding Mental Health Awareness: Key Insights\n\nPatient outcomes improve when mental health awareness represents a significant area of focus in contemporary discussions. Clinically, the systemic aspects require careful consideration of multiple factors. Additionally, the intervention aspects require careful consideration of multiple factors. Prophylactically, the prognosis aspects require careful consideration of multiple factors. This perspective highlights the complexity inherent in addressing mental health awareness.\n\nResearch has established mental health awareness represents a significant area of focus in contemporary discussions. Accordingly, the treatment aspects require careful consideration of multiple factors. Prophylactically, the treatment aspects require careful consideration of multiple factors. Prophylactically, the palliative aspects require careful consideration of multiple factors. Diagnostically, the symptom aspects require careful consideration of multiple factors. This perspective highlights the complexity inherent in addressing mental health awareness.\n\nRisk factors associated with mental health awareness represents a significant area of focus in contemporary discussions. Furthermore, the prognosis aspects require careful consideration of multiple factors. Prophylactically, the prophylactic aspects require careful consideration of multiple factors. This perspective highlights the complexity inherent in addressing mental health awareness.\n\nEvidence-based practice suggests mental health awareness represents a significant area of focus in contemporary discussions. Prophylactically, the systemic aspects require careful consideration of multiple factors. Additionally, the systemic aspects require careful consideration of multiple factors. Clinically, the therapeutic aspects require careful consideration of multiple factors. This perspective highlights the complexity inherent in addressing mental health awareness.\n\nEvidence-based practice suggests mental health awareness represents a significant area of focus in contemporary discussions. Furthermore, the prophylactic aspects require careful consideration of multiple factors. Furthermore, the prophylactic aspects require careful consideration of multiple factors. Diagnostically, the therapeutic aspects require careful consideration of multiple factors. Additionally, the therapeutic aspects require careful consideration of multiple factors. This perspective highlights the complexity inherent in addressing mental health awareness.\n\nResearch has established mental health awareness represents a significant area of focus in contemporary discussions. Additionally, the treatment aspects require careful consideration of multiple factors. Consequently, the symptom aspects require careful consideration of multiple factors. This perspective highlights the complexity inherent in addressing mental health awareness.\n\nRisk factors associated with mental health awareness represents a significant area of focus in contemporary discussions. Prophylactically, the acute aspects require careful consideration of multiple factors. Clinically, the etiology aspects require careful consideration of multiple factors. Consequently, the bilateral aspects require careful consideration of multiple factors. Consequently, the treatment aspects require careful consideration of multiple factors. It interestingly understanding these dynamics. This perspective highlights the complexity inherent in addressing mental health awareness.",
+      "evaluation_criteria": {
+        "naturalness": {
+          "question": "How natural does this text sound?",
+          "scale": "1 (Very Artificial) to 5 (Completely Natural)",
+          "rating": null
+        },
+        "fluency": {
+          "question": "How fluent is the writing?",
+          "scale": "1 (Choppy/Disjointed) to 5 (Smooth/Flowing)",
+          "rating": null
+        },
+        "coherence": {
+          "question": "How coherent is the text?",
+          "scale": "1 (Confusing) to 5 (Clear and Logical)",
+          "rating": null
+        },
+        "meaning_preservation": {
+          "question": "How well does the text preserve its intended meaning?",
+          "scale": "1 (Meaning Lost) to 5 (Meaning Fully Preserved)",
+          "rating": null,
+          "note": "Compare against the original topic/intent"
+        },
+        "overall_quality": {
+          "question": "What is your overall assessment of the writing quality?",
+          "scale": "1 (Poor) to 5 (Excellent)",
+          "rating": null
+        }
+      },
+      "ai_human_judgment": {
+        "question": "Do you think this text was written by:",
+        "options": [
+          "Definitely AI",
+          "Probably AI",
+          "Unsure",
+          "Probably Human",
+          "Definitely Human"
+        ],
+        "selection": null
+      },
+      "comments": {
+        "question": "Any additional comments or observations?",
+        "response": ""
+      },
+      "evaluator_id": null,
+      "timestamp": null
+    },
+    {
+      "form_id": 12,
+      "document_id": "general_gemini_144",
+      "domain": "general",
+      "llm_source": "gemini",
+      "word_count": 292,
+      "text": "An Analysis of Interview Summaries\n\nPublic attention has focused on interview summaries represents a significant area of focus in contemporary discussions. In related news, the anticipated aspects require careful consideration of multiple factors. However, the substantial aspects require careful consideration of multiple factors. Conversely, the considerable aspects require careful consideration of multiple factors. Consequently, the substantial aspects require careful consideration of multiple factors. It worth mentioning understanding these dynamics. This perspective highlights the complexity inherent in addressing interview summaries.\n\nOfficials announced interview summaries represents a significant area of focus in contemporary discussions. Meanwhile, the confirmed aspects require careful consideration of multiple factors. Similarly, the considerable aspects require careful consideration of multiple factors. It notably understanding these dynamics. This perspective highlights the complexity inherent in addressing interview summaries.\n\nAccording to recent reports interview summaries represents a significant area of focus in contemporary discussions. On the other hand, the potential aspects require careful consideration of multiple factors. Meanwhile, the potential aspects require careful consideration of multiple factors. This perspective highlights the complexity inherent in addressing interview summaries.\n\nGrowing interest in interview summaries represents a significant area of focus in contemporary discussions. Consequently, the notable aspects require careful consideration of multiple factors. Additionally, the anticipated aspects require careful consideration of multiple factors. However, the significant aspects require careful consideration of multiple factors. This perspective highlights the complexity inherent in addressing interview summaries.\n\nOfficials announced interview summaries represents a significant area of focus in contemporary discussions. On the other hand, the reported aspects require careful consideration of multiple factors. Meanwhile, the ongoing aspects require careful consideration of multiple factors. In related news, the ongoing aspects require careful consideration of multiple factors. It notably understanding these dynamics. This perspective highlights the complexity inherent in addressing interview summaries.",
+      "evaluation_criteria": {
+        "naturalness": {
+          "question": "How natural does this text sound?",
+          "scale": "1 (Very Artificial) to 5 (Completely Natural)",
+          "rating": null
+        },
+        "fluency": {
+          "question": "How fluent is the writing?",
+          "scale": "1 (Choppy/Disjointed) to 5 (Smooth/Flowing)",
+          "rating": null
+        },
+        "coherence": {
+          "question": "How coherent is the text?",
+          "scale": "1 (Confusing) to 5 (Clear and Logical)",
+          "rating": null
+        },
+        "meaning_preservation": {
+          "question": "How well does the text preserve its intended meaning?",
+          "scale": "1 (Meaning Lost) to 5 (Meaning Fully Preserved)",
+          "rating": null,
+          "note": "Compare against the original topic/intent"
+        },
+        "overall_quality": {
+          "question": "What is your overall assessment of the writing quality?",
+          "scale": "1 (Poor) to 5 (Excellent)",
+          "rating": null
+        }
+      },
+      "ai_human_judgment": {
+        "question": "Do you think this text was written by:",
+        "options": [
+          "Definitely AI",
+          "Probably AI",
+          "Unsure",
+          "Probably Human",
+          "Definitely Human"
+        ],
+        "selection": null
+      },
+      "comments": {
+        "question": "Any additional comments or observations?",
+        "response": ""
+      },
+      "evaluator_id": null,
+      "timestamp": null
+    },
+    {
+      "form_id": 13,
+      "document_id": "blog_llama_078",
+      "domain": "blog",
+      "llm_source": "llama",
+      "word_count": 449,
+      "text": "The Impact of Fitness Routine Advice\n\nYou know that feeling when fitness routine advice represents a significant area of focus in contemporary discussions. Plus, the life-hack aspects require careful consideration of multiple factors. Seriously, the absolutely aspects require careful consideration of multiple factors. Besides, the honestly aspects require careful consideration of multiple factors. Besides, the absolutely aspects require careful consideration of multiple factors. It also understanding these dynamics. This perspective highlights the complexity inherent in addressing fitness routine advice.\n\nSo here's what happened fitness routine advice represents a significant area of focus in contemporary discussions. Seriously, the life-hack aspects require careful consideration of multiple factors. Actually, the definitely aspects require careful consideration of multiple factors. Besides, the life-hack aspects require careful consideration of multiple factors. This perspective highlights the complexity inherent in addressing fitness routine advice.\n\nHave you ever wondered fitness routine advice represents a significant area of focus in contemporary discussions. Actually, the definitely aspects require careful consideration of multiple factors. Plus, the totally aspects require careful consideration of multiple factors. Actually, the definitely aspects require careful consideration of multiple factors. Seriously, the definitely aspects require careful consideration of multiple factors. It interestingly understanding these dynamics. This perspective highlights the complexity inherent in addressing fitness routine advice.\n\nHere's the thing about fitness routine advice represents a significant area of focus in contemporary discussions. Also, the totally aspects require careful consideration of multiple factors. Seriously, the pretty much aspects require careful consideration of multiple factors. Honestly, the pretty much aspects require careful consideration of multiple factors. Actually, the pretty much aspects require careful consideration of multiple factors. This perspective highlights the complexity inherent in addressing fitness routine advice.\n\nSo here's what happened fitness routine advice represents a significant area of focus in contemporary discussions. Honestly, the totally aspects require careful consideration of multiple factors. Plus, the pretty much aspects require careful consideration of multiple factors. Honestly, the surprisingly aspects require careful consideration of multiple factors. This perspective highlights the complexity inherent in addressing fitness routine advice.\n\nSo here's what happened fitness routine advice represents a significant area of focus in contemporary discussions. Plus, the pretty much aspects require careful consideration of multiple factors. Seriously, the definitely aspects require careful consideration of multiple factors. Besides, the definitely aspects require careful consideration of multiple factors. This perspective highlights the complexity inherent in addressing fitness routine advice.\n\nIf you're anything like me fitness routine advice represents a significant area of focus in contemporary discussions. Also, the life-hack aspects require careful consideration of multiple factors. Besides, the pretty much aspects require careful consideration of multiple factors. It worth mentioning understanding these dynamics. This perspective highlights the complexity inherent in addressing fitness routine advice.",
+      "evaluation_criteria": {
+        "naturalness": {
+          "question": "How natural does this text sound?",
+          "scale": "1 (Very Artificial) to 5 (Completely Natural)",
+          "rating": null
+        },
+        "fluency": {
+          "question": "How fluent is the writing?",
+          "scale": "1 (Choppy/Disjointed) to 5 (Smooth/Flowing)",
+          "rating": null
+        },
+        "coherence": {
+          "question": "How coherent is the text?",
+          "scale": "1 (Confusing) to 5 (Clear and Logical)",
+          "rating": null
+        },
+        "meaning_preservation": {
+          "question": "How well does the text preserve its intended meaning?",
+          "scale": "1 (Meaning Lost) to 5 (Meaning Fully Preserved)",
+          "rating": null,
+          "note": "Compare against the original topic/intent"
+        },
+        "overall_quality": {
+          "question": "What is your overall assessment of the writing quality?",
+          "scale": "1 (Poor) to 5 (Excellent)",
+          "rating": null
+        }
+      },
+      "ai_human_judgment": {
+        "question": "Do you think this text was written by:",
+        "options": [
+          "Definitely AI",
+          "Probably AI",
+          "Unsure",
+          "Probably Human",
+          "Definitely Human"
+        ],
+        "selection": null
+      },
+      "comments": {
+        "question": "Any additional comments or observations?",
+        "response": ""
+      },
+      "evaluator_id": null,
+      "timestamp": null
+    },
+    {
+      "form_id": 14,
+      "document_id": "healthcare_claude_113",
+      "domain": "healthcare",
+      "llm_source": "claude",
+      "word_count": 360,
+      "text": "Mental Health Awareness: A Comprehensive Overview\n\nTreatment options encompass mental health awareness represents a significant area of focus in contemporary discussions. Accordingly, the contraindication aspects require careful consideration of multiple factors. Prophylactically, the contraindication aspects require careful consideration of multiple factors. It additionally understanding these dynamics. This perspective highlights the complexity inherent in addressing mental health awareness.\n\nRisk factors associated with mental health awareness represents a significant area of focus in contemporary discussions. Clinically, the etiology aspects require careful consideration of multiple factors. Consequently, the etiology aspects require careful consideration of multiple factors. Clinically, the systemic aspects require careful consideration of multiple factors. This perspective highlights the complexity inherent in addressing mental health awareness.\n\nStandard protocols include mental health awareness represents a significant area of focus in contemporary discussions. Diagnostically, the bilateral aspects require careful consideration of multiple factors. Prophylactically, the bilateral aspects require careful consideration of multiple factors. Diagnostically, the diagnosis aspects require careful consideration of multiple factors. This perspective highlights the complexity inherent in addressing mental health awareness.\n\nTreatment options encompass mental health awareness represents a significant area of focus in contemporary discussions. Additionally, the etiology aspects require careful consideration of multiple factors. Additionally, the etiology aspects require careful consideration of multiple factors. Additionally, the etiology aspects require careful consideration of multiple factors. It research has shown understanding these dynamics. This perspective highlights the complexity inherent in addressing mental health awareness.\n\nHealthcare providers should consider mental health awareness represents a significant area of focus in contemporary discussions. Accordingly, the localized aspects require careful consideration of multiple factors. Clinically, the localized aspects require careful consideration of multiple factors. Clinically, the treatment aspects require careful consideration of multiple factors. It research has shown understanding these dynamics. This perspective highlights the complexity inherent in addressing mental health awareness.\n\nEvidence-based practice suggests mental health awareness represents a significant area of focus in contemporary discussions. Diagnostically, the therapeutic aspects require careful consideration of multiple factors. Prophylactically, the diagnosis aspects require careful consideration of multiple factors. Diagnostically, the diagnosis aspects require careful consideration of multiple factors. It important to consider understanding these dynamics. This perspective highlights the complexity inherent in addressing mental health awareness.",
+      "evaluation_criteria": {
+        "naturalness": {
+          "question": "How natural does this text sound?",
+          "scale": "1 (Very Artificial) to 5 (Completely Natural)",
+          "rating": null
+        },
+        "fluency": {
+          "question": "How fluent is the writing?",
+          "scale": "1 (Choppy/Disjointed) to 5 (Smooth/Flowing)",
+          "rating": null
+        },
+        "coherence": {
+          "question": "How coherent is the text?",
+          "scale": "1 (Confusing) to 5 (Clear and Logical)",
+          "rating": null
+        },
+        "meaning_preservation": {
+          "question": "How well does the text preserve its intended meaning?",
+          "scale": "1 (Meaning Lost) to 5 (Meaning Fully Preserved)",
+          "rating": null,
+          "note": "Compare against the original topic/intent"
+        },
+        "overall_quality": {
+          "question": "What is your overall assessment of the writing quality?",
+          "scale": "1 (Poor) to 5 (Excellent)",
+          "rating": null
+        }
+      },
+      "ai_human_judgment": {
+        "question": "Do you think this text was written by:",
+        "options": [
+          "Definitely AI",
+          "Probably AI",
+          "Unsure",
+          "Probably Human",
+          "Definitely Human"
+        ],
+        "selection": null
+      },
+      "comments": {
+        "question": "Any additional comments or observations?",
+        "response": ""
+      },
+      "evaluator_id": null,
+      "timestamp": null
+    },
+    {
+      "form_id": 15,
+      "document_id": "technical_gpt_034",
+      "domain": "technical",
+      "llm_source": "gpt",
+      "word_count": 473,
+      "text": "Exploring Distributed System Challenges in Modern Context\n\nBest practices dictate distributed system challenges represents a significant area of focus in contemporary discussions. Technically, the throughput aspects require careful consideration of multiple factors. Specifically, the encryption aspects require careful consideration of multiple factors. Accordingly, the synchronization aspects require careful consideration of multiple factors. It plays a crucial role in understanding these dynamics. This perspective highlights the complexity inherent in addressing distributed system challenges.\n\nPerformance optimization depends on distributed system challenges represents a significant area of focus in contemporary discussions. Specifically, the modular aspects require careful consideration of multiple factors. Technically, the throughput aspects require careful consideration of multiple factors. Accordingly, the modular aspects require careful consideration of multiple factors. Functionally, the throughput aspects require careful consideration of multiple factors. This perspective highlights the complexity inherent in addressing distributed system challenges.\n\nPerformance optimization depends on distributed system challenges represents a significant area of focus in contemporary discussions. Technically, the modular aspects require careful consideration of multiple factors. Consequently, the infrastructure aspects require careful consideration of multiple factors. Technically, the infrastructure aspects require careful consideration of multiple factors. This perspective highlights the complexity inherent in addressing distributed system challenges.\n\nImplementation requires careful consideration of distributed system challenges represents a significant area of focus in contemporary discussions. Functionally, the immutable aspects require careful consideration of multiple factors. Specifically, the immutable aspects require careful consideration of multiple factors. Structurally, the throughput aspects require careful consideration of multiple factors. Accordingly, the immutable aspects require careful consideration of multiple factors. It in the realm of understanding these dynamics. This perspective highlights the complexity inherent in addressing distributed system challenges.\n\nThe recommended approach utilizes distributed system challenges represents a significant area of focus in contemporary discussions. In practice, the scalability aspects require careful consideration of multiple factors. Alternatively, the distributed aspects require careful consideration of multiple factors. In practice, the scalability aspects require careful consideration of multiple factors. Functionally, the scalability aspects require careful consideration of multiple factors. It it is important to emphasize understanding these dynamics. This perspective highlights the complexity inherent in addressing distributed system challenges.\n\nThe recommended approach utilizes distributed system challenges represents a significant area of focus in contemporary discussions. Technically, the throughput aspects require careful consideration of multiple factors. Alternatively, the infrastructure aspects require careful consideration of multiple factors. Alternatively, the infrastructure aspects require careful consideration of multiple factors. It in conclusion, it is evident that understanding these dynamics. This perspective highlights the complexity inherent in addressing distributed system challenges.\n\nThe recommended approach utilizes distributed system challenges represents a significant area of focus in contemporary discussions. Technically, the modular aspects require careful consideration of multiple factors. Technically, the distributed aspects require careful consideration of multiple factors. It it is worth noting that understanding these dynamics. This perspective highlights the complexity inherent in addressing distributed system challenges.",
+      "evaluation_criteria": {
+        "naturalness": {
+          "question": "How natural does this text sound?",
+          "scale": "1 (Very Artificial) to 5 (Completely Natural)",
+          "rating": null
+        },
+        "fluency": {
+          "question": "How fluent is the writing?",
+          "scale": "1 (Choppy/Disjointed) to 5 (Smooth/Flowing)",
+          "rating": null
+        },
+        "coherence": {
+          "question": "How coherent is the text?",
+          "scale": "1 (Confusing) to 5 (Clear and Logical)",
+          "rating": null
+        },
+        "meaning_preservation": {
+          "question": "How well does the text preserve its intended meaning?",
+          "scale": "1 (Meaning Lost) to 5 (Meaning Fully Preserved)",
+          "rating": null,
+          "note": "Compare against the original topic/intent"
+        },
+        "overall_quality": {
+          "question": "What is your overall assessment of the writing quality?",
+          "scale": "1 (Poor) to 5 (Excellent)",
+          "rating": null
+        }
+      },
+      "ai_human_judgment": {
+        "question": "Do you think this text was written by:",
+        "options": [
+          "Definitely AI",
+          "Probably AI",
+          "Unsure",
+          "Probably Human",
+          "Definitely Human"
+        ],
+        "selection": null
+      },
+      "comments": {
+        "question": "Any additional comments or observations?",
+        "response": ""
+      },
+      "evaluator_id": null,
+      "timestamp": null
+    },
+    {
+      "form_id": 16,
+      "document_id": "blog_gpt_082",
+      "domain": "blog",
+      "llm_source": "gpt",
+      "word_count": 338,
+      "text": "The Impact of Hobby Getting-Started Guides\n\nLet me share something I've learned hobby getting-started guides represents a significant area of focus in contemporary discussions. Actually, the must-try aspects require careful consideration of multiple factors. Actually, the game-changer aspects require careful consideration of multiple factors. Besides, the surprisingly aspects require careful consideration of multiple factors. It furthermore, it should be mentioned understanding these dynamics. This perspective highlights the complexity inherent in addressing hobby getting-started guides.\n\nI recently discovered hobby getting-started guides represents a significant area of focus in contemporary discussions. Basically, the definitely aspects require careful consideration of multiple factors. Actually, the definitely aspects require careful consideration of multiple factors. It in conclusion, it is evident that understanding these dynamics. This perspective highlights the complexity inherent in addressing hobby getting-started guides.\n\nSo here's what happened hobby getting-started guides represents a significant area of focus in contemporary discussions. Besides, the must-try aspects require careful consideration of multiple factors. Seriously, the must-try aspects require careful consideration of multiple factors. Plus, the must-try aspects require careful consideration of multiple factors. It in the realm of understanding these dynamics. This perspective highlights the complexity inherent in addressing hobby getting-started guides.\n\nHere's the thing about hobby getting-started guides represents a significant area of focus in contemporary discussions. Besides, the absolutely aspects require careful consideration of multiple factors. Besides, the definitely aspects require careful consideration of multiple factors. Seriously, the pro-tip aspects require careful consideration of multiple factors. Anyway, the absolutely aspects require careful consideration of multiple factors. It plays a crucial role in understanding these dynamics. This perspective highlights the complexity inherent in addressing hobby getting-started guides.\n\nHave you ever wondered hobby getting-started guides represents a significant area of focus in contemporary discussions. Basically, the definitely aspects require careful consideration of multiple factors. Anyway, the life-hack aspects require careful consideration of multiple factors. Also, the definitely aspects require careful consideration of multiple factors. It in conclusion, it is evident that understanding these dynamics. This perspective highlights the complexity inherent in addressing hobby getting-started guides.",
+      "evaluation_criteria": {
+        "naturalness": {
+          "question": "How natural does this text sound?",
+          "scale": "1 (Very Artificial) to 5 (Completely Natural)",
+          "rating": null
+        },
+        "fluency": {
+          "question": "How fluent is the writing?",
+          "scale": "1 (Choppy/Disjointed) to 5 (Smooth/Flowing)",
+          "rating": null
+        },
+        "coherence": {
+          "question": "How coherent is the text?",
+          "scale": "1 (Confusing) to 5 (Clear and Logical)",
+          "rating": null
+        },
+        "meaning_preservation": {
+          "question": "How well does the text preserve its intended meaning?",
+          "scale": "1 (Meaning Lost) to 5 (Meaning Fully Preserved)",
+          "rating": null,
+          "note": "Compare against the original topic/intent"
+        },
+        "overall_quality": {
+          "question": "What is your overall assessment of the writing quality?",
+          "scale": "1 (Poor) to 5 (Excellent)",
+          "rating": null
+        }
+      },
+      "ai_human_judgment": {
+        "question": "Do you think this text was written by:",
+        "options": [
+          "Definitely AI",
+          "Probably AI",
+          "Unsure",
+          "Probably Human",
+          "Definitely Human"
+        ],
+        "selection": null
+      },
+      "comments": {
+        "question": "Any additional comments or observations?",
+        "response": ""
+      },
+      "evaluator_id": null,
+      "timestamp": null
+    },
+    {
+      "form_id": 17,
+      "document_id": "general_gpt_128",
+      "domain": "general",
+      "llm_source": "gpt",
+      "word_count": 403,
+      "text": "Exploring Educational Explainers in Modern Context\n\nAccording to recent reports educational explainers represents a significant area of focus in contemporary discussions. Similarly, the notable aspects require careful consideration of multiple factors. Conversely, the notable aspects require careful consideration of multiple factors. It of utmost importance understanding these dynamics. This perspective highlights the complexity inherent in addressing educational explainers.\n\nNew developments show educational explainers represents a significant area of focus in contemporary discussions. Similarly, the emerging aspects require careful consideration of multiple factors. In related news, the expected aspects require careful consideration of multiple factors. Conversely, the anticipated aspects require careful consideration of multiple factors. It in conclusion, it is evident that understanding these dynamics. This perspective highlights the complexity inherent in addressing educational explainers.\n\nNew developments show educational explainers represents a significant area of focus in contemporary discussions. Consequently, the developing aspects require careful consideration of multiple factors. Meanwhile, the ongoing aspects require careful consideration of multiple factors. It furthermore, it should be mentioned understanding these dynamics. This perspective highlights the complexity inherent in addressing educational explainers.\n\nSources confirm educational explainers represents a significant area of focus in contemporary discussions. In related news, the developing aspects require careful consideration of multiple factors. Similarly, the considerable aspects require careful consideration of multiple factors. Conversely, the ongoing aspects require careful consideration of multiple factors. On the other hand, the considerable aspects require careful consideration of multiple factors. It plays a crucial role in understanding these dynamics. This perspective highlights the complexity inherent in addressing educational explainers.\n\nSources confirm educational explainers represents a significant area of focus in contemporary discussions. Meanwhile, the notable aspects require careful consideration of multiple factors. Meanwhile, the expected aspects require careful consideration of multiple factors. Similarly, the considerable aspects require careful consideration of multiple factors. Similarly, the significant aspects require careful consideration of multiple factors. It delve deeper into understanding these dynamics. This perspective highlights the complexity inherent in addressing educational explainers.\n\nPublic attention has focused on educational explainers represents a significant area of focus in contemporary discussions. Additionally, the anticipated aspects require careful consideration of multiple factors. In related news, the emerging aspects require careful consideration of multiple factors. In related news, the anticipated aspects require careful consideration of multiple factors. Similarly, the anticipated aspects require careful consideration of multiple factors. It this underscores the importance of understanding these dynamics. This perspective highlights the complexity inherent in addressing educational explainers.",
+      "evaluation_criteria": {
+        "naturalness": {
+          "question": "How natural does this text sound?",
+          "scale": "1 (Very Artificial) to 5 (Completely Natural)",
+          "rating": null
+        },
+        "fluency": {
+          "question": "How fluent is the writing?",
+          "scale": "1 (Choppy/Disjointed) to 5 (Smooth/Flowing)",
+          "rating": null
+        },
+        "coherence": {
+          "question": "How coherent is the text?",
+          "scale": "1 (Confusing) to 5 (Clear and Logical)",
+          "rating": null
+        },
+        "meaning_preservation": {
+          "question": "How well does the text preserve its intended meaning?",
+          "scale": "1 (Meaning Lost) to 5 (Meaning Fully Preserved)",
+          "rating": null,
+          "note": "Compare against the original topic/intent"
+        },
+        "overall_quality": {
+          "question": "What is your overall assessment of the writing quality?",
+          "scale": "1 (Poor) to 5 (Excellent)",
+          "rating": null
+        }
+      },
+      "ai_human_judgment": {
+        "question": "Do you think this text was written by:",
+        "options": [
+          "Definitely AI",
+          "Probably AI",
+          "Unsure",
+          "Probably Human",
+          "Definitely Human"
+        ],
+        "selection": null
+      },
+      "comments": {
+        "question": "Any additional comments or observations?",
+        "response": ""
+      },
+      "evaluator_id": null,
+      "timestamp": null
+    },
+    {
+      "form_id": 18,
+      "document_id": "technical_llama_025",
+      "domain": "technical",
+      "llm_source": "llama",
+      "word_count": 410,
+      "text": "An Analysis of Real-Time Data Processing\n\nScalability is achieved through real-time data processing represents a significant area of focus in contemporary discussions. Consequently, the modular aspects require careful consideration of multiple factors. Accordingly, the scalability aspects require careful consideration of multiple factors. This perspective highlights the complexity inherent in addressing real-time data processing.\n\nThe primary challenge involves real-time data processing represents a significant area of focus in contemporary discussions. Technically, the endpoint aspects require careful consideration of multiple factors. Consequently, the deployment aspects require careful consideration of multiple factors. Alternatively, the asynchronous aspects require careful consideration of multiple factors. Functionally, the endpoint aspects require careful consideration of multiple factors. It interestingly understanding these dynamics. This perspective highlights the complexity inherent in addressing real-time data processing.\n\nThe recommended approach utilizes real-time data processing represents a significant area of focus in contemporary discussions. Alternatively, the throughput aspects require careful consideration of multiple factors. Structurally, the authentication aspects require careful consideration of multiple factors. Consequently, the immutable aspects require careful consideration of multiple factors. Consequently, the throughput aspects require careful consideration of multiple factors. It worth mentioning understanding these dynamics. This perspective highlights the complexity inherent in addressing real-time data processing.\n\nThe system architecture consists of real-time data processing represents a significant area of focus in contemporary discussions. Accordingly, the scalability aspects require careful consideration of multiple factors. In practice, the redundancy aspects require careful consideration of multiple factors. In practice, the payload aspects require careful consideration of multiple factors. In practice, the payload aspects require careful consideration of multiple factors. It worth mentioning understanding these dynamics. This perspective highlights the complexity inherent in addressing real-time data processing.\n\nPerformance optimization depends on real-time data processing represents a significant area of focus in contemporary discussions. Consequently, the payload aspects require careful consideration of multiple factors. Technically, the scalability aspects require careful consideration of multiple factors. Specifically, the scalability aspects require careful consideration of multiple factors. Specifically, the encryption aspects require careful consideration of multiple factors. This perspective highlights the complexity inherent in addressing real-time data processing.\n\nThe primary challenge involves real-time data processing represents a significant area of focus in contemporary discussions. In practice, the encryption aspects require careful consideration of multiple factors. Structurally, the authentication aspects require careful consideration of multiple factors. Functionally, the encryption aspects require careful consideration of multiple factors. Structurally, the distributed aspects require careful consideration of multiple factors. This perspective highlights the complexity inherent in addressing real-time data processing.",
+      "evaluation_criteria": {
+        "naturalness": {
+          "question": "How natural does this text sound?",
+          "scale": "1 (Very Artificial) to 5 (Completely Natural)",
+          "rating": null
+        },
+        "fluency": {
+          "question": "How fluent is the writing?",
+          "scale": "1 (Choppy/Disjointed) to 5 (Smooth/Flowing)",
+          "rating": null
+        },
+        "coherence": {
+          "question": "How coherent is the text?",
+          "scale": "1 (Confusing) to 5 (Clear and Logical)",
+          "rating": null
+        },
+        "meaning_preservation": {
+          "question": "How well does the text preserve its intended meaning?",
+          "scale": "1 (Meaning Lost) to 5 (Meaning Fully Preserved)",
+          "rating": null,
+          "note": "Compare against the original topic/intent"
+        },
+        "overall_quality": {
+          "question": "What is your overall assessment of the writing quality?",
+          "scale": "1 (Poor) to 5 (Excellent)",
+          "rating": null
+        }
+      },
+      "ai_human_judgment": {
+        "question": "Do you think this text was written by:",
+        "options": [
+          "Definitely AI",
+          "Probably AI",
+          "Unsure",
+          "Probably Human",
+          "Definitely Human"
+        ],
+        "selection": null
+      },
+      "comments": {
+        "question": "Any additional comments or observations?",
+        "response": ""
+      },
+      "evaluator_id": null,
+      "timestamp": null
+    },
+    {
+      "form_id": 19,
+      "document_id": "business_gemini_069",
+      "domain": "business",
+      "llm_source": "gemini",
+      "word_count": 288,
+      "text": "An Analysis of Revenue Growth Projections\n\nOur analysis reveals revenue growth projections represents a significant area of focus in contemporary discussions. Consequently, the stakeholder aspects require careful consideration of multiple factors. Accordingly, the leverage aspects require careful consideration of multiple factors. Additionally, the KPI aspects require careful consideration of multiple factors. Operationally, the initiative aspects require careful consideration of multiple factors. It interestingly understanding these dynamics. This perspective highlights the complexity inherent in addressing revenue growth projections.\n\nKey performance indicators show revenue growth projections represents a significant area of focus in contemporary discussions. Operationally, the framework aspects require careful consideration of multiple factors. Strategically, the initiative aspects require careful consideration of multiple factors. It worth mentioning understanding these dynamics. This perspective highlights the complexity inherent in addressing revenue growth projections.\n\nMarket trends indicate revenue growth projections represents a significant area of focus in contemporary discussions. Operationally, the KPI aspects require careful consideration of multiple factors. Operationally, the portfolio aspects require careful consideration of multiple factors. This perspective highlights the complexity inherent in addressing revenue growth projections.\n\nKey performance indicators show revenue growth projections represents a significant area of focus in contemporary discussions. Moreover, the benchmark aspects require careful consideration of multiple factors. Strategically, the stakeholder aspects require careful consideration of multiple factors. Moving forward, the synergy aspects require careful consideration of multiple factors. This perspective highlights the complexity inherent in addressing revenue growth projections.\n\nKey performance indicators show revenue growth projections represents a significant area of focus in contemporary discussions. Moving forward, the portfolio aspects require careful consideration of multiple factors. Consequently, the portfolio aspects require careful consideration of multiple factors. It worth mentioning understanding these dynamics. This perspective highlights the complexity inherent in addressing revenue growth projections.",
+      "evaluation_criteria": {
+        "naturalness": {
+          "question": "How natural does this text sound?",
+          "scale": "1 (Very Artificial) to 5 (Completely Natural)",
+          "rating": null
+        },
+        "fluency": {
+          "question": "How fluent is the writing?",
+          "scale": "1 (Choppy/Disjointed) to 5 (Smooth/Flowing)",
+          "rating": null
+        },
+        "coherence": {
+          "question": "How coherent is the text?",
+          "scale": "1 (Confusing) to 5 (Clear and Logical)",
+          "rating": null
+        },
+        "meaning_preservation": {
+          "question": "How well does the text preserve its intended meaning?",
+          "scale": "1 (Meaning Lost) to 5 (Meaning Fully Preserved)",
+          "rating": null,
+          "note": "Compare against the original topic/intent"
+        },
+        "overall_quality": {
+          "question": "What is your overall assessment of the writing quality?",
+          "scale": "1 (Poor) to 5 (Excellent)",
+          "rating": null
+        }
+      },
+      "ai_human_judgment": {
+        "question": "Do you think this text was written by:",
+        "options": [
+          "Definitely AI",
+          "Probably AI",
+          "Unsure",
+          "Probably Human",
+          "Definitely Human"
+        ],
+        "selection": null
+      },
+      "comments": {
+        "question": "Any additional comments or observations?",
+        "response": ""
+      },
+      "evaluator_id": null,
+      "timestamp": null
+    },
+    {
+      "form_id": 20,
+      "document_id": "technical_claude_041",
+      "domain": "technical",
+      "llm_source": "claude",
+      "word_count": 379,
+      "text": "An Analysis of Database Optimization Techniques\n\nScalability is achieved through database optimization techniques represents a significant area of focus in contemporary discussions. Functionally, the modular aspects require careful consideration of multiple factors. Technically, the modular aspects require careful consideration of multiple factors. This perspective highlights the complexity inherent in addressing database optimization techniques.\n\nThe recommended approach utilizes database optimization techniques represents a significant area of focus in contemporary discussions. Specifically, the deployment aspects require careful consideration of multiple factors. Accordingly, the encryption aspects require careful consideration of multiple factors. This perspective highlights the complexity inherent in addressing database optimization techniques.\n\nThe recommended approach utilizes database optimization techniques represents a significant area of focus in contemporary discussions. Technically, the scalability aspects require careful consideration of multiple factors. Structurally, the scalability aspects require careful consideration of multiple factors. Technically, the modular aspects require careful consideration of multiple factors. This perspective highlights the complexity inherent in addressing database optimization techniques.\n\nPerformance optimization depends on database optimization techniques represents a significant area of focus in contemporary discussions. Accordingly, the synchronization aspects require careful consideration of multiple factors. Specifically, the redundancy aspects require careful consideration of multiple factors. It significant factor understanding these dynamics. This perspective highlights the complexity inherent in addressing database optimization techniques.\n\nThe system architecture consists of database optimization techniques represents a significant area of focus in contemporary discussions. Technically, the endpoint aspects require careful consideration of multiple factors. Functionally, the infrastructure aspects require careful consideration of multiple factors. This perspective highlights the complexity inherent in addressing database optimization techniques.\n\nImplementation requires careful consideration of database optimization techniques represents a significant area of focus in contemporary discussions. In practice, the middleware aspects require careful consideration of multiple factors. Specifically, the payload aspects require careful consideration of multiple factors. It additionally understanding these dynamics. This perspective highlights the complexity inherent in addressing database optimization techniques.\n\nThe recommended approach utilizes database optimization techniques represents a significant area of focus in contemporary discussions. Consequently, the throughput aspects require careful consideration of multiple factors. Alternatively, the synchronization aspects require careful consideration of multiple factors. Functionally, the endpoint aspects require careful consideration of multiple factors. Accordingly, the immutable aspects require careful consideration of multiple factors. This perspective highlights the complexity inherent in addressing database optimization techniques.",
+      "evaluation_criteria": {
+        "naturalness": {
+          "question": "How natural does this text sound?",
+          "scale": "1 (Very Artificial) to 5 (Completely Natural)",
+          "rating": null
+        },
+        "fluency": {
+          "question": "How fluent is the writing?",
+          "scale": "1 (Choppy/Disjointed) to 5 (Smooth/Flowing)",
+          "rating": null
+        },
+        "coherence": {
+          "question": "How coherent is the text?",
+          "scale": "1 (Confusing) to 5 (Clear and Logical)",
+          "rating": null
+        },
+        "meaning_preservation": {
+          "question": "How well does the text preserve its intended meaning?",
+          "scale": "1 (Meaning Lost) to 5 (Meaning Fully Preserved)",
+          "rating": null,
+          "note": "Compare against the original topic/intent"
+        },
+        "overall_quality": {
+          "question": "What is your overall assessment of the writing quality?",
+          "scale": "1 (Poor) to 5 (Excellent)",
+          "rating": null
+        }
+      },
+      "ai_human_judgment": {
+        "question": "Do you think this text was written by:",
+        "options": [
+          "Definitely AI",
+          "Probably AI",
+          "Unsure",
+          "Probably Human",
+          "Definitely Human"
+        ],
+        "selection": null
+      },
+      "comments": {
+        "question": "Any additional comments or observations?",
+        "response": ""
+      },
+      "evaluator_id": null,
+      "timestamp": null
+    },
+    {
+      "form_id": 21,
+      "document_id": "healthcare_gemini_120",
+      "domain": "healthcare",
+      "llm_source": "gemini",
+      "word_count": 377,
+      "text": "Patient Education Approaches: A Comprehensive Overview\n\nTreatment options encompass patient education approaches represents a significant area of focus in contemporary discussions. Accordingly, the bilateral aspects require careful consideration of multiple factors. Prophylactically, the acute aspects require careful consideration of multiple factors. Therapeutically, the acute aspects require careful consideration of multiple factors. Consequently, the diagnosis aspects require careful consideration of multiple factors. It notably understanding these dynamics. This perspective highlights the complexity inherent in addressing patient education approaches.\n\nTreatment options encompass patient education approaches represents a significant area of focus in contemporary discussions. Consequently, the symptom aspects require careful consideration of multiple factors. Additionally, the symptom aspects require careful consideration of multiple factors. Diagnostically, the prophylactic aspects require careful consideration of multiple factors. Additionally, the bilateral aspects require careful consideration of multiple factors. This perspective highlights the complexity inherent in addressing patient education approaches.\n\nRisk factors associated with patient education approaches represents a significant area of focus in contemporary discussions. Diagnostically, the etiology aspects require careful consideration of multiple factors. Diagnostically, the pathology aspects require careful consideration of multiple factors. Additionally, the etiology aspects require careful consideration of multiple factors. Consequently, the etiology aspects require careful consideration of multiple factors. This perspective highlights the complexity inherent in addressing patient education approaches.\n\nHealthcare providers should consider patient education approaches represents a significant area of focus in contemporary discussions. Furthermore, the chronic aspects require careful consideration of multiple factors. Additionally, the diagnosis aspects require careful consideration of multiple factors. Diagnostically, the symptom aspects require careful consideration of multiple factors. This perspective highlights the complexity inherent in addressing patient education approaches.\n\nRisk factors associated with patient education approaches represents a significant area of focus in contemporary discussions. Prophylactically, the prognosis aspects require careful consideration of multiple factors. Additionally, the localized aspects require careful consideration of multiple factors. This perspective highlights the complexity inherent in addressing patient education approaches.\n\nHealthcare providers should consider patient education approaches represents a significant area of focus in contemporary discussions. Diagnostically, the acute aspects require careful consideration of multiple factors. Additionally, the intervention aspects require careful consideration of multiple factors. Additionally, the diagnosis aspects require careful consideration of multiple factors. It another point understanding these dynamics. This perspective highlights the complexity inherent in addressing patient education approaches.",
+      "evaluation_criteria": {
+        "naturalness": {
+          "question": "How natural does this text sound?",
+          "scale": "1 (Very Artificial) to 5 (Completely Natural)",
+          "rating": null
+        },
+        "fluency": {
+          "question": "How fluent is the writing?",
+          "scale": "1 (Choppy/Disjointed) to 5 (Smooth/Flowing)",
+          "rating": null
+        },
+        "coherence": {
+          "question": "How coherent is the text?",
+          "scale": "1 (Confusing) to 5 (Clear and Logical)",
+          "rating": null
+        },
+        "meaning_preservation": {
+          "question": "How well does the text preserve its intended meaning?",
+          "scale": "1 (Meaning Lost) to 5 (Meaning Fully Preserved)",
+          "rating": null,
+          "note": "Compare against the original topic/intent"
+        },
+        "overall_quality": {
+          "question": "What is your overall assessment of the writing quality?",
+          "scale": "1 (Poor) to 5 (Excellent)",
+          "rating": null
+        }
+      },
+      "ai_human_judgment": {
+        "question": "Do you think this text was written by:",
+        "options": [
+          "Definitely AI",
+          "Probably AI",
+          "Unsure",
+          "Probably Human",
+          "Definitely Human"
+        ],
+        "selection": null
+      },
+      "comments": {
+        "question": "Any additional comments or observations?",
+        "response": ""
+      },
+      "evaluator_id": null,
+      "timestamp": null
+    },
+    {
+      "form_id": 22,
+      "document_id": "healthcare_gpt_104",
+      "domain": "healthcare",
+      "llm_source": "gpt",
+      "word_count": 508,
+      "text": "Medication Adherence Strategies: A Comprehensive Overview\n\nEvidence-based practice suggests medication adherence strategies represents a significant area of focus in contemporary discussions. Furthermore, the etiology aspects require careful consideration of multiple factors. Diagnostically, the chronic aspects require careful consideration of multiple factors. Clinically, the etiology aspects require careful consideration of multiple factors. Therapeutically, the systemic aspects require careful consideration of multiple factors. It this underscores the importance of understanding these dynamics. This perspective highlights the complexity inherent in addressing medication adherence strategies.\n\nResearch has established medication adherence strategies represents a significant area of focus in contemporary discussions. Prophylactically, the etiology aspects require careful consideration of multiple factors. Diagnostically, the acute aspects require careful consideration of multiple factors. Clinically, the symptom aspects require careful consideration of multiple factors. Furthermore, the etiology aspects require careful consideration of multiple factors. It of utmost importance understanding these dynamics. This perspective highlights the complexity inherent in addressing medication adherence strategies.\n\nRisk factors associated with medication adherence strategies represents a significant area of focus in contemporary discussions. Clinically, the localized aspects require careful consideration of multiple factors. Consequently, the symptom aspects require careful consideration of multiple factors. Furthermore, the localized aspects require careful consideration of multiple factors. Accordingly, the localized aspects require careful consideration of multiple factors. It of utmost importance understanding these dynamics. This perspective highlights the complexity inherent in addressing medication adherence strategies.\n\nRisk factors associated with medication adherence strategies represents a significant area of focus in contemporary discussions. Additionally, the intervention aspects require careful consideration of multiple factors. Additionally, the pathology aspects require careful consideration of multiple factors. Clinically, the intervention aspects require careful consideration of multiple factors. It of utmost importance understanding these dynamics. This perspective highlights the complexity inherent in addressing medication adherence strategies.\n\nTreatment options encompass medication adherence strategies represents a significant area of focus in contemporary discussions. Accordingly, the chronic aspects require careful consideration of multiple factors. Clinically, the chronic aspects require careful consideration of multiple factors. Consequently, the acute aspects require careful consideration of multiple factors. Accordingly, the palliative aspects require careful consideration of multiple factors. This perspective highlights the complexity inherent in addressing medication adherence strategies.\n\nStandard protocols include medication adherence strategies represents a significant area of focus in contemporary discussions. Diagnostically, the pathology aspects require careful consideration of multiple factors. Additionally, the etiology aspects require careful consideration of multiple factors. Furthermore, the pathology aspects require careful consideration of multiple factors. Consequently, the pathology aspects require careful consideration of multiple factors. It this underscores the importance of understanding these dynamics. This perspective highlights the complexity inherent in addressing medication adherence strategies.\n\nHealthcare providers should consider medication adherence strategies represents a significant area of focus in contemporary discussions. Diagnostically, the pathology aspects require careful consideration of multiple factors. Prophylactically, the palliative aspects require careful consideration of multiple factors. Prophylactically, the palliative aspects require careful consideration of multiple factors. Diagnostically, the treatment aspects require careful consideration of multiple factors. It in the realm of understanding these dynamics. This perspective highlights the complexity inherent in addressing medication adherence strategies.",
+      "evaluation_criteria": {
+        "naturalness": {
+          "question": "How natural does this text sound?",
+          "scale": "1 (Very Artificial) to 5 (Completely Natural)",
+          "rating": null
+        },
+        "fluency": {
+          "question": "How fluent is the writing?",
+          "scale": "1 (Choppy/Disjointed) to 5 (Smooth/Flowing)",
+          "rating": null
+        },
+        "coherence": {
+          "question": "How coherent is the text?",
+          "scale": "1 (Confusing) to 5 (Clear and Logical)",
+          "rating": null
+        },
+        "meaning_preservation": {
+          "question": "How well does the text preserve its intended meaning?",
+          "scale": "1 (Meaning Lost) to 5 (Meaning Fully Preserved)",
+          "rating": null,
+          "note": "Compare against the original topic/intent"
+        },
+        "overall_quality": {
+          "question": "What is your overall assessment of the writing quality?",
+          "scale": "1 (Poor) to 5 (Excellent)",
+          "rating": null
+        }
+      },
+      "ai_human_judgment": {
+        "question": "Do you think this text was written by:",
+        "options": [
+          "Definitely AI",
+          "Probably AI",
+          "Unsure",
+          "Probably Human",
+          "Definitely Human"
+        ],
+        "selection": null
+      },
+      "comments": {
+        "question": "Any additional comments or observations?",
+        "response": ""
+      },
+      "evaluator_id": null,
+      "timestamp": null
+    },
+    {
+      "form_id": 23,
+      "document_id": "business_llama_050",
+      "domain": "business",
+      "llm_source": "llama",
+      "word_count": 247,
+      "text": "Digital Transformation Initiatives: A Comprehensive Overview\n\nOur analysis reveals digital transformation initiatives represents a significant area of focus in contemporary discussions. Consequently, the initiative aspects require careful consideration of multiple factors. Moreover, the stakeholder aspects require careful consideration of multiple factors. Strategically, the initiative aspects require careful consideration of multiple factors. Strategically, the initiative aspects require careful consideration of multiple factors. This perspective highlights the complexity inherent in addressing digital transformation initiatives.\n\nCustomer insights reveal digital transformation initiatives represents a significant area of focus in contemporary discussions. Moving forward, the leverage aspects require careful consideration of multiple factors. Additionally, the initiative aspects require careful consideration of multiple factors. It worth mentioning understanding these dynamics. This perspective highlights the complexity inherent in addressing digital transformation initiatives.\n\nKey performance indicators show digital transformation initiatives represents a significant area of focus in contemporary discussions. In summary, the projection aspects require careful consideration of multiple factors. Moreover, the benchmark aspects require careful consideration of multiple factors. In summary, the deliverable aspects require careful consideration of multiple factors. Operationally, the deliverable aspects require careful consideration of multiple factors. It notably understanding these dynamics. This perspective highlights the complexity inherent in addressing digital transformation initiatives.\n\nRevenue projections are based on digital transformation initiatives represents a significant area of focus in contemporary discussions. Strategically, the stakeholder aspects require careful consideration of multiple factors. Accordingly, the deliverable aspects require careful consideration of multiple factors. This perspective highlights the complexity inherent in addressing digital transformation initiatives.",
+      "evaluation_criteria": {
+        "naturalness": {
+          "question": "How natural does this text sound?",
+          "scale": "1 (Very Artificial) to 5 (Completely Natural)",
+          "rating": null
+        },
+        "fluency": {
+          "question": "How fluent is the writing?",
+          "scale": "1 (Choppy/Disjointed) to 5 (Smooth/Flowing)",
+          "rating": null
+        },
+        "coherence": {
+          "question": "How coherent is the text?",
+          "scale": "1 (Confusing) to 5 (Clear and Logical)",
+          "rating": null
+        },
+        "meaning_preservation": {
+          "question": "How well does the text preserve its intended meaning?",
+          "scale": "1 (Meaning Lost) to 5 (Meaning Fully Preserved)",
+          "rating": null,
+          "note": "Compare against the original topic/intent"
+        },
+        "overall_quality": {
+          "question": "What is your overall assessment of the writing quality?",
+          "scale": "1 (Poor) to 5 (Excellent)",
+          "rating": null
+        }
+      },
+      "ai_human_judgment": {
+        "question": "Do you think this text was written by:",
+        "options": [
+          "Definitely AI",
+          "Probably AI",
+          "Unsure",
+          "Probably Human",
+          "Definitely Human"
+        ],
+        "selection": null
+      },
+      "comments": {
+        "question": "Any additional comments or observations?",
+        "response": ""
+      },
+      "evaluator_id": null,
+      "timestamp": null
+    },
+    {
+      "form_id": 24,
+      "document_id": "academic_claude_013",
+      "domain": "academic",
+      "llm_source": "claude",
+      "word_count": 365,
+      "text": "Remote Work Productivity Studies: A Comprehensive Overview\n\nA growing body of research supports remote work productivity studies represents a significant area of focus in contemporary discussions. Hence, the pronounced aspects require careful consideration of multiple factors. Thus, the empirical aspects require careful consideration of multiple factors. Hence, the significant aspects require careful consideration of multiple factors. Consequently, the substantial aspects require careful consideration of multiple factors. It important to consider understanding these dynamics. This perspective highlights the complexity inherent in addressing remote work productivity studies.\n\nThe literature suggests a correlation between remote work productivity studies represents a significant area of focus in contemporary discussions. Consequently, the notable aspects require careful consideration of multiple factors. Hence, the correlation aspects require careful consideration of multiple factors. Therefore, the meta-analysis aspects require careful consideration of multiple factors. It it is clear that understanding these dynamics. This perspective highlights the complexity inherent in addressing remote work productivity studies.\n\nThe literature suggests a correlation between remote work productivity studies represents a significant area of focus in contemporary discussions. Hence, the hypothesis aspects require careful consideration of multiple factors. Correspondingly, the hypothesis aspects require careful consideration of multiple factors. Subsequently, the pronounced aspects require careful consideration of multiple factors. Subsequently, the hypothesis aspects require careful consideration of multiple factors. It important to consider understanding these dynamics. This perspective highlights the complexity inherent in addressing remote work productivity studies.\n\nTheoretical frameworks propose remote work productivity studies represents a significant area of focus in contemporary discussions. Consequently, the hypothesis aspects require careful consideration of multiple factors. Furthermore, the empirical aspects require careful consideration of multiple factors. Therefore, the empirical aspects require careful consideration of multiple factors. This perspective highlights the complexity inherent in addressing remote work productivity studies.\n\nPrevious investigations have revealed remote work productivity studies represents a significant area of focus in contemporary discussions. Consequently, the longitudinal aspects require careful consideration of multiple factors. Consequently, the variables aspects require careful consideration of multiple factors. Correspondingly, the methodology aspects require careful consideration of multiple factors. Correspondingly, the longitudinal aspects require careful consideration of multiple factors. It key aspect understanding these dynamics. This perspective highlights the complexity inherent in addressing remote work productivity studies.",
+      "evaluation_criteria": {
+        "naturalness": {
+          "question": "How natural does this text sound?",
+          "scale": "1 (Very Artificial) to 5 (Completely Natural)",
+          "rating": null
+        },
+        "fluency": {
+          "question": "How fluent is the writing?",
+          "scale": "1 (Choppy/Disjointed) to 5 (Smooth/Flowing)",
+          "rating": null
+        },
+        "coherence": {
+          "question": "How coherent is the text?",
+          "scale": "1 (Confusing) to 5 (Clear and Logical)",
+          "rating": null
+        },
+        "meaning_preservation": {
+          "question": "How well does the text preserve its intended meaning?",
+          "scale": "1 (Meaning Lost) to 5 (Meaning Fully Preserved)",
+          "rating": null,
+          "note": "Compare against the original topic/intent"
+        },
+        "overall_quality": {
+          "question": "What is your overall assessment of the writing quality?",
+          "scale": "1 (Poor) to 5 (Excellent)",
+          "rating": null
+        }
+      },
+      "ai_human_judgment": {
+        "question": "Do you think this text was written by:",
+        "options": [
+          "Definitely AI",
+          "Probably AI",
+          "Unsure",
+          "Probably Human",
+          "Definitely Human"
+        ],
+        "selection": null
+      },
+      "comments": {
+        "question": "Any additional comments or observations?",
+        "response": ""
+      },
+      "evaluator_id": null,
+      "timestamp": null
+    }
+  ],
+  "metadata": {
+    "created_at": "2026-09-03T17:29:52.154420",
+    "total_samples": 30,
+    "domains_covered": [
+      "blog",
+      "business",
+      "general",
+      "technical",
+      "academic",
+      "healthcare"
+    ],
+    "llm_sources_covered": [
+      "gpt",
+      "claude",
+      "llama",
+      "gemini"
+    ]
+  }
+}

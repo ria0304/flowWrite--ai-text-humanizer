@@ -1,0 +1,21 @@
+{
+  "doc_id": "general_llama_121",
+  "domain": "general",
+  "llm_source": "llama",
+  "original_word_count": 250,
+  "pipeline": "V1",
+  "processing_time_actual": 975.0,
+  "rewritten_text": "Exploring Community News Updates in Modern Context\n\nThis section continues: Public attention has focused on community news updates represents a significant area of focus in contemporary discussions.\n\nHowever, the notable aspects require careful consideration of multiple factors.\n\nMeanwhile, the significant aspects require careful consideration of multiple factors.\n\nTherefore, the notable aspects require careful consideration of multiple factors.\n\nIn contrast, the ongoing aspects require careful consideration of multiple factors.\n\nThis perspective highlights the complexity inherent in addressing community news updates.\n\nSimilarly, to recent reports community news updates represents a significant area of focus in contemporary discussions.\n\nOn the other hand, the emerging aspects require careful consideration of multiple factors.\n\nOn the other hand, the reported aspects require careful consideration of multiple factors.\n\nOn the other hand, the reported aspects require careful consideration of multiple factors.\n\nTherefore, perspective highlights the complexity inherent in addressing community news updates.\n\nGrowing interest in community news updates represents a significant area of focus in contemporary discussions.\n\nOn the other hand, the ongoing aspects require careful consideration of multiple factors.\n\nMeanwhile, the confirmed aspects require careful consideration of multiple factors.\n\nSpecifically, the expected aspects require careful consideration of multiple factors.\n\nThis perspective highlights the complexity inherent in addressing community news updates.\n\nAccording to recent reports community news updates represents a significant area of focus in contemporary discussions.\n\nOn the other hand, the emerging aspects require careful consideration of multiple factors.\n\nConversely, the emerging aspects require careful consideration of multiple factors.\n\nThis perspective highlights the complexity inherent in addressing community news updates.",
+  "stages_completed": 5,
+  "hls": 0.616,
+  "hls_original": 0.705,
+  "hls_improvement": -0.089,
+  "burstiness": 0.6,
+  "coherence": 1.0,
+  "readability": 0.044,
+  "connector_density": 0.443,
+  "semantic_similarity": 0.991,
+  "ai_phrase_count": 0,
+  "flesch_ease": 1.76,
+  "fk_grade": 16.17
+}

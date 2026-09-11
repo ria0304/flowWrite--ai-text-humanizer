@@ -1,0 +1,14 @@
+{
+    "default_seed": 42,
+    "experiments": {
+        "stage5_ablation": {
+            "seed": 42,
+            "description": "Stage 5 ON/OFF ablation study"
+        },
+        "normalization_test": {
+            "seed": 123,
+            "description": "Unicode normalization survival test"
+        }
+    },
+    "note": "All random operations in experiments should use these seeds for reproducibility"
+}

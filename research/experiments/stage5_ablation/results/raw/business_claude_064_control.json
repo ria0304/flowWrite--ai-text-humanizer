@@ -1,0 +1,48 @@
+{
+  "experiment_id": "67d9f236-22ab-4782-926b-147c507242b0",
+  "document_id": "business_claude_064",
+  "dataset_id": "flowwrite_simulated_v1",
+  "dataset_version": "1.0.0",
+  "condition": "control",
+  "stage5_enabled": false,
+  "timestamp": "2026-09-04T05:53:49.150558Z",
+  "pipeline_success": true,
+  "failure_reason": null,
+  "input_text": "Understanding Market Expansion Strategies: Key Insights\n\nCustomer insights reveal market expansion strategies represents a significant area of focus in contemporary discussions. In summary, the projection aspects require careful consideration of multiple factors. Additionally, the deliverable aspects require careful consideration of multiple factors. Moreover, the projection aspects require careful consideration of multiple factors. Accordingly, the benchmark aspects require careful consideratio",
+  "input_length": 3015,
+  "intermediate_length": 3033,
+  "final_output_length": 3033,
+  "stage5_metadata": null,
+  "evaluation_metrics": {
+    "hls": {
+      "total_score": 0.0,
+      "dimensions": {
+        "burstiness": 0.548,
+        "coherence": 1.0,
+        "readability": 0.0,
+        "connectors": 0.556,
+        "similarity": 1.0
+      }
+    }
+  },
+  "content_preservation": {
+    "char_difference": 18,
+    "word_precision": 1.0,
+    "word_recall": 1.0,
+    "word_f1": 1.0,
+    "semantic_similarity": 1.0
+  },
+  "system_metadata": {
+    "python_version": "3.12.10",
+    "platform": "Linux",
+    "platform_version": "#1 SMP Tue Sep 26 10:25:51 UTC 2023",
+    "package_versions": {
+      "torch": "2.7.1",
+      "transformers": "5.16.1",
+      "sentence-transformers": "6.0.1",
+      "numpy": "2.3.1",
+      "pandas": "2.3.1"
+    }
+  },
+  "output_text": "Understanding Market Expansion Strategies: Key Insights\n\nCustomer insights reveal market expansion strategies represents a significant area of focus in contemporary discussions.\n\nIn summary, the projection aspects require careful consideration of multiple factors. Additionally, the deliverable aspects require careful consideration of multiple factors.\n\nMoreover, the projection aspects require careful consideration of multiple factors. Accordingly, the benchmark aspects require careful consideration of multiple factors.\n\nIt important to consider understanding these dynamics.\n\nThis perspective highlights the complexity inherent in addressing market expansion strategies. Stakeholder feedback suggests market expansion strategies represents a significant area of focus in contemporary discussions.\n\nStrategically, the forecast aspects require careful consideration of multiple factors.\n\nOperationally, the deliverable aspects require careful consideration of multiple factors.\n\nIt significant factor understanding these dynamics.\n\nThis perspective highlights the complexity inherent in addressing market expansion strategies.\n\nStrategic priorities include market expansion strategies represents a significant area of focus in contemporary discussions.\n\nMoreover, the milestone aspects require careful consideration of multiple factors. Moving forward, the milestone aspects require careful consideration of multiple factors.\n\nThis perspective highlights the complexity inherent in addressing market expansion strategies. Industry benchmarks demonstrate market expansion strategies represents a significant area of focus in contemporary discussions.\n\nOperationally, the stakeholder aspects require careful consideration of multiple factors.\n\nOperationally, the projection aspects require careful consideration of multiple factors. Consequently, the portfolio aspects require careful consideration of multiple factors.\n\nIt key aspect understanding these dynamics.\n\nThis perspective highlights the "
+}

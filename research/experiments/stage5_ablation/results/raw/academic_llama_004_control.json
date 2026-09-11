@@ -1,0 +1,48 @@
+{
+  "experiment_id": "000529af-bc9f-44f6-a51c-1509eae23d78",
+  "document_id": "academic_llama_004",
+  "dataset_id": "flowwrite_simulated_v1",
+  "dataset_version": "1.0.0",
+  "condition": "control",
+  "stage5_enabled": false,
+  "timestamp": "2026-09-04T05:53:29.931996Z",
+  "pipeline_success": true,
+  "failure_reason": null,
+  "input_text": "The Impact of Machine Learning Applications In Healthcare\n\nThe literature suggests a correlation between machine learning applications in healthcare represents a significant area of focus in contemporary discussions. Furthermore, the methodology aspects require careful consideration of multiple factors. Thus, the meta-analysis aspects require careful consideration of multiple factors. Thus, the cross-sectional aspects require careful consideration of multiple factors. This perspective highlights",
+  "input_length": 2233,
+  "intermediate_length": 2243,
+  "final_output_length": 2243,
+  "stage5_metadata": null,
+  "evaluation_metrics": {
+    "hls": {
+      "total_score": 0.0,
+      "dimensions": {
+        "burstiness": 0.723,
+        "coherence": 1.0,
+        "readability": 0.0,
+        "connectors": 0.627,
+        "similarity": 1.0
+      }
+    }
+  },
+  "content_preservation": {
+    "char_difference": 10,
+    "word_precision": 1.0,
+    "word_recall": 1.0,
+    "word_f1": 1.0,
+    "semantic_similarity": 1.0
+  },
+  "system_metadata": {
+    "python_version": "3.12.10",
+    "platform": "Linux",
+    "platform_version": "#1 SMP Tue Sep 26 10:25:51 UTC 2023",
+    "package_versions": {
+      "torch": "2.7.1",
+      "transformers": "5.16.1",
+      "sentence-transformers": "6.0.1",
+      "numpy": "2.3.1",
+      "pandas": "2.3.1"
+    }
+  },
+  "output_text": "The Impact of Machine Learning Applications In Healthcare\n\nThe literature suggests a correlation between machine learning applications in healthcare represents a significant area of focus in contemporary discussions.\n\nFurthermore, the methodology aspects require careful consideration of multiple factors. Thus, the meta-analysis aspects require careful consideration of multiple factors.\n\nThus, the cross-sectional aspects require careful consideration of multiple factors.\n\nThis perspective highlights the complexity inherent in addressing machine learning applications in healthcare. Meta-analyses have confirmed machine learning applications in healthcare represents a significant area of focus in contemporary discussions.\n\nHence, the cross-sectional aspects require careful consideration of multiple factors. Subsequently, the variables aspects require careful consideration of multiple factors.\n\nSubsequently, the causation aspects require careful consideration of multiple factors.\n\nCorrespondingly, the causation aspects require careful consideration of multiple factors.\n\nThis perspective highlights the complexity inherent in addressing machine learning applications in healthcare. Scholars have increasingly focused on machine learning applications in healthcare represents a significant area of focus in contemporary discussions.\n\nConsequently, the framework aspects require careful consideration of multiple factors. Notwithstanding, the framework aspects require careful consideration of multiple factors.\n\nConsequently, the framework aspects require careful consideration of multiple factors.\n\nCorrespondingly, the framework aspects require careful consideration of multiple factors.\n\nThis perspective highlights the complexity inherent in addressing machine learning applications in healthcare. A growing body of research supports machine learning applications in healthcare represents a significant area of focus in contemporary discussions.\n\nCorrespondingly, the significant aspect"
+}

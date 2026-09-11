@@ -1,0 +1,48 @@
+{
+  "experiment_id": "ea3a07c6-f065-469a-b43f-a43258102b0d",
+  "document_id": "business_gpt_055",
+  "dataset_id": "flowwrite_simulated_v1",
+  "dataset_version": "1.0.0",
+  "condition": "control",
+  "stage5_enabled": false,
+  "timestamp": "2026-09-04T05:54:34.957653Z",
+  "pipeline_success": true,
+  "failure_reason": null,
+  "input_text": "Stakeholder Communication Plans: A Comprehensive Overview\n\nOur analysis reveals stakeholder communication plans represents a significant area of focus in contemporary discussions. In summary, the leverage aspects require careful consideration of multiple factors. In summary, the milestone aspects require careful consideration of multiple factors. It it is worth noting that understanding these dynamics. This perspective highlights the complexity inherent in addressing stakeholder communication pl",
+  "input_length": 3403,
+  "intermediate_length": 3421,
+  "final_output_length": 3421,
+  "stage5_metadata": null,
+  "evaluation_metrics": {
+    "hls": {
+      "total_score": 0.0,
+      "dimensions": {
+        "burstiness": 0.475,
+        "coherence": 1.0,
+        "readability": 0.0,
+        "connectors": 0.489,
+        "similarity": 1.0
+      }
+    }
+  },
+  "content_preservation": {
+    "char_difference": 18,
+    "word_precision": 1.0,
+    "word_recall": 1.0,
+    "word_f1": 1.0,
+    "semantic_similarity": 1.0
+  },
+  "system_metadata": {
+    "python_version": "3.12.10",
+    "platform": "Linux",
+    "platform_version": "#1 SMP Tue Sep 26 10:25:51 UTC 2023",
+    "package_versions": {
+      "torch": "2.7.1",
+      "transformers": "5.16.1",
+      "sentence-transformers": "6.0.1",
+      "numpy": "2.3.1",
+      "pandas": "2.3.1"
+    }
+  },
+  "output_text": "Stakeholder Communication Plans: A Comprehensive Overview\n\nOur analysis reveals stakeholder communication plans represents a significant area of focus in contemporary discussions.\n\nIn summary, the leverage aspects require careful consideration of multiple factors. In summary, the milestone aspects require careful consideration of multiple factors.\n\nIt it is worth noting that understanding these dynamics.\n\nThis perspective highlights the complexity inherent in addressing stakeholder communication plans. Strategic priorities include stakeholder communication plans represents a significant area of focus in contemporary discussions.\n\nMoving forward, the stakeholder aspects require careful consideration of multiple factors. Moreover, the projection aspects require careful consideration of multiple factors.\n\nIt of utmost importance understanding these dynamics.\n\nThis perspective highlights the complexity inherent in addressing stakeholder communication plans. Revenue projections are based on stakeholder communication plans represents a significant area of focus in contemporary discussions.\n\nAdditionally, the framework aspects require careful consideration of multiple factors.\n\nStrategically, the framework aspects require careful consideration of multiple factors. Moving forward, the benchmark aspects require careful consideration of multiple factors.\n\nThis perspective highlights the complexity inherent in addressing stakeholder communication plans.\n\nOur analysis reveals stakeholder communication plans represents a significant area of focus in contemporary discussions.\n\nAccordingly, the ROI aspects require careful consideration of multiple factors. Accordingly, the optimization aspects require careful consideration of multiple factors.\n\nIn summary, the initiative aspects require careful consideration of multiple factors.\n\nThis perspective highlights the complexity inherent in addressing stakeholder communication plans. Strategic priorities include stakeholder communication"
+}

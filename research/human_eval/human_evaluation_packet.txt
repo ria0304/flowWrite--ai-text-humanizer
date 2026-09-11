@@ -1,0 +1,672 @@
+======================================================================
+FLOWWRITE HUMAN EVALUATION STUDY
+======================================================================
+
+INSTRUCTIONS:
+----------------------------------------
+• Read each text sample carefully.
+• Rate each sample on the five criteria using the 1-5 scale.
+• Make your AI vs Human judgment based on your intuition.
+• Take breaks between samples to maintain consistency.
+• There are no right or wrong answers - we want your honest assessment.
+
+CRITERIA DEFINITIONS:
+----------------------------------------
+Naturalness: Does the text sound like something a human would write, or does it feel robotic/artificial?
+Fluency: Does the text flow smoothly from sentence to sentence, or is it choppy?
+Coherence: Are the ideas logically connected and easy to follow?
+Meaning Preservation: Does the text effectively communicate its intended message?
+Overall Quality: Your holistic assessment of the writing quality.
+
+RATING SCALE:
+----------------------------------------
+1 = Very Poor / Very Artificial
+2 = Poor / Somewhat Artificial
+3 = Acceptable / Neutral
+4 = Good / Mostly Natural
+5 = Excellent / Completely Natural
+
+======================================================================
+EVALUATION FORMS
+======================================================================
+
+Form ID: 1
+Document: general_claude_136
+Domain: general
+LLM Source: claude
+Word Count: 330
+
+TEXT:
+----------------------------------------
+The Impact of Trend Analyses
+
+Analysis reveals trend analyses represents a significant area of focus in contemporary discussions. Meanwhile, the expected aspects require careful consideration of multiple factors. Consequently, the ongoing aspects require careful consideration of multiple factors. However, the ongoing aspects require careful consideration of multiple factors. This perspective highlights the complexity inherent in addressing trend analyses.
+
+Analysis reveals trend analyses represe...
+
+
+RATINGS:
+----------------------------------------
+Naturalness: ___ / 5
+Fluency: ___ / 5
+Coherence: ___ / 5
+Meaning_preservation: ___ / 5
+Overall_quality: ___ / 5
+
+AI/Human Judgment: _______________
+Comments: ________________________
+
+======================================================================
+
+Form ID: 2
+Document: blog_gemini_092
+Domain: blog
+LLM Source: gemini
+Word Count: 239
+
+TEXT:
+----------------------------------------
+Exploring Career Development Lessons in Modern Context
+
+Here's the thing about career development lessons represents a significant area of focus in contemporary discussions. Anyway, the absolutely aspects require careful consideration of multiple factors. Seriously, the must-try aspects require careful consideration of multiple factors. It notably understanding these dynamics. This perspective highlights the complexity inherent in addressing career development lessons.
+
+If you're anything like m...
+
+
+RATINGS:
+----------------------------------------
+Naturalness: ___ / 5
+Fluency: ___ / 5
+Coherence: ___ / 5
+Meaning_preservation: ___ / 5
+Overall_quality: ___ / 5
+
+AI/Human Judgment: _______________
+Comments: ________________________
+
+======================================================================
+
+Form ID: 3
+Document: general_llama_124
+Domain: general
+LLM Source: llama
+Word Count: 339
+
+TEXT:
+----------------------------------------
+Survey Results: A Comprehensive Overview
+
+Sources confirm survey results represents a significant area of focus in contemporary discussions. Similarly, the notable aspects require careful consideration of multiple factors. Conversely, the notable aspects require careful consideration of multiple factors. Meanwhile, the potential aspects require careful consideration of multiple factors. However, the potential aspects require careful consideration of multiple factors. This perspective highlights ...
+
+
+RATINGS:
+----------------------------------------
+Naturalness: ___ / 5
+Fluency: ___ / 5
+Coherence: ___ / 5
+Meaning_preservation: ___ / 5
+Overall_quality: ___ / 5
+
+AI/Human Judgment: _______________
+Comments: ________________________
+
+======================================================================
+
+Form ID: 4
+Document: academic_gpt_011
+Domain: academic
+LLM Source: gpt
+Word Count: 445
+
+TEXT:
+----------------------------------------
+Understanding Social Media Effects On Mental Health: Key Insights
+
+The literature suggests a correlation between social media effects on mental health represents a significant area of focus in contemporary discussions. Subsequently, the significant aspects require careful consideration of multiple factors. Hence, the significant aspects require careful consideration of multiple factors. In addition, the significant aspects require careful consideration of multiple factors. In addition, the meta-...
+
+
+RATINGS:
+----------------------------------------
+Naturalness: ___ / 5
+Fluency: ___ / 5
+Coherence: ___ / 5
+Meaning_preservation: ___ / 5
+Overall_quality: ___ / 5
+
+AI/Human Judgment: _______________
+Comments: ________________________
+
+======================================================================
+
+Form ID: 5
+Document: technical_gemini_044
+Domain: technical
+LLM Source: gemini
+Word Count: 307
+
+TEXT:
+----------------------------------------
+Understanding Microservices Architecture Patterns: Key Insights
+
+The system architecture consists of microservices architecture patterns represents a significant area of focus in contemporary discussions. Consequently, the infrastructure aspects require careful consideration of multiple factors. Specifically, the immutable aspects require careful consideration of multiple factors. Consequently, the latency aspects require careful consideration of multiple factors. It another point understanding ...
+
+
+RATINGS:
+----------------------------------------
+Naturalness: ___ / 5
+Fluency: ___ / 5
+Coherence: ___ / 5
+Meaning_preservation: ___ / 5
+Overall_quality: ___ / 5
+
+AI/Human Judgment: _______________
+Comments: ________________________
+
+======================================================================
+
+Form ID: 6
+Document: academic_llama_005
+Domain: academic
+LLM Source: llama
+Word Count: 359
+
+TEXT:
+----------------------------------------
+Understanding Quantum Computing Limitations: Key Insights
+
+A growing body of research supports quantum computing limitations represents a significant area of focus in contemporary discussions. Therefore, the correlation aspects require careful consideration of multiple factors. Furthermore, the hypothesis aspects require careful consideration of multiple factors. Correspondingly, the correlation aspects require careful consideration of multiple factors. This perspective highlights the complexity...
+
+
+RATINGS:
+----------------------------------------
+Naturalness: ___ / 5
+Fluency: ___ / 5
+Coherence: ___ / 5
+Meaning_preservation: ___ / 5
+Overall_quality: ___ / 5
+
+AI/Human Judgment: _______________
+Comments: ________________________
+
+======================================================================
+
+Form ID: 7
+Document: blog_claude_086
+Domain: blog
+LLM Source: claude
+Word Count: 264
+
+TEXT:
+----------------------------------------
+An Analysis of Technology Product Reviews
+
+You know that feeling when technology product reviews represents a significant area of focus in contemporary discussions. Seriously, the absolutely aspects require careful consideration of multiple factors. Seriously, the absolutely aspects require careful consideration of multiple factors. This perspective highlights the complexity inherent in addressing technology product reviews.
+
+Let me share something I've learned technology product reviews represe...
+
+
+RATINGS:
+----------------------------------------
+Naturalness: ___ / 5
+Fluency: ___ / 5
+Coherence: ___ / 5
+Meaning_preservation: ___ / 5
+Overall_quality: ___ / 5
+
+AI/Human Judgment: _______________
+Comments: ________________________
+
+======================================================================
+
+Form ID: 8
+Document: academic_gemini_022
+Domain: academic
+LLM Source: gemini
+Word Count: 320
+
+TEXT:
+----------------------------------------
+The Impact of Remote Work Productivity Studies
+
+Theoretical frameworks propose remote work productivity studies represents a significant area of focus in contemporary discussions. Thus, the methodology aspects require careful consideration of multiple factors. Thus, the empirical aspects require careful consideration of multiple factors. This perspective highlights the complexity inherent in addressing remote work productivity studies.
+
+A growing body of research supports remote work productivit...
+
+
+RATINGS:
+----------------------------------------
+Naturalness: ___ / 5
+Fluency: ___ / 5
+Coherence: ___ / 5
+Meaning_preservation: ___ / 5
+Overall_quality: ___ / 5
+
+AI/Human Judgment: _______________
+Comments: ________________________
+
+======================================================================
+
+Form ID: 9
+Document: business_gpt_059
+Domain: business
+LLM Source: gpt
+Word Count: 370
+
+TEXT:
+----------------------------------------
+Understanding Digital Transformation Initiatives: Key Insights
+
+Market trends indicate digital transformation initiatives represents a significant area of focus in contemporary discussions. Operationally, the deliverable aspects require careful consideration of multiple factors. Accordingly, the milestone aspects require careful consideration of multiple factors. Strategically, the benchmark aspects require careful consideration of multiple factors. This perspective highlights the complexity inh...
+
+
+RATINGS:
+----------------------------------------
+Naturalness: ___ / 5
+Fluency: ___ / 5
+Coherence: ___ / 5
+Meaning_preservation: ___ / 5
+Overall_quality: ___ / 5
+
+AI/Human Judgment: _______________
+Comments: ________________________
+
+======================================================================
+
+Form ID: 10
+Document: business_claude_062
+Domain: business
+LLM Source: claude
+Word Count: 455
+
+TEXT:
+----------------------------------------
+Understanding Risk Management Protocols: Key Insights
+
+Revenue projections are based on risk management protocols represents a significant area of focus in contemporary discussions. Moreover, the alignment aspects require careful consideration of multiple factors. Moving forward, the leverage aspects require careful consideration of multiple factors. In summary, the alignment aspects require careful consideration of multiple factors. Operationally, the milestone aspects require careful considera...
+
+
+RATINGS:
+----------------------------------------
+Naturalness: ___ / 5
+Fluency: ___ / 5
+Coherence: ___ / 5
+Meaning_preservation: ___ / 5
+Overall_quality: ___ / 5
+
+AI/Human Judgment: _______________
+Comments: ________________________
+
+======================================================================
+
+Form ID: 11
+Document: healthcare_llama_100
+Domain: healthcare
+LLM Source: llama
+Word Count: 416
+
+TEXT:
+----------------------------------------
+Understanding Mental Health Awareness: Key Insights
+
+Patient outcomes improve when mental health awareness represents a significant area of focus in contemporary discussions. Clinically, the systemic aspects require careful consideration of multiple factors. Additionally, the intervention aspects require careful consideration of multiple factors. Prophylactically, the prognosis aspects require careful consideration of multiple factors. This perspective highlights the complexity inherent in addre...
+
+
+RATINGS:
+----------------------------------------
+Naturalness: ___ / 5
+Fluency: ___ / 5
+Coherence: ___ / 5
+Meaning_preservation: ___ / 5
+Overall_quality: ___ / 5
+
+AI/Human Judgment: _______________
+Comments: ________________________
+
+======================================================================
+
+Form ID: 12
+Document: general_gemini_144
+Domain: general
+LLM Source: gemini
+Word Count: 292
+
+TEXT:
+----------------------------------------
+An Analysis of Interview Summaries
+
+Public attention has focused on interview summaries represents a significant area of focus in contemporary discussions. In related news, the anticipated aspects require careful consideration of multiple factors. However, the substantial aspects require careful consideration of multiple factors. Conversely, the considerable aspects require careful consideration of multiple factors. Consequently, the substantial aspects require careful consideration of multiple ...
+
+
+RATINGS:
+----------------------------------------
+Naturalness: ___ / 5
+Fluency: ___ / 5
+Coherence: ___ / 5
+Meaning_preservation: ___ / 5
+Overall_quality: ___ / 5
+
+AI/Human Judgment: _______________
+Comments: ________________________
+
+======================================================================
+
+Form ID: 13
+Document: blog_llama_078
+Domain: blog
+LLM Source: llama
+Word Count: 449
+
+TEXT:
+----------------------------------------
+The Impact of Fitness Routine Advice
+
+You know that feeling when fitness routine advice represents a significant area of focus in contemporary discussions. Plus, the life-hack aspects require careful consideration of multiple factors. Seriously, the absolutely aspects require careful consideration of multiple factors. Besides, the honestly aspects require careful consideration of multiple factors. Besides, the absolutely aspects require careful consideration of multiple factors. It also understa...
+
+
+RATINGS:
+----------------------------------------
+Naturalness: ___ / 5
+Fluency: ___ / 5
+Coherence: ___ / 5
+Meaning_preservation: ___ / 5
+Overall_quality: ___ / 5
+
+AI/Human Judgment: _______________
+Comments: ________________________
+
+======================================================================
+
+Form ID: 14
+Document: healthcare_claude_113
+Domain: healthcare
+LLM Source: claude
+Word Count: 360
+
+TEXT:
+----------------------------------------
+Mental Health Awareness: A Comprehensive Overview
+
+Treatment options encompass mental health awareness represents a significant area of focus in contemporary discussions. Accordingly, the contraindication aspects require careful consideration of multiple factors. Prophylactically, the contraindication aspects require careful consideration of multiple factors. It additionally understanding these dynamics. This perspective highlights the complexity inherent in addressing mental health awareness.
+
+...
+
+
+RATINGS:
+----------------------------------------
+Naturalness: ___ / 5
+Fluency: ___ / 5
+Coherence: ___ / 5
+Meaning_preservation: ___ / 5
+Overall_quality: ___ / 5
+
+AI/Human Judgment: _______________
+Comments: ________________________
+
+======================================================================
+
+Form ID: 15
+Document: technical_gpt_034
+Domain: technical
+LLM Source: gpt
+Word Count: 473
+
+TEXT:
+----------------------------------------
+Exploring Distributed System Challenges in Modern Context
+
+Best practices dictate distributed system challenges represents a significant area of focus in contemporary discussions. Technically, the throughput aspects require careful consideration of multiple factors. Specifically, the encryption aspects require careful consideration of multiple factors. Accordingly, the synchronization aspects require careful consideration of multiple factors. It plays a crucial role in understanding these dynami...
+
+
+RATINGS:
+----------------------------------------
+Naturalness: ___ / 5
+Fluency: ___ / 5
+Coherence: ___ / 5
+Meaning_preservation: ___ / 5
+Overall_quality: ___ / 5
+
+AI/Human Judgment: _______________
+Comments: ________________________
+
+======================================================================
+
+Form ID: 16
+Document: blog_gpt_082
+Domain: blog
+LLM Source: gpt
+Word Count: 338
+
+TEXT:
+----------------------------------------
+The Impact of Hobby Getting-Started Guides
+
+Let me share something I've learned hobby getting-started guides represents a significant area of focus in contemporary discussions. Actually, the must-try aspects require careful consideration of multiple factors. Actually, the game-changer aspects require careful consideration of multiple factors. Besides, the surprisingly aspects require careful consideration of multiple factors. It furthermore, it should be mentioned understanding these dynamics. T...
+
+
+RATINGS:
+----------------------------------------
+Naturalness: ___ / 5
+Fluency: ___ / 5
+Coherence: ___ / 5
+Meaning_preservation: ___ / 5
+Overall_quality: ___ / 5
+
+AI/Human Judgment: _______________
+Comments: ________________________
+
+======================================================================
+
+Form ID: 17
+Document: general_gpt_128
+Domain: general
+LLM Source: gpt
+Word Count: 403
+
+TEXT:
+----------------------------------------
+Exploring Educational Explainers in Modern Context
+
+According to recent reports educational explainers represents a significant area of focus in contemporary discussions. Similarly, the notable aspects require careful consideration of multiple factors. Conversely, the notable aspects require careful consideration of multiple factors. It of utmost importance understanding these dynamics. This perspective highlights the complexity inherent in addressing educational explainers.
+
+New developments sh...
+
+
+RATINGS:
+----------------------------------------
+Naturalness: ___ / 5
+Fluency: ___ / 5
+Coherence: ___ / 5
+Meaning_preservation: ___ / 5
+Overall_quality: ___ / 5
+
+AI/Human Judgment: _______________
+Comments: ________________________
+
+======================================================================
+
+Form ID: 18
+Document: technical_llama_025
+Domain: technical
+LLM Source: llama
+Word Count: 410
+
+TEXT:
+----------------------------------------
+An Analysis of Real-Time Data Processing
+
+Scalability is achieved through real-time data processing represents a significant area of focus in contemporary discussions. Consequently, the modular aspects require careful consideration of multiple factors. Accordingly, the scalability aspects require careful consideration of multiple factors. This perspective highlights the complexity inherent in addressing real-time data processing.
+
+The primary challenge involves real-time data processing represen...
+
+
+RATINGS:
+----------------------------------------
+Naturalness: ___ / 5
+Fluency: ___ / 5
+Coherence: ___ / 5
+Meaning_preservation: ___ / 5
+Overall_quality: ___ / 5
+
+AI/Human Judgment: _______________
+Comments: ________________________
+
+======================================================================
+
+Form ID: 19
+Document: business_gemini_069
+Domain: business
+LLM Source: gemini
+Word Count: 288
+
+TEXT:
+----------------------------------------
+An Analysis of Revenue Growth Projections
+
+Our analysis reveals revenue growth projections represents a significant area of focus in contemporary discussions. Consequently, the stakeholder aspects require careful consideration of multiple factors. Accordingly, the leverage aspects require careful consideration of multiple factors. Additionally, the KPI aspects require careful consideration of multiple factors. Operationally, the initiative aspects require careful consideration of multiple factor...
+
+
+RATINGS:
+----------------------------------------
+Naturalness: ___ / 5
+Fluency: ___ / 5
+Coherence: ___ / 5
+Meaning_preservation: ___ / 5
+Overall_quality: ___ / 5
+
+AI/Human Judgment: _______________
+Comments: ________________________
+
+======================================================================
+
+Form ID: 20
+Document: technical_claude_041
+Domain: technical
+LLM Source: claude
+Word Count: 379
+
+TEXT:
+----------------------------------------
+An Analysis of Database Optimization Techniques
+
+Scalability is achieved through database optimization techniques represents a significant area of focus in contemporary discussions. Functionally, the modular aspects require careful consideration of multiple factors. Technically, the modular aspects require careful consideration of multiple factors. This perspective highlights the complexity inherent in addressing database optimization techniques.
+
+The recommended approach utilizes database optim...
+
+
+RATINGS:
+----------------------------------------
+Naturalness: ___ / 5
+Fluency: ___ / 5
+Coherence: ___ / 5
+Meaning_preservation: ___ / 5
+Overall_quality: ___ / 5
+
+AI/Human Judgment: _______________
+Comments: ________________________
+
+======================================================================
+
+Form ID: 21
+Document: healthcare_gemini_120
+Domain: healthcare
+LLM Source: gemini
+Word Count: 377
+
+TEXT:
+----------------------------------------
+Patient Education Approaches: A Comprehensive Overview
+
+Treatment options encompass patient education approaches represents a significant area of focus in contemporary discussions. Accordingly, the bilateral aspects require careful consideration of multiple factors. Prophylactically, the acute aspects require careful consideration of multiple factors. Therapeutically, the acute aspects require careful consideration of multiple factors. Consequently, the diagnosis aspects require careful consider...
+
+
+RATINGS:
+----------------------------------------
+Naturalness: ___ / 5
+Fluency: ___ / 5
+Coherence: ___ / 5
+Meaning_preservation: ___ / 5
+Overall_quality: ___ / 5
+
+AI/Human Judgment: _______________
+Comments: ________________________
+
+======================================================================
+
+Form ID: 22
+Document: healthcare_gpt_104
+Domain: healthcare
+LLM Source: gpt
+Word Count: 508
+
+TEXT:
+----------------------------------------
+Medication Adherence Strategies: A Comprehensive Overview
+
+Evidence-based practice suggests medication adherence strategies represents a significant area of focus in contemporary discussions. Furthermore, the etiology aspects require careful consideration of multiple factors. Diagnostically, the chronic aspects require careful consideration of multiple factors. Clinically, the etiology aspects require careful consideration of multiple factors. Therapeutically, the systemic aspects require carefu...
+
+
+RATINGS:
+----------------------------------------
+Naturalness: ___ / 5
+Fluency: ___ / 5
+Coherence: ___ / 5
+Meaning_preservation: ___ / 5
+Overall_quality: ___ / 5
+
+AI/Human Judgment: _______________
+Comments: ________________________
+
+======================================================================
+
+Form ID: 23
+Document: business_llama_050
+Domain: business
+LLM Source: llama
+Word Count: 247
+
+TEXT:
+----------------------------------------
+Digital Transformation Initiatives: A Comprehensive Overview
+
+Our analysis reveals digital transformation initiatives represents a significant area of focus in contemporary discussions. Consequently, the initiative aspects require careful consideration of multiple factors. Moreover, the stakeholder aspects require careful consideration of multiple factors. Strategically, the initiative aspects require careful consideration of multiple factors. Strategically, the initiative aspects require carefu...
+
+
+RATINGS:
+----------------------------------------
+Naturalness: ___ / 5
+Fluency: ___ / 5
+Coherence: ___ / 5
+Meaning_preservation: ___ / 5
+Overall_quality: ___ / 5
+
+AI/Human Judgment: _______________
+Comments: ________________________
+
+======================================================================
+
+Form ID: 24
+Document: academic_claude_013
+Domain: academic
+LLM Source: claude
+Word Count: 365
+
+TEXT:
+----------------------------------------
+Remote Work Productivity Studies: A Comprehensive Overview
+
+A growing body of research supports remote work productivity studies represents a significant area of focus in contemporary discussions. Hence, the pronounced aspects require careful consideration of multiple factors. Thus, the empirical aspects require careful consideration of multiple factors. Hence, the significant aspects require careful consideration of multiple factors. Consequently, the substantial aspects require careful conside...
+
+
+RATINGS:
+----------------------------------------
+Naturalness: ___ / 5
+Fluency: ___ / 5
+Coherence: ___ / 5
+Meaning_preservation: ___ / 5
+Overall_quality: ___ / 5
+
+AI/Human Judgment: _______________
+Comments: ________________________
+
+======================================================================
+
